@@ -24,7 +24,7 @@ export function MobileMenu({ open, pathname, onClose }: MobileMenuProps) {
       aria-hidden={!open}
       style={{ transform: open ? 'translateY(0)' : 'translateY(-100%)' }}
       className={cn(
-        'fixed inset-x-0 bottom-0 top-24 z-40 flex flex-col bg-gray-10 touch-none transition-transform duration-300 ease-out',
+        'fixed inset-x-0 bottom-0 top-24 z-40 flex flex-col bg-gray-10 touch-none transition-transform duration-300 ease-out md:hidden',
         open ? 'pointer-events-auto' : 'pointer-events-none'
       )}
     >
