@@ -11,13 +11,10 @@ export function FooterLink({ href, children, external }: FooterLinkProps) {
     <a
       href={href}
       {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : null)}
-      className="group inline-flex items-center gap-1.5 whitespace-nowrap text-sm font-medium text-white transition-colors hover:text-gray-80 md:text-md"
+      className="inline-flex items-center gap-1.5 whitespace-nowrap text-sm font-medium text-white transition-colors hover:underline md:text-md"
     >
       {children}
-      <ArrowUpRight
-        size={20}
-        className="transition-transform duration-200 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-      />
+      <ArrowUpRight size={20} className="transition-transform duration-200 ease-out" />
     </a>
   );
 }

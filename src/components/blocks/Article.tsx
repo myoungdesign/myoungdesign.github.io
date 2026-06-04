@@ -20,7 +20,7 @@ export function Article({ title, url, excerpt, image, className }: ArticleProps)
   return (
     <article
       className={cn(
-        'flex flex-col md:flex-row-reverse border border-gray-90 bg-white shadow-xs text-fg md:p-10 md:gap-sm',
+        'flex flex-col md:flex-row-reverse border border-gray-90 bg-white shadow-xs text-fg md:p-10 md:gap-md',
         className
       )}
     >
