@@ -3,7 +3,6 @@ import { Fragment } from 'react';
 
 import {
   Communication,
-  Counter,
   EightyTwenty,
   FormFunction,
   IconCard,
@@ -20,18 +19,19 @@ const STATS = [
     label: 'Years of experience',
     value: 15,
     suffix: '+',
-    description: 'Over a decade and a half of outcome-driven design for startups of various sizes.',
+    description:
+      'Over a decade and a half of leading outcome-driven design for startups of various sizes.',
   },
   {
     label: 'Products designed',
     value: 50,
     suffix: '+',
     description:
-      'From prototypes to full redesigns and product launches — across B2B and Enterprise software.',
+      'From prototypes to full redesigns and product launches — across B2B, SaaS, and Enterprise software.',
   },
   {
     label: 'Design systems built',
-    value: 6,
+    value: 3,
     suffix: '',
     description:
       'Scalable foundations built to help each product ship fast without losing consistency.',
@@ -42,7 +42,7 @@ export default function AboutPage() {
   return (
     <Page hasCover>
       <PageHeader className="gap-9 my-6 md:my-0">
-        <p className="font-sans text-xl tracking-widest text-gray-70 uppercase">About</p>
+        <p className="font-sans text-xl tracking-widest text-gray-70 uppercase">About Me</p>
         <h1 className="font-serif font-[350] text-4xl lg:text-[3.25rem] leading-normal tracking-tight text-white">
           Designing Human-Centered Experiences in the AI-Era
           <span className="text-red-50">.</span>
@@ -58,9 +58,9 @@ export default function AboutPage() {
           <p>Howdy, I'm Mike — a Lead Product Designer based in London.</p>
           <p>
             With 15 years across content and product design, at companies large and small, I've
-            developed a clear sense for where products lose the people they're built for. I'm driven
-            to help businesses close these gap, and align what they promise and what with the
-            product actually delivers.
+            developed a clear sense for where products lose the people they're built for. Nowadays,
+            I'm most driven by helping businesses close the gap between what they promise and what
+            the product actually delivers.
           </p>
           <p>
             As building products becomes more accessible with no-code and AI, so too does the
@@ -72,7 +72,7 @@ export default function AboutPage() {
             investing design time to make these impossible to miss.
           </p>
           <p>
-            I believe it's the designer's responsibility to cut through the noise in the AI-era.
+            I believe it's the designer's responsibility to make a product cut through the noise.
           </p>
         </div>
 
@@ -94,12 +94,10 @@ export default function AboutPage() {
                   {stat.label}
                 </p>
                 <div className="flex flex-col gap-1">
-                  <Counter
-                    to={stat.value}
-                    duration={1}
-                    suffix={stat.suffix}
-                    className="block font-serif font-medium text-[3.25rem] leading-none text-white tabular-nums"
-                  />
+                  <p className="block font-serif font-medium text-[3.25rem] leading-none text-white tabular-nums">
+                    {stat.value}
+                    {stat.suffix}
+                  </p>
                   <p className="text-gray-80">{stat.description}</p>
                 </div>
               </div>
@@ -119,15 +117,15 @@ export default function AboutPage() {
               towards the goal line without losing momentum.
             </p>
             <p>
-              From 0 → 1 builds to post-launch iterations, here are four plays I run during every
+              From 0 → 1 builds to post-launch iterations, here are the four plays I run every
               project.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-3">
             <IconCard icon={<Communication />} title="Continual Alignment">
-              Constant communication drives innovation and hastens execution. Know when to design,
-              and when to huddle.
+              Constant communication drives innovation and hastens execution. There’s a time for
+              Figma, and a time for huddles.
             </IconCard>
             <IconCard icon={<EightyTwenty />} title="The 80/20 rule">
               Focus on solving the 20% of problems that will deliver the biggest impact. Prioritize
