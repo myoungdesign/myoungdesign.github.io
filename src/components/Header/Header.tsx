@@ -72,7 +72,7 @@ export function Header() {
         className="sticky w-[100%] top-0 z-50 will-change-transform [transition:transform_240ms_cubic-bezier(0.16,1,0.3,1)]"
       >
         {/* Desktop */}
-        <div className="hidden h-[var(--header-h-desktop)] items-center px-sm md:flex">
+        <div className="hidden h-[var(--header-h-desktop)] items-center px-lg md:flex">
           <Navbar pathname={pathname} />
         </div>
 
