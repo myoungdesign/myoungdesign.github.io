@@ -1,11 +1,6 @@
-import { NavigationMenuItem } from './NavigationMenuItem';
+import { NAV_ITEMS } from '@/constants';
 
-const NAV_ITEMS = [
-  { href: '/', text: 'Work' },
-  { href: '/method', text: 'Method' },
-  { href: '/writings', text: 'Writings' },
-  { href: '/about', text: 'About' },
-] as const;
+import { NavigationMenuItem } from './NavigationMenuItem';
 
 type NavigationMenuProps = {
   pathname: string;

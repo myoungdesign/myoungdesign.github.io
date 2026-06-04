@@ -1,3 +1,4 @@
+export { ArrowUpRight } from './ArrowUpRight';
 export { Communication } from './Communication';
 export { EightyTwenty } from './EightyTwenty';
 export { Flexible } from './Flexible';
