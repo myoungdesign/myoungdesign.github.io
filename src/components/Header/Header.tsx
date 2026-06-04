@@ -1,28 +1,60 @@
 'use client';
 
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { Logo } from '@/components/Logo';
 import { MobileMenu, MobileMenuButton } from '@/components/MobileMenu';
 import { Navbar } from '@/components/Navbar';
 
+import './Header.css';
+
 export function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  const { scrollY } = useScroll();
-  const [vh, setVh] = useState(() => (typeof window === 'undefined' ? 800 : window.innerHeight));
+  const headerRef = useRef<HTMLElement | null>(null);
+  const mobileOpenRef = useRef(mobileOpen);
   useEffect(() => {
-    const onResize = () => setVh(window.innerHeight);
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
+    mobileOpenRef.current = mobileOpen;
+  });
+
+  // Drive the header's exit translateY via a scroll listener that reads
+  // --header-exit-by (px) off :root. Heroes publish this var so the navbar
+  // is fully gone before the next section slides over them. On pages without
+  // a Hero, we fall back to half the viewport height.
+  useEffect(() => {
+    const apply = () => {
+      const el = headerRef.current;
+      if (!el) return;
+      if (mobileOpenRef.current) {
+        el.style.transform = 'translateY(0%)';
+        return;
+      }
+      const root = document.documentElement;
+      const raw = getComputedStyle(root).getPropertyValue('--header-exit-by').trim();
+      const exitBy = raw ? parseFloat(raw) : window.innerHeight * 0.5;
+      const startAt = exitBy * 0.2;
+      const v = window.scrollY;
+      const t = v <= startAt ? 0 : v >= exitBy ? 1 : (v - startAt) / (exitBy - startAt);
+      el.style.transform = `translateY(${-100 * t}%)`;
+    };
+    apply();
+    window.addEventListener('scroll', apply, { passive: true });
+    window.addEventListener('resize', apply);
+    return () => {
+      window.removeEventListener('scroll', apply);
+      window.removeEventListener('resize', apply);
+    };
   }, []);
-  const y = useTransform(scrollY, [vh * 0.1, vh * 0.5], ['0%', '-100%']);
-  // Spring smooths the y track — fast initial response, then decelerates into
-  // place. Gives the slide-back-in a "snap then settle" feel.
-  const ySpring = useSpring(y, { stiffness: 340, damping: 32, mass: 0.4 });
+
+  // When mobileOpen toggles, force-apply transform immediately (don't wait for next scroll).
+  useEffect(() => {
+    const el = headerRef.current;
+    if (!el) return;
+    if (mobileOpen) {
+      el.style.transform = 'translateY(0%)';
+    }
+  }, [mobileOpen]);
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -35,18 +67,21 @@ export function Header() {
 
   return (
     <>
-      <motion.header className="sticky w-[100%] top-0 z-50" style={{ y: mobileOpen ? 0 : ySpring }}>
+      <header
+        ref={headerRef}
+        className="sticky w-[100%] top-0 z-50 will-change-transform [transition:transform_240ms_cubic-bezier(0.16,1,0.3,1)]"
+      >
         {/* Desktop */}
-        <div className="hidden h-32 items-center px-xl md:flex">
+        <div className="hidden h-[var(--header-h-desktop)] items-center px-md md:flex">
           <Navbar pathname={pathname} />
         </div>
 
         {/* Mobile */}
-        <div className="flex h-24 items-center justify-between bg-gray-10 px-xl md:hidden">
+        <div className="flex h-[var(--header-h-mobile)] items-center justify-between bg-gray-10 px-xl md:hidden">
           <Logo className="h-14 w-auto text-gray-80" strokeWidth={1.0} />
           <MobileMenuButton open={mobileOpen} onClick={() => setMobileOpen(v => !v)} />
         </div>
-      </motion.header>
+      </header>
 
       <MobileMenu open={mobileOpen} pathname={pathname} onClose={() => setMobileOpen(false)} />
     </>

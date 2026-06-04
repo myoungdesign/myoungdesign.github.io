@@ -244,6 +244,7 @@
   --font-weight-extrabold: 800;
   --font-weight-black: 900;
 
+  --tracking-tightest: -0.075em;
   --tracking-tighter: -0.05em;
   --tracking-tight: -0.025em;
   --tracking-normal: 0em;
@@ -270,13 +271,13 @@
 
   --spacing: 0.25rem;
 
-  --spacing-2xs: calc(var(--spacing) * 2);
-  --spacing-xs: calc(var(--spacing) * 4);
-  --spacing-sm: calc(var(--spacing) * 6);
-  --spacing-md: calc(var(--spacing) * 10);
-  --spacing-lg: calc(var(--spacing) * 12);
-  --spacing-xl: calc(var(--spacing) * 16);
-  --spacing-2xl: calc(var(--spacing) * 20);
+  --spacing-2xs: calc(var(--spacing) * 1);
+  --spacing-xs: calc(var(--spacing) * 2);
+  --spacing-sm: calc(var(--spacing) * 3);
+  --spacing-md: calc(var(--spacing) * 4);
+  --spacing-lg: calc(var(--spacing) * 5);
+  --spacing-xl: calc(var(--spacing) * 7);
+  --spacing-2xl: calc(var(--spacing) * 10);
 
   --breakpoint-sm: 40rem;
   --breakpoint-md: 48rem;
@@ -486,45 +487,45 @@
   }
 
   h1 {
-    font-size: var(--text-5xl);
-    font-weight: var(--font-weight-medium);
+    font-size: var(--text-7xl);
+    font-weight: var(--font-weight-normal);
     line-height: 1.5;
     letter-spacing: var(--tracking-tighter);
   }
 
   h2 {
-    font-size: var(--text-4xl);
+    font-size: var(--text-3xl);
     font-weight: var(--font-weight-medium);
-    line-height: calc(3.5 / 2.25);
-    letter-spacing: var(--tracking-tight);
+    line-height: 1.6;
+    letter-spacing: var(--tracking-tightest);
   }
 
   h3 {
-    font-size: var(--text-3xl);
+    font-size: var(--text-2xl);
     font-weight: var(--font-weight-medium);
-    line-height: calc(3 / 1.875);
-    letter-spacing: var(--tracking-tighter);
+    line-height: 1.6;
+    letter-spacing: var(--tracking-tightest);
   }
 
   h4 {
-    font-size: var(--text-2xl);
+    font-size: var(--text-xl);
     font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    line-height: 1.6;
     letter-spacing: var(--tracking-tight);
   }
 
   h5 {
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
     font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-    letter-spacing: var(--tracking-normal);
+    line-height: 1.6;
+    letter-spacing: var(--tracking-tight);
   }
 
   h6 {
-    font-size: var(--text-lg);
+    font-size: var(--text-md);
     font-weight: var(--font-weight-medium);
-    line-height: calc(1.875 / 1.125);
-    letter-spacing: var(--tracking-normal);
+    line-height: 1.6;
+    letter-spacing: var(--tracking-tight);
   }
 
   :focus-visible {
@@ -536,28 +537,38 @@
   }
 }
 
-@media (max-width: 47.9375rem) {
-  /* < 768px → sm */
-  :root {
-    --spacing-2xs: calc(var(--spacing) * 1);
-    --spacing-xs: calc(var(--spacing) * 2);
-    --spacing-sm: calc(var(--spacing) * 3);
-    --spacing-md: calc(var(--spacing) * 4);
-    --spacing-lg: calc(var(--spacing) * 5);
-    --spacing-xl: calc(var(--spacing) * 6);
-    --spacing-2xl: calc(var(--spacing) * 7);
-  }
-}
-
-@media (min-width: 48rem) and (max-width: 63.9375rem) {
-  /* 768–1023px → md */
+@media (min-width: 48rem) {
+  /* md → ≥768px */
   :root {
     --spacing-2xs: calc(var(--spacing) * 2);
     --spacing-xs: calc(var(--spacing) * 4);
     --spacing-sm: calc(var(--spacing) * 6);
     --spacing-md: calc(var(--spacing) * 9);
     --spacing-lg: calc(var(--spacing) * 10);
-    --spacing-xl: calc(var(--spacing) * 12);
-    --spacing-2xl: calc(var(--spacing) * 15);
+    --spacing-xl: calc(var(--spacing) * 11);
+    --spacing-2xl: calc(var(--spacing) * 14);
+  }
+}
+
+@media (min-width: 64rem) {
+  /* lg → ≥1024px */
+  :root {
+    --spacing-md: calc(var(--spacing) * 10);
+    --spacing-lg: calc(var(--spacing) * 12);
+    --spacing-xl: calc(var(--spacing) * 16);
+    --spacing-2xl: calc(var(--spacing) * 20);
+  }
+}
+
+@media (min-width: 80rem) {
+  /* xl → ≥1280px; 2xl inherits */
+  :root {
+    --spacing-2xs: calc(var(--spacing) * 4);
+    --spacing-xs: calc(var(--spacing) * 6);
+    --spacing-sm: calc(var(--spacing) * 8);
+    --spacing-md: calc(var(--spacing) * 12);
+    --spacing-lg: calc(var(--spacing) * 14);
+    --spacing-xl: calc(var(--spacing) * 16);
+    --spacing-2xl: calc(var(--spacing) * 24);
   }
 }
