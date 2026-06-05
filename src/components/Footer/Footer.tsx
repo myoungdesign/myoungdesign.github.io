@@ -9,7 +9,7 @@ export function Footer() {
 
   return (
     <footer className="relative z-[2] w-full bg-gray-10 px-xl py-10 text-white">
-      <div className="mx-auto w-full space-y-10 md:space-y-12">
+      <div className="mx-auto w-full max-w-(--container-6xl) space-y-10 md:space-y-12">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between lg:py-8">
           <div className="flex flex-col max-w-102 gap-6 md:gap-8">
             <p className="text-md uppercase tracking-widest text-gray-60 md:text-lg">
@@ -19,7 +19,7 @@ export function Footer() {
               Interested in working together?
             </p>
           </div>
-          <div className="flex items-center gap-6 pt-8 lg:pt-16 md:gap-8">
+          <div className="flex flex-wrap items-center gap-6 md:gap-8 pt-8 lg:pt-16">
             <FooterButton href="/resume.pdf" download>
               Download My Resume
             </FooterButton>

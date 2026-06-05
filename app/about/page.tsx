@@ -50,7 +50,7 @@ export default function AboutPage() {
       </PageHeader>
       <PageCover>
         <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-90">
-          <Image src="/images/about.jpg" alt="Mike Young" fill className="object-cover" priority />
+          <Image src="/images/about/cover.jpg" alt="Mike Young" fill className="object-cover" priority />
         </div>
       </PageCover>
       <PageContent>

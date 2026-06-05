@@ -12,9 +12,9 @@ export default async function WritingsPage() {
     <>
       <Hero className="px-xl">
         <HeroContent>
-          <div className="mx-auto w-full max-w-(--container-5xl) pt-md pb-xl flex flex-col gap-9 my-6 md:mt-0">
+          <div className="mx-auto w-full max-w-(--container-6xl) pt-md pb-xl flex flex-col gap-9 my-6 md:mt-0">
             <p className="font-sans text-xl tracking-widest text-gray-70 uppercase">Writings</p>
-            <h1 className="font-serif font-[350] text-5xl md:text-[3.2rem] leading-snug tracking-tight text-white">
+            <h1 className="text-white sm:text-sm">
               Thoughts on Design &amp; Storytelling<span className="text-red-50">.</span>
             </h1>
             <a
@@ -31,7 +31,7 @@ export default async function WritingsPage() {
       </Hero>
 
       <section className="relative z-[2] bg-bg-canvas p-xl">
-        <div className="mx-auto w-full max-w-(--container-5xl) flex flex-col gap-6 md:gap-10">
+        <div className="mx-auto w-full max-w-(--container-6xl) flex flex-col gap-6 md:gap-14 py-xs">
           {posts.length === 0 ? (
             <p className="font-sans text-md text-gray-50">
               Articles are temporarily unavailable. Visit{' '}

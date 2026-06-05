@@ -8,7 +8,7 @@ type NavigationMenuProps = {
 
 export function NavigationMenu({ pathname }: NavigationMenuProps) {
   return (
-    <nav className="flex items-center gap-2 p-1 border border-gray-45 rounded-full">
+    <nav className="flex items-center p-0.5 border border-gray-45 rounded-full gap-1">
       {NAV_ITEMS.map(({ href, text }) => (
         <NavigationMenuItem key={href} href={href} text={text} active={pathname === href} />
       ))}

@@ -20,14 +20,14 @@ export function Article({ title, url, excerpt, image, className }: ArticleProps)
   return (
     <article
       className={cn(
-        'flex flex-col md:flex-row-reverse border border-gray-90 bg-white shadow-xs text-fg md:p-10 md:gap-md',
+        'flex flex-col md:flex-row-reverse border border-gray-90 bg-white shadow-xs text-fg md:p-13 md:gap-xl',
         className
       )}
     >
       <a
         {...externalProps}
         aria-label={title}
-        className="group/image relative block w-full md:w-[42%] shrink-0 aspect-[4/3] bg-gray-90 overflow-hidden before:absolute before:inset-0 before:z-[1] before:bg-black/20 before:opacity-0 before:transition-opacity before:duration-200 hover:before:opacity-100"
+        className="group/image relative block w-full md:w-[35%] shrink-0 aspect-[4/3] bg-gray-90 overflow-hidden before:absolute before:inset-0 before:z-[1] before:bg-black/20 before:opacity-0 before:transition-opacity before:duration-200 hover:before:opacity-100"
       >
         {image ? (
           // Medium hosts images on third-party CDNs (cdn-images-1.medium.com, miro.medium.com).

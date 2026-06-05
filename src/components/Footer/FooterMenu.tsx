@@ -5,7 +5,7 @@ import { LINKEDIN_URL, NAV_ITEMS } from '@/constants';
 
 export function FooterMenu() {
   return (
-    <nav className="flex flex-wrap items-center gap-x-9 gap-y-3">
+    <nav className="flex flex-wrap items-center gap-x-8 gap-y-3">
       {NAV_ITEMS.map(({ href, text }) => (
         <Link
           key={href}

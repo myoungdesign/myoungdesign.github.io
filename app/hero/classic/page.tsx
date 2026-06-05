@@ -22,7 +22,7 @@ export default function HeroClassicTestPage() {
             <div className="flex flex-1 min-w-0 items-center justify-center">
               <div className="relative w-full aspect-[4/3] max-h-[600px]">
                 <Image
-                  src="/images/home-hero.jpg"
+                  src="/images/home/hero.jpg"
                   alt="Mike Young"
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
