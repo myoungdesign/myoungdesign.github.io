@@ -95,7 +95,7 @@ export default function StrategyPage() {
               className="hidden lg:block absolute -right-8 xl:-right-24 top-1/2 -translate-y-1/2 h-[508px] w-[813px] max-w-[67%] pointer-events-none"
             >
               <Image
-                src="/images/strategy/hero.png"
+                src="/images/strategy/cover.png"
                 alt=""
                 fill
                 priority
