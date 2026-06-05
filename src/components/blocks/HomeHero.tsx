@@ -40,7 +40,7 @@ export function HomeHero() {
         {/* Portrait — anchored bottom-right on mobile, right column on md+. Scales with viewport. */}
         <div className="absolute select-none right-0 bottom-0 h-[60vh] w-[80vw] max-w-[520px] md:h-[70vh] md:w-[65vw] md:max-w-[680px] origin-bottom-right lg:right-auto lg:bottom-auto lg:top-0 lg:left-[45%] lg:w-[50%] lg:h-screen lg:max-w-none lg:origin-left xl:left-[50%] xl:w-[45%] 2xl:w-[40%]">
           <Image
-            src="/images/home-hero.jpg"
+            src="/images/home/hero.jpg"
             alt="Mike Young"
             fill
             className="object-cover object-[50%_30%] opacity-70 md:opacity-100 lg:object-bottom"

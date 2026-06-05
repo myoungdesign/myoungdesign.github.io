@@ -86,7 +86,7 @@ export default function RapydCloudPage() {
       <PageCover>
         <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-20">
           <Image
-            src="/work/rapyd-cloud/cover.jpg"
+            src="/images/work/rapyd-cloud/cover.jpg"
             alt="Rapyd Cloud dashboard on a laptop"
             fill
             className="object-cover"
@@ -160,7 +160,7 @@ export default function RapydCloudPage() {
           </h2>
           <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-10 flex items-center justify-center">
             <Image
-              src="/work/rapyd-cloud/strategy-diagram.svg"
+              src="/images/work/rapyd-cloud/strategy-diagram.svg"
               alt="From Problem to Product — a structured path from an untapped opportunity to a viable solution"
               fill
               className="object-contain"
@@ -176,21 +176,21 @@ export default function RapydCloudPage() {
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             <CaseStudyCard
-              image="/work/rapyd-cloud/stakeholder-inquiry.jpg"
+              image="/images/work/rapyd-cloud/stakeholder-inquiry.jpg"
               imageAlt="Stakeholder inquiry"
               title="Stakeholder inquiry"
             >
               Canvassed prospective customers and industry leaders to surface pain points.
             </CaseStudyCard>
             <CaseStudyCard
-              image="/work/rapyd-cloud/interview-synthesis.jpg"
+              image="/images/work/rapyd-cloud/interview-synthesis.jpg"
               imageAlt="Interview synthesis"
               title="Interview synthesis"
             >
               Analysed raw interview data to identify common themes, patterns, and insights.
             </CaseStudyCard>
             <CaseStudyCard
-              image="/work/rapyd-cloud/persona-development.jpg"
+              image="/images/work/rapyd-cloud/persona-development.jpg"
               imageAlt="Persona development"
               title="Persona development"
             >
@@ -207,7 +207,7 @@ export default function RapydCloudPage() {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <CaseStudyCard
-              image="/work/rapyd-cloud/value-proposition.jpg"
+              image="/images/work/rapyd-cloud/value-proposition.jpg"
               imageAlt="Value proposition fit"
               title="Value proposition fit"
               bullets={[
@@ -219,7 +219,7 @@ export default function RapydCloudPage() {
               Aligned our offering with our target customers needs and desires.
             </CaseStudyCard>
             <CaseStudyCard
-              image="/work/rapyd-cloud/journey-mapping.jpg"
+              image="/images/work/rapyd-cloud/journey-mapping.jpg"
               imageAlt="Journey mapping"
               title="Journey mapping"
               bullets={[
@@ -241,7 +241,7 @@ export default function RapydCloudPage() {
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             <CaseStudyCard
-              image="/work/rapyd-cloud/design-tokens.jpg"
+              image="/images/work/rapyd-cloud/design-tokens.jpg"
               imageAlt="Design tokens"
               title="Design tokens"
               bullets={[
@@ -253,7 +253,7 @@ export default function RapydCloudPage() {
               Created a single source of truth between design and engineering.
             </CaseStudyCard>
             <CaseStudyCard
-              image="/work/rapyd-cloud/component-library.jpg"
+              image="/images/work/rapyd-cloud/component-library.jpg"
               imageAlt="Component library"
               title="Component library"
               bullets={[
@@ -265,7 +265,7 @@ export default function RapydCloudPage() {
               Built a library of reusable UI patterns to reuse across the dashboard screens.
             </CaseStudyCard>
             <CaseStudyCard
-              image="/work/rapyd-cloud/information-architecture.jpg"
+              image="/images/work/rapyd-cloud/information-architecture.jpg"
               imageAlt="Information architecture"
               title="Information architecture"
               bullets={[
@@ -287,7 +287,7 @@ export default function RapydCloudPage() {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <CaseStudyCard
-              image="/work/rapyd-cloud/low-fi.jpg"
+              image="/images/work/rapyd-cloud/low-fi.jpg"
               imageAlt="Low-fidelity wireframes"
               title="Low-fidelity wireframes"
               bullets={[
@@ -300,7 +300,7 @@ export default function RapydCloudPage() {
               committing real design time.
             </CaseStudyCard>
             <CaseStudyCard
-              image="/work/rapyd-cloud/high-fi.jpg"
+              image="/images/work/rapyd-cloud/high-fi.jpg"
               imageAlt="High-fidelity design"
               title="High-fidelity design"
               bullets={[
@@ -323,7 +323,7 @@ export default function RapydCloudPage() {
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             <CaseStudyCard
-              image="/work/rapyd-cloud/in-app-surveys.jpg"
+              image="/images/work/rapyd-cloud/in-app-surveys.jpg"
               imageAlt="In-app surveys"
               title="In-app surveys"
             >
@@ -331,7 +331,7 @@ export default function RapydCloudPage() {
               casual signal.
             </CaseStudyCard>
             <CaseStudyCard
-              image="/work/rapyd-cloud/public-feedback.jpg"
+              image="/images/work/rapyd-cloud/public-feedback.jpg"
               imageAlt="Public feedback portal"
               title="Public feedback portal"
             >
@@ -339,7 +339,7 @@ export default function RapydCloudPage() {
               ideas, and follow up with their teams.
             </CaseStudyCard>
             <CaseStudyCard
-              image="/work/rapyd-cloud/evidence-based.jpg"
+              image="/images/work/rapyd-cloud/evidence-based.jpg"
               imageAlt="Evidence-based decisions"
               title="Evidence-based decisions"
             >
@@ -363,7 +363,7 @@ export default function RapydCloudPage() {
                 className="relative shrink-0 snap-start w-[85%] sm:w-[60%] md:w-[55%] aspect-[16/10] overflow-hidden bg-fg-emphasis"
               >
                 <Image
-                  src={`/work/rapyd-cloud/final-output-${i}.jpg`}
+                  src={`/images/work/rapyd-cloud/final-output-${i}.jpg`}
                   alt={`Final output ${i}`}
                   fill
                   className="object-cover"
