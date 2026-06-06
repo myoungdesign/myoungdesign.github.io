@@ -24,7 +24,7 @@ export function CaseStudyCard({
   return (
     <div className={cn('flex flex-col gap-7', className)}>
       <div
-        className="relative w-full overflow-hidden bg-gray-20"
+        className="relative w-full overflow-hidden bg-bg-canvas"
         style={{ aspectRatio }}
       >
         {image ? (

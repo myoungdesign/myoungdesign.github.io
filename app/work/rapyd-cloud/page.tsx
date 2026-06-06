@@ -5,7 +5,6 @@ import {
   CaseStudyCard,
   CaseStudyHeader,
   ConstraintCard,
-  Communication,
   Flexible,
   Growth,
   Heart,
@@ -55,23 +54,22 @@ const IMPACTS = [
   {
     icon: <Users />,
     label: 'Adoption',
-    outcome: '1,500+ signups to Rapyd Cloud in 18 months.',
+    outcome: '1,000+ sites hosted on Rapyd Cloud within 18 months.',
   },
   {
     icon: <Growth />,
     label: 'Growth',
-    outcome:
-      '67% MRR growth in Year 1, a hair 5% above market expansion for similar SaaS launches.',
+    outcome: '10% MRR growth in Year 1; under 5% churn maintained since launch.',
   },
   {
     icon: <Heart />,
     label: 'Satisfaction',
-    outcome: '90% average customer satisfaction score.',
+    outcome: '80% average customer satisfaction score.',
   },
   {
     icon: <Star />,
     label: 'Advocacy',
-    outcome: '4.7★ Trustpilot · 4.8★ G2',
+    outcome: '4.9★ Trustpilot · 4.8★ G2',
   },
 ];
 
@@ -84,9 +82,9 @@ export default function RapydCloudPage() {
       />
 
       <PageCover>
-        <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-20">
+        <div className="relative aspect-[16/10] w-full overflow-hidden bg-bg-canvas">
           <Image
-            src="/images/work/rapyd-cloud/cover.jpg"
+            src="/images/work/rapyd-cloud/cover.png"
             alt="Rapyd Cloud dashboard on a laptop"
             fill
             className="object-cover"
@@ -126,10 +124,10 @@ export default function RapydCloudPage() {
           </div>
         </section>
 
-        {/* Project Constraints */}
+        {/* Project Goals */}
         <section className="bg-fg-emphasis text-white p-8 md:p-10 flex flex-col gap-8">
           <h2 className="font-sans text-md font-medium uppercase tracking-[0.2em] text-white">
-            Project Constraints
+            Project Goals
           </h2>
           <div className="flex flex-col md:flex-row gap-0">
             {CONSTRAINTS.map((c, i) => (
@@ -153,14 +151,23 @@ export default function RapydCloudPage() {
           </div>
         </section>
 
-        {/* My Strategy */}
+        {/* From Problem to Product */}
         <section className="flex flex-col gap-8">
-          <h2 className="font-serif text-2xl lg:text-3xl tracking-tight text-fg-emphasis">
-            My Strategy
-          </h2>
-          <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-10 flex items-center justify-center">
+          <div className="flex flex-col gap-3">
+            <p className="font-sans text-xs font-medium tracking-[0.25em] text-gray-70 uppercase">
+              Strategy
+            </p>
+            <h2 className="font-serif text-2xl lg:text-3xl tracking-tight text-fg-emphasis">
+              From Problem to Product
+            </h2>
+            <p className="font-sans text-md text-fg max-w-(--container-3xl)">
+              My strategy was built upon following a structured path from an untapped opportunity to
+              a viable solution.
+            </p>
+          </div>
+          <div className="relative w-full aspect-[16/9] overflow-hidden bg-bg-canvas flex items-center justify-center">
             <Image
-              src="/images/work/rapyd-cloud/strategy-diagram.svg"
+              src="/images/work/rapyd-cloud/rapyd-cloud-strategy.svg"
               alt="From Problem to Product — a structured path from an untapped opportunity to a viable solution"
               fill
               className="object-contain"
@@ -172,29 +179,29 @@ export default function RapydCloudPage() {
         <NumberedSection
           number="01"
           title="Define the Problem"
-          intro="I conducted user interviews and reviewed user feedback to define the problems."
+          intro="I started by conducting user interviews and reviewing user feedback to fully define the problems."
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             <CaseStudyCard
-              image="/images/work/rapyd-cloud/stakeholder-inquiry.jpg"
+              image="/images/work/rapyd-cloud/user-interviews.png"
               imageAlt="Stakeholder inquiry"
               title="Stakeholder inquiry"
             >
-              Canvassed prospective customers and industry leaders to surface pain points.
+              I canvassed prospective customers and industry leaders to surface pain points.
             </CaseStudyCard>
             <CaseStudyCard
-              image="/images/work/rapyd-cloud/interview-synthesis.jpg"
+              image="/images/work/rapyd-cloud/interview-synthesis.png"
               imageAlt="Interview synthesis"
               title="Interview synthesis"
             >
-              Analysed raw interview data to identify common themes, patterns, and insights.
+              I analysed raw interview data to identify common themes, patterns, and insights.
             </CaseStudyCard>
             <CaseStudyCard
-              image="/images/work/rapyd-cloud/persona-development.jpg"
+              image="/images/work/rapyd-cloud/user-persona.png"
               imageAlt="Persona development"
               title="Persona development"
             >
-              Distributed company-wide to build empathy as governance from the start.
+              I distributed the personas company-wide to build empathy as governance from the start.
             </CaseStudyCard>
           </div>
         </NumberedSection>
@@ -203,32 +210,32 @@ export default function RapydCloudPage() {
         <NumberedSection
           number="02"
           title="Build the Proposition"
-          intro="I developed a value proposition and mapped the customer journey to define what to ship."
+          intro="I then developed a value proposition and mapped the customer journey to define what to ship."
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <CaseStudyCard
-              image="/images/work/rapyd-cloud/value-proposition.jpg"
+              image="/images/work/rapyd-cloud/value-proposition-fit.png"
               imageAlt="Value proposition fit"
               title="Value proposition fit"
               bullets={[
-                'Developed fits for all customer segments',
-                'Illuminated customer pains, gains, and jobs-to-be-done',
-                'Proposed solutions for the product to offer',
+                'Develop fits for all customer segments',
+                'Illuminate customer pains, gains, and jobs-to-be-done',
+                'Propose solutions for the product to offer',
               ]}
             >
-              Aligned our offering with our target customers needs and desires.
+              I aligned our offering with our target customers needs and desires in order to:
             </CaseStudyCard>
             <CaseStudyCard
-              image="/images/work/rapyd-cloud/journey-mapping.jpg"
+              image="/images/work/rapyd-cloud/customer-journey-map.png"
               imageAlt="Journey mapping"
               title="Journey mapping"
               bullets={[
                 'Mapped from first contact to becoming a loyal customer',
-                'Connected user actions to business outcomes',
-                'Flagged opportunities to reduce friction and build trust',
+                'Connecting user actions to business outcomes',
+                'Flagging opportunities to reduce friction and build trust',
               ]}
             >
-              Highlighted customers’ emotions, pain points, and unmet needs.
+              I highlighted customers’ emotions, pain points, and unmet needs by:
             </CaseStudyCard>
           </div>
         </NumberedSection>
@@ -237,11 +244,11 @@ export default function RapydCloudPage() {
         <NumberedSection
           number="03"
           title="Establish the Foundations"
-          intro="I unified fragmented early-builds into a governed system that aligned design and engineering."
+          intro="Next, I unified fragmented early-builds into a governed system that aligned design and engineering."
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             <CaseStudyCard
-              image="/images/work/rapyd-cloud/design-tokens.jpg"
+              image="/images/work/rapyd-cloud/design-tokens.png"
               imageAlt="Design tokens"
               title="Design tokens"
               bullets={[
@@ -250,10 +257,10 @@ export default function RapydCloudPage() {
                 'Integrated with MUI’s theme provider',
               ]}
             >
-              Created a single source of truth between design and engineering.
+              I developed a single source of truth between design and engineering that:
             </CaseStudyCard>
             <CaseStudyCard
-              image="/images/work/rapyd-cloud/component-library.jpg"
+              image="/images/work/rapyd-cloud/component-library.png"
               imageAlt="Component library"
               title="Component library"
               bullets={[
@@ -262,19 +269,20 @@ export default function RapydCloudPage() {
                 'Cut design-to-dev handoff time',
               ]}
             >
-              Built a library of reusable UI patterns to reuse across the dashboard screens.
+              I built a library of reusable UI patterns to reuse across the dashboard screens that:
             </CaseStudyCard>
             <CaseStudyCard
-              image="/images/work/rapyd-cloud/information-architecture.jpg"
+              image="/images/work/rapyd-cloud/information-architecture.png"
               imageAlt="Information architecture"
               title="Information architecture"
               bullets={[
-                'Avoided use of tech-jargon',
-                'Optimised to reduce cognitive load',
-                'Ensured no “dead-ends”',
+                'Avoiding use of tech-jargon',
+                'Optimising to reduce cognitive load',
+                'Ensuring no “dead-ends”',
               ]}
             >
-              Structured hand-holding to guide users from initial setup to ongoing maintenance.
+              I designed a structure to seamlessly guide users from initial setup to ongoing
+              maintenance by:
             </CaseStudyCard>
           </div>
         </NumberedSection>
@@ -283,34 +291,34 @@ export default function RapydCloudPage() {
         <NumberedSection
           number="04"
           title="Design the Experience"
-          intro="I designed the core flows end to end, from low-fi wireframes to production-ready screens."
+          intro="I then designed the core flows end to end, from low-fi wireframes to production-ready screens."
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <CaseStudyCard
-              image="/images/work/rapyd-cloud/low-fi.jpg"
+              image="/images/work/rapyd-cloud/lo-fi-wireframes.png"
               imageAlt="Low-fidelity wireframes"
               title="Low-fidelity wireframes"
               bullets={[
-                'Kept focus on user needs, not visuals',
-                'Surfaced flaws in user journeys early',
-                'Allowed fast iteration before commit',
+                'Keeping the initial focus on user needs, not visuals',
+                'Surfacing flaws in user journeys early',
+                'Acting as common language across all teams',
               ]}
             >
-              Mapped the core UX flows as wireframes to quickly validate assumptions before
-              committing real design time.
+              I mapped the core UX flows as wireframes to quickly validate assumptions before
+              committing real design time by:
             </CaseStudyCard>
             <CaseStudyCard
-              image="/images/work/rapyd-cloud/high-fi.jpg"
-              imageAlt="High-fidelity design"
-              title="High-fidelity design"
+              image="/images/work/rapyd-cloud/visual-design.png"
+              imageAlt="High-fidelity designs"
+              title="High-fidelity designs"
               bullets={[
-                'Brought every screen to handoff-ready quality',
-                'Stress-tested every corner of the flow',
-                'Refined motion, timing, and visual hierarchy',
+                'Applied the design system end to end',
+                'Annotated every screen and flow for smooth dev handoff',
+                'Maintained version history to note changes during engineering',
               ]}
             >
-              Brought every core flow to fidelity, accounting for all edge cases and using motion to
-              direct focus.
+              I brought every core flow to full fidelity, accounting for all edge cases and empty
+              states in a way that:
             </CaseStudyCard>
           </div>
         </NumberedSection>
@@ -319,48 +327,51 @@ export default function RapydCloudPage() {
         <NumberedSection
           number="05"
           title="Create Feedback Loops"
-          intro="I collaborated with the customer-facing team to measure impact and keep learning from users after launch."
+          intro="Lastly, I collaborated with the customer-facing teams to measure impact and keep learning from users after launch."
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             <CaseStudyCard
-              image="/images/work/rapyd-cloud/in-app-surveys.jpg"
+              image="/images/work/rapyd-cloud/in-app-surveys.png"
               imageAlt="In-app surveys"
               title="In-app surveys"
             >
-              A lightweight survey delivered in context at key moments in the journey for fast
-              casual signal.
+              We setup short surveys to be delivered by Intercom at key moments in the journey, from
+              how easy setup felt to how likely users were to recommend us.
             </CaseStudyCard>
             <CaseStudyCard
-              image="/images/work/rapyd-cloud/public-feedback.jpg"
+              image="/images/work/rapyd-cloud/public-feedback-portal.png"
               imageAlt="Public feedback portal"
               title="Public feedback portal"
             >
-              Provided easy ingest of the final output, where users could vote on roadmap, send in
-              ideas, and follow up with their teams.
+              We funnelled every request into Featurebase, where users could track the roadmap,
+              submit and vote on ideas, and follow each new release.
             </CaseStudyCard>
             <CaseStudyCard
-              image="/images/work/rapyd-cloud/evidence-based.jpg"
-              imageAlt="Evidence-based decisions"
-              title="Evidence-based decisions"
+              image="/images/work/rapyd-cloud/evidence-based-iterations.png"
+              imageAlt="Evidence-based iterations"
+              title="Evidence-based iterations"
             >
-              From a feedback dragnet into the relevant roadmap, themed and tied to the impact of
-              release. We collected it all and pulled prioritising from there.
+              We fed real feedback straight into the internal roadmap, tracked how the impact of
+              release, using the evidence to cut underperforming features.
             </CaseStudyCard>
           </div>
         </NumberedSection>
 
-        {/* Final Outputs */}
+        {/* Final Output */}
         <section className="flex flex-col gap-8">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col gap-3">
+            <p className="font-sans text-xs font-medium tracking-[0.25em] text-gray-70 uppercase">
+              Final Output
+            </p>
             <h2 className="font-serif text-2xl lg:text-3xl tracking-tight text-fg-emphasis">
-              Final Outputs
+              Rapyd Cloud became our users’ reliable sidekick.
             </h2>
           </div>
           <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-xl px-xl">
             {[1, 2, 3, 4].map((i) => (
               <div
                 key={i}
-                className="relative shrink-0 snap-start w-[85%] sm:w-[60%] md:w-[55%] aspect-[16/10] overflow-hidden bg-fg-emphasis"
+                className="relative shrink-0 snap-start w-[85%] sm:w-[60%] md:w-[55%] aspect-[16/10] overflow-hidden bg-bg-canvas"
               >
                 <Image
                   src={`/images/work/rapyd-cloud/final-output-${i}.jpg`}
@@ -373,20 +384,23 @@ export default function RapydCloudPage() {
           </div>
         </section>
 
-        {/* The Impact */}
+        {/* Impact */}
         <section className="flex flex-col gap-8">
-          <h2 className="font-serif text-2xl lg:text-3xl tracking-tight text-fg-emphasis">
-            The Impact
-          </h2>
-          <p className="font-sans text-md text-fg">
-            Ships outcome 14-month deadline, with growth that held well past launch.
-          </p>
+          <div className="flex flex-col gap-3">
+            <p className="font-sans text-xs font-medium tracking-[0.25em] text-gray-70 uppercase">
+              Impact
+            </p>
+            <h2 className="font-serif text-2xl lg:text-3xl tracking-tight text-fg-emphasis">
+              The product shipped before the 9-month deadline, with growth that held well past
+              launch.
+            </h2>
+          </div>
 
           <div className="flex flex-col">
             <div className="hidden md:grid grid-cols-[auto_minmax(0,10rem)_minmax(0,1fr)] gap-x-8 pb-4 border-b border-gray-30">
               <span />
               <p className="font-sans text-xs font-medium tracking-[0.2em] text-soft uppercase">
-                Verbal
+                Vertical
               </p>
               <p className="font-sans text-xs font-medium tracking-[0.2em] text-soft uppercase">
                 Outcome
@@ -404,8 +418,8 @@ export default function RapydCloudPage() {
         {/* Testimonial */}
         <section className="flex flex-col items-center text-center gap-8 py-10 md:py-16">
           <blockquote className="font-serif text-xl md:text-2xl text-fg max-w-(--container-3xl) leading-relaxed">
-            “Rapyd Cloud is a rare player in the crowded WordPress hosting market with a relief
-            offering great support and easy-to-use dashboard. It’s like they looked at all
+            “Rapyd Cloud is a new player in the crowded WordPress hosting market with a solid
+            offering, great support and easy to use dashboard. It’s like they looked at all
             competitors and picked the best aspects from each.”
           </blockquote>
           <div className="flex items-center gap-3">

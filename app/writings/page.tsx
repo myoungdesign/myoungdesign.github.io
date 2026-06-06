@@ -14,7 +14,7 @@ export default async function WritingsPage() {
         <HeroContent>
           <div className="mx-auto w-full max-w-(--container-6xl) pt-md pb-xl flex flex-col gap-9 my-6 md:mt-0">
             <p className="font-sans text-xl tracking-widest text-gray-70 uppercase">Writings</p>
-            <h1 className="text-white sm:text-sm">
+            <h1 className="text-white">
               Thoughts on Design &amp; Storytelling<span className="text-red-50">.</span>
             </h1>
             <a
