@@ -1,6 +1,5 @@
 export * from './Article';
 export * from './CaseStudyCard';
-export * from './CaseStudyHeader';
 export * from './CardSlider';
 export * from './ConstraintCard';
 export * from './Hero';

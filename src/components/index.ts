@@ -1,4 +1,5 @@
 export * from './blocks';
+export * from './Callout';
 export * from './Counter';
 export * from './Footer';
 export * from './Header';
@@ -7,6 +8,7 @@ export * from './MobileMenu';
 export * from './Navbar';
 export * from './NavigationMenu';
 export * from './Page';
+export * from './Section';
 export * from './SmoothScroll';
 export * from './ThemeProvider';
 export * from './icons';

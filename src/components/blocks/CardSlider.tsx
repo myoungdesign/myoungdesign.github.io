@@ -53,7 +53,7 @@ export function CardSlider({ cards, className }: CardSliderProps) {
   const activeCard = cards[active];
 
   return (
-    <div className={cn('grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-7 pt-20', className)}>
+    <div className={cn('grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-7 pt-8', className)}>
       {/* Deck */}
       <div
         className="relative mx-auto w-full max-w-[548px] aspect-[548/470] overflow-clip [container-type:inline-size]"

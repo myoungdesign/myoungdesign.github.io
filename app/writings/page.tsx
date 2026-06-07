@@ -1,6 +1,6 @@
 import { ArrowUpRight } from 'lucide-react';
 
-import { Article, Hero, HeroContent } from '@/components';
+import { Article, Page, PageHeader, PageKicker, PageMasthead, PageTitle } from '@/components';
 import { getMediumPosts, MEDIUM_PROFILE_URL } from '@/content/medium';
 
 export const revalidate = 3600;
@@ -9,26 +9,22 @@ export default async function WritingsPage() {
   const posts = await getMediumPosts();
 
   return (
-    <>
-      <Hero className="px-xl">
-        <HeroContent>
-          <div className="mx-auto w-full max-w-(--container-6xl) pt-md pb-xl flex flex-col gap-9 my-6 md:mt-0">
-            <p className="font-sans text-xl tracking-widest text-gray-70 uppercase">Writings</p>
-            <h1 className="text-white">
-              Thoughts on Design &amp; Storytelling<span className="text-red-50">.</span>
-            </h1>
-            <a
-              href={MEDIUM_PROFILE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-1 gap-1 self-start font-400 font-lg text-gray-90 hover:text-gray-70 transition-colors"
-            >
-              <span className="underline underline-offset-6 decoration-1">Subscribe on Medium</span>
-              <ArrowUpRight className="size-5" aria-hidden strokeWidth={1.5} />
-            </a>
-          </div>
-        </HeroContent>
-      </Hero>
+    <Page>
+      <PageHeader className="pb-4">
+        <PageMasthead>
+          <PageKicker>Writings</PageKicker>
+          <PageTitle>Thoughts on Design &amp; Storytelling</PageTitle>
+          <a
+            href={MEDIUM_PROFILE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-1 gap-1 mt-2 self-start text-md text-gray-90 hover:text-gray-70 transition-colors"
+          >
+            <span className="underline underline-offset-6 decoration-1">Subscribe on Medium</span>
+            <ArrowUpRight className="size-5" aria-hidden strokeWidth={1.5} />
+          </a>
+        </PageMasthead>
+      </PageHeader>
 
       <section className="relative z-[2] bg-bg-canvas p-xl">
         <div className="mx-auto w-full max-w-(--container-6xl) flex flex-col gap-6 md:gap-14 py-xs">
@@ -58,6 +54,6 @@ export default async function WritingsPage() {
           )}
         </div>
       </section>
-    </>
+    </Page>
   );
 }

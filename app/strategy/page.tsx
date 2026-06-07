@@ -1,7 +1,23 @@
-import { ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 
-import { AgentCard, CardSlider, Hero, HeroContent } from '@/components';
+import {
+  AgentCard,
+  CardSlider,
+  Link,
+  Page,
+  PageContent,
+  PageHeader,
+  PageKicker,
+  PageMasthead,
+  PageTagline,
+  PageTitle,
+  Section,
+  SectionHeader,
+  SectionKicker,
+  SectionTagline,
+  SectionTitle,
+  VisuallyHidden,
+} from '@/components';
 
 const STINGRAY_URL = 'https://www.boardofinnovation.com/blog/the-stingray-model/';
 const DOUBLE_DIAMOND_URL = 'https://www.designcouncil.org.uk/our-resources/the-double-diamond/';
@@ -85,84 +101,65 @@ const CARDS: AgentCard[] = [
 
 export default function StrategyPage() {
   return (
-    <>
-      <Hero className="px-xl">
-        <HeroContent>
-          <div className="relative mx-auto w-full max-w-(--container-6xl) pt-md pb-xl flex flex-col gap-6 my-6 md:mt-0">
-            {/* Hero image — anchored to the right of the 6xl content container; bleeds slightly past the right edge */}
-            <div
-              aria-hidden
-              className="hidden lg:block absolute -right-8 xl:-right-24 top-1/2 -translate-y-1/2 h-[508px] w-[813px] max-w-[67%] pointer-events-none"
-            >
-              <Image
-                src="/images/strategy/cover.png"
-                alt=""
-                fill
-                priority
-                className="object-contain object-right"
-              />
-            </div>
-            <p className="relative font-sans text-xl tracking-widest text-gray-70 uppercase pt-2">
-              Strategy
-            </p>
-            <div className="relative flex flex-col gap-5 pb-4">
-              <h1 className="text-white">
-                Beyond the
-                <br /> Double Diamond<span className="text-red-50">.</span>
-              </h1>
-              <p className="font-sans text-lg leading-[1.7] text-gray-80 max-w-[31.5rem]">
-                Generative AI has compressed the product lifecycle — forcing faster iterations and
-                parallel exploration, requiring a fundamentally new approach to problem-solving,
-                collaboration, and testing.
-              </p>
-            </div>
-          </div>
-        </HeroContent>
-      </Hero>
+    <Page>
+      <PageHeader>
+        <div className="flex flex-col lg:flex-row lg:items-center gap-2xl lg:gap-0 pb-20 overflow-x-clip">
+          <PageMasthead className="relative z-10 lg:flex-1 gap-4 md:gap-5 lg:gap-6 !pb-0">
+            <PageKicker>Strategy</PageKicker>
+            <PageTitle className="md:text-6xl lg:text-[3.5rem] leading-normal lg:max-w-116">
+              Beyond the Double Diamond
+            </PageTitle>
+            <PageTagline className="lg:max-w-116">
+              Generative AI has compressed the product lifecycle, requiring we adopt fundamentally
+              new approaches to problem-solving, collaboration, and testing.
+            </PageTagline>
+          </PageMasthead>
 
-      <section className="relative z-[2] bg-bg-surface px-xl pt-lg pb-2xl">
-        <div className="mx-auto w-full max-w-(--container-6xl) flex flex-col gap-lg">
-          {/* Intro paragraphs */}
-          <div className="flex flex-col gap-9 font-sans text-md text-fg leading-[1.9]">
-            <p>
-              For over 20 years,{' '}
-              <a
-                href={DOUBLE_DIAMOND_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-baseline gap-1 underline underline-offset-4 decoration-1 decoration-border text-fg-soft hover:text-fg hover:decoration-fg transition-colors"
-              >
-                The Double Diamond
-                <ExternalLink className="size-3.5 self-center" strokeWidth={1.5} />
-              </a>{' '}
-              has guided product teams towards designing the right things, and designing those
-              things right. Its strength being in the way it balanced divergent thinking (what
-              problems to solve) and convergent thinking (how to solve them).
-            </p>
-            <p>
-              But with AI now compressing the time both take to perform — analysing data at scale,
-              quickly generating solutions — a linear model starts to feel obsolete. It’s forcing us
-              to reshape our approach to problem-solving.
-            </p>
-            <p>
-              For those reasons, I’ve adopted{' '}
-              <a
-                href={STINGRAY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-baseline gap-1 underline underline-offset-4 decoration-1 decoration-border text-fg-soft hover:text-fg hover:decoration-fg transition-colors"
-              >
-                The Stingray Model
-                <ExternalLink className="size-3.5 self-center" strokeWidth={1.5} />
-              </a>{' '}
-              as my preferred framework due to the way it delivers speed, scale, and non-linear
-              problem-solving.
-            </p>
+          <div className="relative w-full lg:flex-1 aspect-[16/9] lg:-mt-3">
+            <Image
+              src="/images/strategy/double-diamond.png"
+              alt=""
+              fill
+              priority
+              className="object-contain scale-[1.25] origin-center"
+            />
           </div>
+        </div>
+      </PageHeader>
 
-          {/* Stingray model card — gray on white page */}
-          <div className="bg-bg-canvas flex flex-col">
-            <div className="relative w-full aspect-[2080/1056] p-2xs">
+      <PageContent>
+        <Section>
+          <VisuallyHidden>
+            <SectionHeader>
+              <SectionKicker>Overview</SectionKicker>
+            </SectionHeader>
+          </VisuallyHidden>
+
+          <p>
+            For over 20 years,{' '}
+            <Link href={DOUBLE_DIAMOND_URL} external>
+              The Double Diamond
+            </Link>{' '}
+            has guided product teams towards designing the right things, and designing those things
+            right. Its strength being in the way it balanced divergent thinking (what problems to
+            solve) and convergent thinking (how to solve them).
+          </p>
+          <p>
+            But with AI now compressing the time both take to perform — analysing data at scale,
+            quickly generating solutions — a linear model starts to feel obsolete. It’s forcing us
+            to reshape our approach to problem-solving.
+          </p>
+          <p>
+            For those reasons, I’ve adopted{' '}
+            <Link href={STINGRAY_URL} external>
+              The Stingray Model
+            </Link>{' '}
+            as my preferred framework due to the way it delivers speed, scale, and non-linear
+            problem-solving.
+          </p>
+
+          <div className="bg-bg-canvas flex flex-col mt-4 md:mt-6 lg:mt-8">
+            <div className="relative w-full aspect-[2080/1056] p-8 md:p-10 lg:p-12">
               <Image
                 src="/images/strategy/the-stingray-model.svg"
                 alt="The Stingray Model — Train, Develop, Iterate"
@@ -170,10 +167,10 @@ export default function StrategyPage() {
                 className="object-contain"
               />
             </div>
-            <div className="p-md pt-2xs">
+            <div className="p-6 md:p-8 lg:p-10">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 border-t border-border-subtle pt-lg">
                 {PHASES.map(phase => (
-                  <div key={phase.label} className="flex flex-col gap-6 max-w-[18rem]">
+                  <div key={phase.label} className="flex flex-col gap-6 lg:max-w-[18rem]">
                     <p className="font-sans font-medium text-xs tracking-widest uppercase text-gray-70 whitespace-pre">
                       {phase.label}
                     </p>
@@ -188,31 +185,23 @@ export default function StrategyPage() {
               </div>
             </div>
           </div>
+        </Section>
 
-          {/* AI Agents section */}
-          <div className="flex flex-col gap-sm pt-lg">
-            <div className="flex flex-col gap-8">
-              <div className="flex flex-col gap-3">
-                <div aria-hidden className="h-0.5 w-7 bg-border-subtle" />
-                <p className="font-sans font-medium text-xs tracking-widest uppercase text-gray-70">
-                  My Deck of AI Agents
-                </p>
-              </div>
-              <div className="flex flex-col gap-5">
-                <h2 className="font-serif font-medium text-3xl leading-[1.3] tracking-tighter text-fg-emphasis">
-                  I use custom AI agents to accelerate different phases of my workflow.
-                </h2>
-                <p className="font-sans text-lg leading-[1.55] text-fg-subtle">
-                  Instead of performing every task myself, I act as the orchestrator, guiding
-                  autonomous AI systems to handle user research, ideation, and prototyping.
-                </p>
-              </div>
-            </div>
+        <Section>
+          <SectionHeader>
+            <SectionKicker>My Deck of AI Agents</SectionKicker>
+            <SectionTitle>
+              I use custom AI agents to accelerate different phases of my workflow.
+            </SectionTitle>
+            <SectionTagline>
+              Instead of performing every task myself, I act as the orchestrator, guiding autonomous
+              AI systems to handle user research, ideation, and prototyping.
+            </SectionTagline>
+          </SectionHeader>
 
-            <CardSlider cards={CARDS} className="pt-sm" />
-          </div>
-        </div>
-      </section>
-    </>
+          <CardSlider cards={CARDS} />
+        </Section>
+      </PageContent>
+    </Page>
   );
 }

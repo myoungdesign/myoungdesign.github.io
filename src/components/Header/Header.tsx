@@ -78,7 +78,7 @@ export function Header() {
 
         {/* Mobile */}
         <div className="flex h-[var(--header-h-mobile)] items-center justify-between bg-gray-10 px-xl md:hidden">
-          <Logo className="h-14 w-auto text-gray-80" strokeWidth={1.0} />
+          <Logo className="h-13 w-auto text-gray-80" strokeWidth={0.9} />
           <MobileMenuButton open={mobileOpen} onClick={() => setMobileOpen(v => !v)} />
         </div>
       </header>

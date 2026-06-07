@@ -17,7 +17,7 @@ export function PageHeader({ children, className }: PageHeaderProps) {
       <HeroContent>
         <div
           className={cn('mx-auto w-full max-w-(--container-6xl) pt-lg flex flex-col', className)}
-          style={hasCover ? { paddingBottom: `calc(var(--spacing-lg) + ${overlap})` } : undefined}
+          style={hasCover ? { paddingBottom: `${overlap}` } : undefined}
         >
           {children}
         </div>
