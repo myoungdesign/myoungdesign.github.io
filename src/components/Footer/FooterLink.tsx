@@ -1,4 +1,4 @@
-import { ArrowUpRight } from '@/components/icons';
+import { ArrowUpRight } from 'lucide-react';
 
 type FooterLinkProps = {
   href: string;

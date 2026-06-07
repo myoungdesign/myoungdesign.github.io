@@ -1,9 +1,9 @@
-type LongGameProps = {
+type CountdownProps = {
   className?: string;
   size?: number;
 };
 
-export function LongGame({ className, size = 24 }: LongGameProps) {
+export function Countdown({ className, size = 24 }: CountdownProps) {
   return (
     <svg
       width={size}

@@ -6,12 +6,12 @@ import {
   CalloutColumn,
   CalloutColumns,
   CaseStudyCard,
+  ChartLineUp,
   ConstraintCard,
-  Flexible,
-  Growth,
-  Heart,
+  EightyTwenty,
   ImpactRow,
   Link,
+  Message,
   NumberedSection,
   Page,
   PageContent,
@@ -22,34 +22,33 @@ import {
   PageMeta,
   PageMetaItem,
   PageTitle,
-  Rocket,
+  ProductRelease,
   Section,
   SectionHeader,
   SectionKicker,
   SectionTagline,
   SectionTitle,
   Separator,
-  Star,
-  Switch,
-  Users,
-  Velocity,
+  Sync,
+  TimerBolt,
+  UserAdd,
 } from '@/components';
 
 import { Overview } from '../components/Overview';
 
 const CONSTRAINTS = [
   {
-    icon: <Switch />,
+    icon: <Sync />,
     title: 'Make switching easy',
     body: 'Moving hosts is a real hassle, so setup and migration had to be simple enough for a non-technical owner to trust from day one.',
   },
   {
-    icon: <Flexible />,
+    icon: <ProductRelease />,
     title: 'Stay flexible',
     body: 'Ship the core product quickly without letting speed-driven choices block later iterations or a potential white-label resale.',
   },
   {
-    icon: <Rocket />,
+    icon: <TimerBolt />,
     title: 'Ship fast, build lean',
     body: 'The founders needed ROI on a tight deadline, so design had to surface and deliver the MVP that would meet it.',
   },
@@ -57,27 +56,27 @@ const CONSTRAINTS = [
 
 const IMPACTS = [
   {
-    icon: <Velocity />,
+    icon: <TimerBolt />,
     label: 'Velocity',
     outcome: 'The design system cut design-to-dev turnaround by 40%.',
   },
   {
-    icon: <Users />,
+    icon: <UserAdd />,
     label: 'Adoption',
     outcome: '1,000+ sites hosted on Rapyd Cloud within 18 months.',
   },
   {
-    icon: <Growth />,
+    icon: <ChartLineUp />,
     label: 'Growth',
     outcome: '10% MRR growth in Year 1; under 5% churn maintained since launch.',
   },
   {
-    icon: <Heart />,
+    icon: <EightyTwenty />,
     label: 'Satisfaction',
     outcome: '80% average customer satisfaction score.',
   },
   {
-    icon: <Star />,
+    icon: <Message />,
     label: 'Advocacy',
     outcome: '4.9★ Trustpilot · 4.8★ G2',
   },

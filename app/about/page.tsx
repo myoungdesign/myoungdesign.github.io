@@ -5,11 +5,11 @@ import {
   CalloutColumn,
   CalloutColumns,
   CalloutKicker,
-  Communication,
+  Countdown,
   EightyTwenty,
-  FormFunction,
   IconCard,
-  LongGame,
+  Layers,
+  Message,
   Page,
   PageContent,
   PageCover,
@@ -125,7 +125,7 @@ export default function AboutPage() {
             </SectionTagline>
           </SectionHeader>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mt-3">
-            <IconCard icon={<Communication />} title="Continual Alignment">
+            <IconCard icon={<Message />} title="Continual Alignment">
               Constant communication drives innovation and hastens execution. There's a time for
               Figma, and a time for huddles.
             </IconCard>
@@ -133,11 +133,11 @@ export default function AboutPage() {
               Focus on solving the 20% of problems that will deliver the biggest impact. Prioritize
               outcomes, not output.
             </IconCard>
-            <IconCard icon={<FormFunction />} title="Form after function">
+            <IconCard icon={<Layers />} title="Form after function">
               Prioritize performance and usability first. Find what works, then find the sharpest
               way to express it.
             </IconCard>
-            <IconCard icon={<LongGame />} title="Play the long game">
+            <IconCard icon={<Countdown />} title="Play the long game">
               Introduce systems that scale, and introduce them early. Short-term thinking leads to
               long-term debt.
             </IconCard>

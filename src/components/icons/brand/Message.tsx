@@ -1,9 +1,9 @@
-type CommunicationProps = {
+type MessageProps = {
   className?: string;
   size?: number;
 };
 
-export function Communication({ className, size = 24 }: CommunicationProps) {
+export function Message({ className, size = 24 }: MessageProps) {
   return (
     <svg
       width={size}

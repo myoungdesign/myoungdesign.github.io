@@ -1,9 +1,9 @@
-type FormFunctionProps = {
+type LayersProps = {
   className?: string;
   size?: number;
 };
 
-export function FormFunction({ className, size = 24 }: FormFunctionProps) {
+export function Layers({ className, size = 24 }: LayersProps) {
   return (
     <svg
       width={size}
