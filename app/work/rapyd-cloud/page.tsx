@@ -35,6 +35,8 @@ import {
   Velocity,
 } from '@/components';
 
+import { Overview } from '../components/Overview';
+
 const CONSTRAINTS = [
   {
     icon: <Switch />,
@@ -112,38 +114,21 @@ export default function RapydCloudPage() {
 
       <PageContent>
         {/* Overview */}
-        <Section>
-          <h2 className="font-serif text-2xl lg:text-3xl tracking-tight text-fg-emphasis">
-            Overview
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
-            <div className="flex flex-col gap-4">
-              <h3 className="font-sans text-xs font-medium tracking-[0.2em] text-soft uppercase">
-                The problem
-              </h3>
-              <p className="font-sans text-md text-fg">
-                While building{' '}
-                <Link href="https://www.buddyboss.com" external>
-                  BuddyBoss
-                </Link>
-                , we surfaced a growing problem: WordPress hosts weren’t optimised for
-                high-engagement sites such as eLearning, e-commerce, and social communities. Site
-                owners were being charged high-traffic premiums to support high concurrent user
-                activity.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4">
-              <h3 className="font-sans text-xs font-medium tracking-[0.2em] text-soft uppercase">
-                The solution
-              </h3>
-              <p className="font-sans text-md text-fg">
-                I helped put Rapyd Cloud’s scalable infrastructure behind a dashboard that made
-                fast, reliable hosting accessible to non-technical creators, educators, and sellers
-                with interactive WordPress sites.
-              </p>
-            </div>
-          </div>
-        </Section>
+        <Overview
+          problem={
+            <>
+              While building{' '}
+              <Link href="https://www.buddyboss.com" external>
+                BuddyBoss
+              </Link>
+              , we surfaced a growing problem: WordPress hosts weren’t optimised for
+              high-engagement sites such as eLearning, e-commerce, and social communities. Site
+              owners were being charged high-traffic premiums to support high concurrent user
+              activity.
+            </>
+          }
+          solution="I helped put Rapyd Cloud’s scalable infrastructure behind a dashboard that made fast, reliable hosting accessible to non-technical creators, educators, and sellers with interactive WordPress sites."
+        />
 
         {/* Project Goals */}
         <Callout>
