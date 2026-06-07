@@ -18,7 +18,7 @@ export default async function WritingsPage() {
             href={MEDIUM_PROFILE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-1 gap-1 mt-2 self-start text-md text-gray-90 hover:text-gray-70 transition-colors"
+            className="inline-flex items-center px-1 gap-1 self-start text-md text-gray-90 hover:text-gray-70 transition-colors"
           >
             <span className="underline underline-offset-6 decoration-1">Subscribe on Medium</span>
             <ArrowUpRight className="size-5" aria-hidden strokeWidth={1.5} />

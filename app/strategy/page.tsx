@@ -106,7 +106,7 @@ export default function StrategyPage() {
         <div className="flex flex-col lg:flex-row lg:items-center gap-2xl lg:gap-0 pb-20 overflow-x-clip">
           <PageMasthead className="relative z-10 lg:flex-1 gap-4 md:gap-5 lg:gap-6 !pb-0">
             <PageKicker>Strategy</PageKicker>
-            <PageTitle className="md:text-6xl lg:text-[3.5rem] leading-normal lg:max-w-116">
+            <PageTitle className="md:text-6xl lg:text-[3.5rem] leading-normal lg:max-w-120">
               Beyond the Double Diamond
             </PageTitle>
             <PageTagline className="lg:max-w-116">

@@ -55,7 +55,7 @@ export default function AboutPage() {
       <PageHeader>
         <PageMasthead>
           <PageKicker>Hi, I'm Mike Young</PageKicker>
-          <PageTitle className="md:max-w-[80%] lg:max-w-[90%] xl:max-w-[70%]">
+          <PageTitle className="lg:max-w-[90%] xl:max-w-[75%]">
             A Lead Product Designer with 15+ Years of Experience
           </PageTitle>
         </PageMasthead>

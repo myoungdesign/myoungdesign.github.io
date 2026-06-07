@@ -135,12 +135,17 @@ export function Hero({
 
   // Publish the scroll position by which Header must be fully gone.
   // Halfway through the slide-over scroll = comfortable buffer.
+  // Also publish the scroll position past which the hero is fully out of
+  // viewport, so the Header knows when to switch from progressive-hide to
+  // direction-based show/hide (scroll up to reveal).
   useEffect(() => {
     if (resolvedSlideOverAt <= 0) return;
     const root = document.documentElement;
     root.style.setProperty('--header-exit-by', `${resolvedSlideOverAt * 0.5}px`);
+    root.style.setProperty('--header-reveal-after', `${resolvedSlideOverAt}px`);
     return () => {
       root.style.removeProperty('--header-exit-by');
+      root.style.removeProperty('--header-reveal-after');
     };
   }, [resolvedSlideOverAt]);
 
