@@ -143,16 +143,18 @@ export default function RapydCloudPage() {
         </Callout>
 
         {/* Strategy */}
-        <Section className="!gap-xl">
-          <SectionHeader>
-            <SectionKicker>Strategy</SectionKicker>
-            <SectionTitle className="text-3xl md:text-4xl">From Problem to Product</SectionTitle>
-            <SectionTagline>
+        <Section className="gap-8 md:gap-10">
+          <SectionHeader className="items-center text-center justify-center !gap-3">
+            <SectionTitle className="text-center text-3xl md:text-4xl">
+              From Problem to Product
+            </SectionTitle>
+            <SectionTagline className="text-center max-w-128 mx-auto">
               My strategy was built upon following a structured path from an untapped opportunity to
               a viable solution.
             </SectionTagline>
           </SectionHeader>
-          <Section className="bg-gentle !p-lg -mx-xl md:-mx-0 md:-mt-3 rounded-lg">
+
+          <div className="bg-gentle px-sm py-md rounded-lg">
             <div className="relative w-full aspect-[21/9] overflow-hidden flex items-center justify-center">
               <Image
                 src="/images/work/rapyd-cloud/rapyd-cloud-strategy.svg"
@@ -161,8 +163,20 @@ export default function RapydCloudPage() {
                 className="object-contain"
               />
             </div>
-          </Section>
+          </div>
+        </Section>
 
+        <Section>
+          <SectionHeader>
+            <SectionKicker>Problem</SectionKicker>
+            <SectionTitle className="max-w-204">
+              I collected qualitative and quantitative insights, then analysed them to fully define
+              the problems faced by users.
+            </SectionTitle>
+          </SectionHeader>
+        </Section>
+
+        <Section>
           {/* 01 Define the Problem */}
           <NumberedSection
             number="01"

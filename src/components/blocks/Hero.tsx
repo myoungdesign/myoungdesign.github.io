@@ -1,8 +1,11 @@
 'use client';
 
-import { createContext, useContext, useEffect, useRef, useState } from 'react';
+import { createContext, useContext, useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 import { cn } from '@/utils';
+
+// useLayoutEffect warns during SSR; fall back to useEffect on the server.
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 type HeroContextValue = {
   /** Returns current fade progress (0 = fully visible, 1 = fully faded). */
@@ -69,7 +72,7 @@ export function Hero({
     endFracRef.current = resolvedFadeEnd;
   });
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (fullScreen) {
       const update = () => setHeroHeight(window.innerHeight);
       update();
