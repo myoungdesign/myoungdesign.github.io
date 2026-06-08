@@ -3,6 +3,7 @@ export * from './blocks';
 export * from './Callout';
 export * from './CardSlider';
 export * from './Counter';
+export * from './ExpandCard';
 export * from './Footer';
 export * from './Header';
 export * from './Hero';

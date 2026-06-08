@@ -8,6 +8,10 @@ import {
   CaseStudyCard,
   ChartLineUp,
   EightyTwenty,
+  ExpandButton,
+  ExpandCard,
+  ExpandCardContent,
+  ExpandCardCover,
   Link,
   Message,
   NumberedSection,
@@ -191,6 +195,57 @@ export default function RapydCloudPage() {
                 points.
               </p>
             </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+            <ExpandCard
+              expandedImage="/images/work/rapyd-cloud/interview-synthesis.png"
+              expandedAlt="Interview synthesis board"
+            >
+              <ExpandCardCover>
+                <Image
+                  src="/images/work/rapyd-cloud/interview-synthesis.png"
+                  alt="Interview synthesis"
+                  fill
+                  className="object-cover"
+                />
+                <ExpandButton label="Expand Interview synthesis" />
+              </ExpandCardCover>
+              <ExpandCardContent>
+                <h3 className="font-serif text-xl tracking-tight text-fg-muted">
+                  Interview synthesis
+                </h3>
+                <p className="font-sans text-md text-fg-subtle">
+                  I analysed the raw interview and survey data to identify common themes, patterns,
+                  and insights. What mattered most was clear: low-maintenance sites that stayed fast
+                  at peak engagement.
+                </p>
+              </ExpandCardContent>
+            </ExpandCard>
+
+            <ExpandCard
+              expandedImage="/images/work/rapyd-cloud/user-persona.png"
+              expandedAlt="Persona development"
+            >
+              <ExpandCardCover>
+                <Image
+                  src="/images/work/rapyd-cloud/user-persona.png"
+                  alt="Persona development"
+                  fill
+                  className="object-cover"
+                />
+                <ExpandButton label="Expand Persona development" />
+              </ExpandCardCover>
+              <ExpandCardContent>
+                <h3 className="font-serif text-xl tracking-tight text-fg-muted">
+                  Persona development
+                </h3>
+                <p className="font-sans text-md text-fg-subtle">
+                  Developing personas put faces to the customers we were building for. Then
+                  distributing them company-wide built empathy as governance from the start.
+                </p>
+              </ExpandCardContent>
+            </ExpandCard>
           </div>
         </Section>
 
