@@ -4,6 +4,5 @@ export * from './CardSlider';
 export * from './Hero';
 export * from './IconCard';
 export * from './HomeHero';
-export * from './ImpactRow';
 export * from './NumberedSection';
 export * from './Placeholder';

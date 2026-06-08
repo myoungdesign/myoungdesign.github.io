@@ -8,6 +8,7 @@ export * from './MobileMenu';
 export * from './Navbar';
 export * from './NavigationMenu';
 export * from './Page';
+export * from './ResultsTable';
 export * from './Section';
 export * from './SmoothScroll';
 export * from './ThemeProvider';

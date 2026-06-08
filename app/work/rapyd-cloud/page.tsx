@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { Fragment } from 'react';
 
 import {
   Callout,
@@ -9,7 +8,6 @@ import {
   CaseStudyCard,
   ChartLineUp,
   EightyTwenty,
-  ImpactRow,
   Link,
   Message,
   NumberedSection,
@@ -23,12 +21,12 @@ import {
   PageMetaItem,
   PageTitle,
   ProductRelease,
+  ResultsTable,
   Section,
   SectionHeader,
   SectionKicker,
   SectionTagline,
   SectionTitle,
-  Separator,
   Sync,
   TimerBolt,
   UserAdd,
@@ -58,27 +56,27 @@ const IMPACTS = [
   {
     icon: <TimerBolt />,
     label: 'Velocity',
-    outcome: 'The design system cut design-to-dev turnaround by 40%.',
+    value: 'The design system cut design-to-dev turnaround by 40%.',
   },
   {
     icon: <UserAdd />,
     label: 'Adoption',
-    outcome: '1,000+ sites hosted on Rapyd Cloud within 18 months.',
+    value: '1,000+ sites hosted on Rapyd Cloud within 18 months.',
   },
   {
     icon: <ChartLineUp />,
     label: 'Growth',
-    outcome: '10% MRR growth in Year 1; under 5% churn maintained since launch.',
+    value: '10% MRR growth in Year 1; under 5% churn maintained since launch.',
   },
   {
     icon: <EightyTwenty />,
     label: 'Satisfaction',
-    outcome: '80% average customer satisfaction score.',
+    value: '80% average customer satisfaction score.',
   },
   {
     icon: <Message />,
     label: 'Advocacy',
-    outcome: '4.9★ Trustpilot · 4.8★ G2',
+    value: '4.9★ Trustpilot · 4.8★ G2',
   },
 ];
 
@@ -383,23 +381,7 @@ export default function RapydCloudPage() {
             </SectionTitle>
           </SectionHeader>
 
-          <div className="flex flex-col">
-            <div className="hidden md:grid grid-cols-[auto_minmax(0,10rem)_minmax(0,1fr)] gap-x-8 pb-4 border-b border-gray-30">
-              <span />
-              <p className="font-sans text-xs font-medium tracking-[0.2em] text-soft uppercase">
-                Vertical
-              </p>
-              <p className="font-sans text-xs font-medium tracking-[0.2em] text-soft uppercase">
-                Outcome
-              </p>
-            </div>
-            {IMPACTS.map((row, i) => (
-              <Fragment key={row.label}>
-                {i > 0 && <Separator className="bg-gray-30" />}
-                <ImpactRow icon={row.icon} label={row.label} outcome={row.outcome} />
-              </Fragment>
-            ))}
-          </div>
+          <ResultsTable columns={['Vertical', 'Outcome']} rows={IMPACTS} />
         </Section>
 
         {/* Testimonial */}
