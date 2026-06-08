@@ -61,7 +61,7 @@ export default function AboutPage() {
         </PageMasthead>
       </PageHeader>
       <PageCover>
-        <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-90">
+        <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-20">
           <Image
             src="/images/about/mike-young.jpg"
             alt="Mike Young"

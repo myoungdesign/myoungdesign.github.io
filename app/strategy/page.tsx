@@ -158,7 +158,7 @@ export default function StrategyPage() {
             problem-solving.
           </p>
 
-          <div className="bg-bg-canvas flex flex-col mt-4 md:mt-6 lg:mt-8">
+          <div className="bg-gentle/70 flex flex-col my-4 md:my-6 lg:my-8 rounded-lg">
             <div className="relative w-full aspect-[2080/1056] p-8 md:p-10 lg:p-12">
               <Image
                 src="/images/strategy/the-stingray-model.svg"
@@ -167,11 +167,11 @@ export default function StrategyPage() {
                 className="object-contain"
               />
             </div>
-            <div className="p-6 md:p-8 lg:p-10">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 border-t border-border-subtle pt-lg">
+            <div className="p-6 md:p-8 lg:p-10 !pt-5">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 border-t border-subtle pt-lg">
                 {PHASES.map(phase => (
                   <div key={phase.label} className="flex flex-col gap-6 lg:max-w-[18rem]">
-                    <p className="font-sans font-medium text-xs tracking-widest uppercase text-gray-70 whitespace-pre">
+                    <p className="font-sans font-medium text-xs tracking-widest uppercase text-gray-60 whitespace-pre">
                       {phase.label}
                     </p>
                     <div className="flex flex-col gap-3">

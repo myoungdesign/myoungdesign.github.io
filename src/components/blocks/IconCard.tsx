@@ -12,7 +12,7 @@ export function IconCard({ icon, title, children, bullets, className }: IconCard
   return (
     <div
       className={cn(
-        'flex flex-col gap-4 border border-gray-90 bg-white p-6 md:p-8 text-fg',
+        'flex flex-col gap-4 bg-elevated border border-gray-90 bg-white p-6 md:p-8 text-fg rounded-lg',
         className
       )}
     >

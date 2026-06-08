@@ -18,7 +18,7 @@ function TableHeader({ columns }: { columns: [string, string] }) {
       <tr>
         <th
           scope="col"
-          className="w-44 md:w-1/3 pr-3 py-2 align-middle font-sans text-lg font-medium text-fg-emphasis"
+          className="w-44 md:w-1/3 pl-1 pr-3 py-2 align-middle font-sans text-lg font-medium text-fg-emphasis"
         >
           {columns[0]}
         </th>
@@ -36,14 +36,14 @@ function TableHeader({ columns }: { columns: [string, string] }) {
 function TableRow({ icon, label, value }: ResultsTableRow) {
   return (
     <tr className="border-t border-subtle">
-      <td className="w-44 md:w-1/3 pr-3 align-middle">
-        <div className="flex min-h-24 items-center gap-[18px] py-3">
-          {icon && <span className="shrink-0 size-9 text-fg [&_svg]:size-9">{icon}</span>}
+      <td className="w-44 md:w-1/3 align-middle">
+        <div className="flex min-h-24 py-4 pr-3 items-center gap-4">
+          {icon && <span className="shrink-0 size-9 text-fg [&_svg]:size-8">{icon}</span>}
           <span className="font-serif text-xl tracking-tight leading-9 text-fg">{label}</span>
         </div>
       </td>
-      <td className="px-3 align-middle">
-        <div className="flex min-h-24 items-center py-3 font-sans text-lg leading-7 text-fg">
+      <td className="align-middle">
+        <div className="flex min-h-24 py-3 px-4 items-center font-sans text-lg leading-7 text-fg">
           {value}
         </div>
       </td>

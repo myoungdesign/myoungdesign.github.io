@@ -26,7 +26,7 @@ export default async function WritingsPage() {
         </PageMasthead>
       </PageHeader>
 
-      <section className="relative z-[2] bg-bg-canvas p-xl">
+      <section className="relative z-[2] bg-canvas p-xl">
         <div className="mx-auto w-full max-w-(--container-6xl) flex flex-col gap-6 md:gap-14 py-xs">
           {posts.length === 0 ? (
             <p className="font-sans text-md text-gray-50">

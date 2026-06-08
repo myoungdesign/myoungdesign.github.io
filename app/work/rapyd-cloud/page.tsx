@@ -98,7 +98,7 @@ export default function RapydCloudPage() {
       </PageHeader>
 
       <PageCover>
-        <div className="relative aspect-[16/10] w-full overflow-hidden bg-bg-canvas">
+        <div className="relative aspect-[16/10] w-full overflow-hidden bg-canvas">
           <Image
             src="/images/work/rapyd-cloud/cover.png"
             alt="Rapyd Cloud dashboard on a laptop"
@@ -152,7 +152,7 @@ export default function RapydCloudPage() {
               a viable solution.
             </SectionTagline>
           </SectionHeader>
-          <Section className="bg-canvas !p-lg -mx-xl md:-mx-0 md:-mt-3">
+          <Section className="bg-gentle !p-lg -mx-xl md:-mx-0 md:-mt-3 rounded-lg">
             <div className="relative w-full aspect-[21/9] overflow-hidden flex items-center justify-center">
               <Image
                 src="/images/work/rapyd-cloud/rapyd-cloud-strategy.svg"
@@ -358,7 +358,7 @@ export default function RapydCloudPage() {
             {[1, 2, 3, 4].map(i => (
               <div
                 key={i}
-                className="relative shrink-0 snap-start w-[85%] sm:w-[60%] md:w-[55%] aspect-[16/10] overflow-hidden bg-bg-canvas"
+                className="relative shrink-0 snap-start w-[85%] sm:w-[60%] md:w-[55%] aspect-[16/10] overflow-hidden bg-canvas"
               >
                 <Image
                   src={`/images/work/rapyd-cloud/final-output-${i}.jpg`}
