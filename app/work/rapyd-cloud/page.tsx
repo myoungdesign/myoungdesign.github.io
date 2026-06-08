@@ -5,9 +5,9 @@ import {
   Callout,
   CalloutColumn,
   CalloutColumns,
+  CalloutKicker,
   CaseStudyCard,
   ChartLineUp,
-  ConstraintCard,
   EightyTwenty,
   ImpactRow,
   Link,
@@ -40,7 +40,7 @@ const CONSTRAINTS = [
   {
     icon: <Sync />,
     title: 'Make switching easy',
-    body: 'Moving hosts is a real hassle, so setup and migration had to be simple enough for a non-technical owner to trust from day one.',
+    body: 'Moving hosts is a real hassle, so setup had to be simple enough for a non-technical owner to trust from day one.',
   },
   {
     icon: <ProductRelease />,
@@ -111,7 +111,7 @@ export default function RapydCloudPage() {
         </div>
       </PageCover>
 
-      <PageContent>
+      <PageContent className="gap-12 md:gap-16 lg:gap-20 pt-sm">
         {/* Overview */}
         <Overview
           problem={
@@ -120,10 +120,9 @@ export default function RapydCloudPage() {
               <Link href="https://www.buddyboss.com" external>
                 BuddyBoss
               </Link>
-              , we surfaced a growing problem: WordPress hosts weren’t optimised for
-              high-engagement sites such as eLearning, e-commerce, and social communities. Site
-              owners were being charged high-traffic premiums to support high concurrent user
-              activity.
+              , we surfaced a growing problem: WordPress hosts weren’t optimised for high-engagement
+              sites such as eLearning, e-commerce, and social communities. Site owners were being
+              charged high-traffic premiums to support high concurrent user activity.
             </>
           }
           solution="I helped put Rapyd Cloud’s scalable infrastructure behind a dashboard that made fast, reliable hosting accessible to non-technical creators, educators, and sellers with interactive WordPress sites."
@@ -131,15 +130,15 @@ export default function RapydCloudPage() {
 
         {/* Project Goals */}
         <Callout>
-          <h2 className="font-sans font-medium text-xs uppercase tracking-widest text-gray-70 pb-6 md:pb-10">
-            Project Goals
-          </h2>
+          <CalloutKicker>Project Goals</CalloutKicker>
           <CalloutColumns>
             {CONSTRAINTS.map(c => (
               <CalloutColumn key={c.title}>
-                <ConstraintCard icon={c.icon} title={c.title}>
-                  {c.body}
-                </ConstraintCard>
+                <div className="flex flex-col gap-3">
+                  <div className="text-gray-95 [&_svg]:size-12 pb-4">{c.icon}</div>
+                  <h3 className="font-normal text-2xl text-white">{c.title}</h3>
+                  <p>{c.body}</p>
+                </div>
               </CalloutColumn>
             ))}
           </CalloutColumns>
@@ -149,20 +148,22 @@ export default function RapydCloudPage() {
         <Section className="!gap-xl">
           <SectionHeader>
             <SectionKicker>Strategy</SectionKicker>
-            <SectionTitle>From Problem to Product</SectionTitle>
+            <SectionTitle className="text-3xl md:text-4xl">From Problem to Product</SectionTitle>
             <SectionTagline>
               My strategy was built upon following a structured path from an untapped opportunity to
               a viable solution.
             </SectionTagline>
           </SectionHeader>
-          <div className="relative w-full aspect-[16/9] overflow-hidden bg-bg-canvas flex items-center justify-center">
-            <Image
-              src="/images/work/rapyd-cloud/rapyd-cloud-strategy.svg"
-              alt="From Problem to Product — a structured path from an untapped opportunity to a viable solution"
-              fill
-              className="object-contain"
-            />
-          </div>
+          <Section className="bg-canvas !p-lg -mx-xl md:-mx-0 md:-mt-3">
+            <div className="relative w-full aspect-[21/9] overflow-hidden flex items-center justify-center">
+              <Image
+                src="/images/work/rapyd-cloud/rapyd-cloud-strategy.svg"
+                alt="From Problem to Product — a structured path from an untapped opportunity to a viable solution"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </Section>
 
           {/* 01 Define the Problem */}
           <NumberedSection
@@ -376,7 +377,7 @@ export default function RapydCloudPage() {
         <Section>
           <SectionHeader>
             <SectionKicker>Impact</SectionKicker>
-            <SectionTitle>
+            <SectionTitle className="max-w-180">
               The product shipped before the 9-month deadline, with growth that held well past
               launch.
             </SectionTitle>

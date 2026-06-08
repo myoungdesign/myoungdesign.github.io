@@ -26,7 +26,7 @@ type PageMetaItemProps = {
 
 export function PageMetaItem({ label, value, className }: PageMetaItemProps) {
   return (
-    <div className={cn('flex flex-col gap-1 border-l border-gray-40 px-4 py-1', className)}>
+    <div className={cn('flex flex-col gap-1 border-l border-gray-40 px-6 py-1', className)}>
       <dt className="font-sans text-sm md:text-md font-medium text-gray-70">{label}</dt>
       <dd className="font-sans text-md md:text-lg text-white">{value}</dd>
     </div>

@@ -124,7 +124,7 @@ export default function AboutPage() {
               momentum.
             </SectionTagline>
           </SectionHeader>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mt-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-12 mt-3">
             <IconCard icon={<Message />} title="Continual Alignment">
               Constant communication drives innovation and hastens execution. There's a time for
               Figma, and a time for huddles.
