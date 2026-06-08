@@ -174,6 +174,24 @@ export default function RapydCloudPage() {
               the problems faced by users.
             </SectionTitle>
           </SectionHeader>
+
+          <div className="relative w-full overflow-hidden rounded-lg bg-canvas">
+            <div className="relative aspect-[2/1] w-full">
+              <Image
+                src="/images/work/rapyd-cloud/user-interviews.jpg"
+                alt="Stakeholder inquiry"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2.5 bg-gradient-to-t from-black/90 to-transparent p-8">
+              <h3 className="font-serif text-2xl text-white">Stakeholder inquiry</h3>
+              <p className="max-w-90 font-sans text-md text-gray-95">
+                I canvassed prospective customers and surveyed industry leaders to surface pain
+                points.
+              </p>
+            </div>
+          </div>
         </Section>
 
         <Section>

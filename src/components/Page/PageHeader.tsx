@@ -1,6 +1,6 @@
 'use client';
 
-import { Hero, HeroContent } from '@/components/blocks/Hero';
+import { Hero, HeroContent } from '@/components/Hero';
 import { cn } from '@/utils';
 
 import { usePageContext } from './context';
