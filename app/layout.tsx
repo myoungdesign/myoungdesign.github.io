@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { cookies, headers } from 'next/headers';
 
-import { Footer, Header, SmoothScroll, ThemeProvider } from '@/components';
+import { Footer, Header, PageLoadOverlay, SmoothScroll, ThemeProvider } from '@/components';
 
 import '@/index.css';
 
@@ -37,6 +37,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <ThemeProvider theme="light">
           <SmoothScroll>
             <Header />
+            <PageLoadOverlay />
             <main className="flex-1">{children}</main>
             <Footer />
           </SmoothScroll>

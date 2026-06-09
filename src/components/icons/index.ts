@@ -1,14 +1,2 @@
-export { ArrowUpRight } from './ArrowUpRight';
-export { Communication } from './Communication';
-export { EightyTwenty } from './EightyTwenty';
-export { Flexible } from './Flexible';
-export { FormFunction } from './FormFunction';
-export { Growth } from './Growth';
-export { Heart } from './Heart';
 export { LinkedIn } from './LinkedIn';
-export { LongGame } from './LongGame';
-export { Rocket } from './Rocket';
-export { Star } from './Star';
-export { Switch } from './Switch';
-export { Users } from './Users';
-export { Velocity } from './Velocity';
+export * from './brand';

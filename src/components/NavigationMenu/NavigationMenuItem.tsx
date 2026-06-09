@@ -14,7 +14,7 @@ export function NavigationMenuItem({ href, text, active }: NavigationMenuItemPro
       href={href}
       className={cn(
         'flex h-9 items-center justify-center whitespace-nowrap rounded-full px-4.5 text-sm tracking-wide font-medium transition-colors',
-        active ? 'bg-gray-40 text-white' : 'text-gray-70 hover:text-white'
+        active ? 'bg-white/12 text-white' : 'text-gray-80 hover:text-white'
       )}
     >
       {text}

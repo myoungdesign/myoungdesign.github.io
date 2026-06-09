@@ -1,92 +1,129 @@
 import Image from 'next/image';
-import { Fragment } from 'react';
 
 import {
-  CaseStudyCard,
-  CaseStudyHeader,
-  ConstraintCard,
-  Communication,
-  Flexible,
-  Growth,
-  Heart,
-  ImpactRow,
-  NumberedSection,
+  Callout,
+  CalloutColumn,
+  CalloutColumns,
+  CalloutKicker,
+  Card,
+  CardContent,
+  CardCover,
+  Carousel,
+  CarouselContent,
+  CarouselCounter,
+  CarouselNext,
+  CarouselPrevious,
+  CarouselSlide,
+  ChartLineUp,
+  EightyTwenty,
+  ExpandButton,
+  ExpandCard,
+  ExpandCardContent,
+  ExpandCardCover,
+  Link,
+  Message,
   Page,
   PageContent,
   PageCover,
-  Rocket,
-  Separator,
-  Star,
-  Switch,
-  Users,
-  Velocity,
+  PageHeader,
+  PageKicker,
+  PageMasthead,
+  PageMeta,
+  PageMetaItem,
+  PageTitle,
+  ProductRelease,
+  QuoteCard,
+  ResultsTable,
+  Section,
+  SectionHeader,
+  SectionKicker,
+  SectionTagline,
+  SectionTitle,
+  Sync,
+  TimerBolt,
+  UserAdd,
 } from '@/components';
 
-const META = [
-  { label: 'Product', value: 'Rapyd Cloud' },
-  { label: 'My role', value: 'Principal Product Designer' },
-  { label: 'Timeline', value: '9 months' },
-];
+import { Overview } from '../components/Overview';
 
 const CONSTRAINTS = [
   {
-    icon: <Switch />,
+    icon: <Sync />,
     title: 'Make switching easy',
-    body: 'Moving hosts is a real hassle, so setup and migration had to be simple enough for a non-technical owner to trust from day one.',
+    body: 'Moving hosts is a real hassle, so setup had to be simple enough for a non-technical owner to trust from day one.',
   },
   {
-    icon: <Flexible />,
+    icon: <ProductRelease />,
     title: 'Stay flexible',
     body: 'Ship the core product quickly without letting speed-driven choices block later iterations or a potential white-label resale.',
   },
   {
-    icon: <Rocket />,
+    icon: <TimerBolt />,
     title: 'Ship fast, build lean',
     body: 'The founders needed ROI on a tight deadline, so design had to surface and deliver the MVP that would meet it.',
   },
 ];
 
+const SCREENSHOTS = [
+  { name: 'login', alt: 'Rapyd Cloud sign-up and login screen' },
+  { name: 'user-onboarding', alt: 'User onboarding flow' },
+  { name: 'ftue', alt: 'First-time user experience walkthrough' },
+  { name: 'sites-directory', alt: 'Sites directory dashboard' },
+  { name: 'manage-site', alt: 'Manage site dashboard' },
+  { name: 'manage-domains', alt: 'Domain management screen' },
+  { name: 'team-management', alt: 'Team management screen' },
+  { name: 'billing', alt: 'Billing and subscription screen' },
+].map(s => ({ src: `/images/work/rapyd-cloud/screenshots/${s.name}.png`, alt: s.alt }));
+
 const IMPACTS = [
   {
-    icon: <Velocity />,
+    icon: <TimerBolt />,
     label: 'Velocity',
-    outcome: 'The design system cut design-to-dev turnaround by 40%.',
+    value: 'The design system cut design-to-dev turnaround by 40%.',
   },
   {
-    icon: <Users />,
+    icon: <UserAdd />,
     label: 'Adoption',
-    outcome: '1,500+ signups to Rapyd Cloud in 18 months.',
+    value: '1,000+ sites hosted on Rapyd Cloud within 18 months.',
   },
   {
-    icon: <Growth />,
+    icon: <ChartLineUp />,
     label: 'Growth',
-    outcome:
-      '67% MRR growth in Year 1, a hair 5% above market expansion for similar SaaS launches.',
+    value: '10% MRR growth in Year 1; under 5% churn maintained since launch.',
   },
   {
-    icon: <Heart />,
+    icon: <EightyTwenty />,
     label: 'Satisfaction',
-    outcome: '90% average customer satisfaction score.',
+    value: '80% average customer satisfaction score.',
   },
   {
-    icon: <Star />,
+    icon: <Message />,
     label: 'Advocacy',
-    outcome: '4.7★ Trustpilot · 4.8★ G2',
+    value: '4.9★ Trustpilot · 4.8★ G2',
   },
 ];
 
 export default function RapydCloudPage() {
   return (
     <Page hasCover>
-      <CaseStudyHeader
-        title={<>Supercharged Hosting for WordPress Creators</>}
-        meta={META}
-      />
+      <PageHeader>
+        <PageMasthead>
+          <PageKicker>Case study</PageKicker>
+          <PageTitle className="sm:max-w-[75%]">
+            Supercharged Hosting for WordPress Creators
+          </PageTitle>
+          <PageMeta>
+            <PageMetaItem label="Product" value="Rapyd Cloud" />
+            <PageMetaItem label="My role" value="Principal Product Designer" />
+            <PageMetaItem label="Timeline" value="9 months" />
+          </PageMeta>
+        </PageMasthead>
+      </PageHeader>
 
       <PageCover>
-        <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-20">
+        <div className="relative aspect-[16/10] w-full overflow-hidden bg-canvas">
           <Image
-            src="/images/work/rapyd-cloud/cover.jpg"
+            src="/images/work/rapyd-cloud/cover.png"
             alt="Rapyd Cloud dashboard on a laptop"
             fill
             className="object-cover"
@@ -95,327 +132,457 @@ export default function RapydCloudPage() {
         </div>
       </PageCover>
 
-      <PageContent>
+      <PageContent className="gap-12 md:gap-16 lg:gap-20 pt-sm">
         {/* Overview */}
-        <section className="flex flex-col gap-8">
-          <h2 className="font-serif text-2xl lg:text-3xl tracking-tight text-fg-emphasis">
-            Overview
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
-            <div className="flex flex-col gap-4">
-              <h3 className="font-sans text-xs font-medium tracking-[0.2em] text-soft uppercase">
-                The problem
-              </h3>
-              <p className="font-sans text-md text-fg">
-                While building <em>BuddyBoss</em>, we surfaced a growing problem: WordPress hosts
-                weren’t optimised for high-engagement sites such as eLearning, e-commerce, and
-                social communities. Site owners were being charged high-traffic premiums to support
-                high concurrent user activity.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4">
-              <h3 className="font-sans text-xs font-medium tracking-[0.2em] text-soft uppercase">
-                The solution
-              </h3>
-              <p className="font-sans text-md text-fg">
-                I helped put Rapyd Cloud’s scalable infrastructure behind a dashboard that made
-                fast, reliable hosting accessible to non-technical creators, educators, and sellers
-                with interactive WordPress sites.
-              </p>
-            </div>
-          </div>
-        </section>
+        <Overview
+          problem={
+            <>
+              While building{' '}
+              <Link href="https://www.buddyboss.com" external>
+                BuddyBoss
+              </Link>
+              , we surfaced a growing problem: WordPress hosts weren’t optimised for high-engagement
+              sites such as eLearning, e-commerce, and social communities. Site owners were being
+              charged high-traffic premiums to support high concurrent user activity.
+            </>
+          }
+          solution="I helped put Rapyd Cloud’s scalable infrastructure behind a dashboard that made fast, reliable hosting accessible to non-technical creators, educators, and sellers with interactive WordPress sites."
+        />
 
-        {/* Project Constraints */}
-        <section className="bg-fg-emphasis text-white p-8 md:p-10 flex flex-col gap-8">
-          <h2 className="font-sans text-md font-medium uppercase tracking-[0.2em] text-white">
-            Project Constraints
-          </h2>
-          <div className="flex flex-col md:flex-row gap-0">
-            {CONSTRAINTS.map((c, i) => (
-              <Fragment key={c.title}>
-                {i > 0 && (
-                  <>
-                    <Separator className="md:hidden my-2 bg-gray-80" />
-                    <Separator
-                      orientation="vertical"
-                      className="hidden md:block bg-gray-80"
-                    />
-                  </>
-                )}
-                <div className="flex-1">
-                  <ConstraintCard icon={c.icon} title={c.title}>
-                    {c.body}
-                  </ConstraintCard>
+        {/* Project Goals */}
+        <Callout>
+          <CalloutKicker>Project Goals</CalloutKicker>
+          <CalloutColumns>
+            {CONSTRAINTS.map(c => (
+              <CalloutColumn key={c.title}>
+                <div className="flex flex-col gap-3">
+                  <div className="text-gray-95 [&_svg]:size-12 pb-4">{c.icon}</div>
+                  <h3 className="font-normal text-2xl text-white">{c.title}</h3>
+                  <p>{c.body}</p>
                 </div>
-              </Fragment>
+              </CalloutColumn>
             ))}
-          </div>
-        </section>
+          </CalloutColumns>
+        </Callout>
 
-        {/* My Strategy */}
-        <section className="flex flex-col gap-8">
-          <h2 className="font-serif text-2xl lg:text-3xl tracking-tight text-fg-emphasis">
-            My Strategy
-          </h2>
-          <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-10 flex items-center justify-center">
-            <Image
-              src="/images/work/rapyd-cloud/strategy-diagram.svg"
-              alt="From Problem to Product — a structured path from an untapped opportunity to a viable solution"
-              fill
-              className="object-contain"
-            />
-          </div>
-        </section>
+        {/* Strategy */}
+        <Section className="gap-8 md:gap-10">
+          <SectionHeader className="items-center text-center justify-center !gap-3">
+            <SectionTitle className="text-center text-3xl md:text-4xl">
+              From Problem to Product
+            </SectionTitle>
+            <SectionTagline className="text-center max-w-128 mx-auto">
+              My strategy was built upon following a structured path from an untapped opportunity to
+              a viable solution.
+            </SectionTagline>
+          </SectionHeader>
 
-        {/* 01 Define the Problem */}
-        <NumberedSection
-          number="01"
-          title="Define the Problem"
-          intro="I conducted user interviews and reviewed user feedback to define the problems."
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <CaseStudyCard
-              image="/images/work/rapyd-cloud/stakeholder-inquiry.jpg"
-              imageAlt="Stakeholder inquiry"
-              title="Stakeholder inquiry"
-            >
-              Canvassed prospective customers and industry leaders to surface pain points.
-            </CaseStudyCard>
-            <CaseStudyCard
-              image="/images/work/rapyd-cloud/interview-synthesis.jpg"
-              imageAlt="Interview synthesis"
-              title="Interview synthesis"
-            >
-              Analysed raw interview data to identify common themes, patterns, and insights.
-            </CaseStudyCard>
-            <CaseStudyCard
-              image="/images/work/rapyd-cloud/persona-development.jpg"
-              imageAlt="Persona development"
-              title="Persona development"
-            >
-              Distributed company-wide to build empathy as governance from the start.
-            </CaseStudyCard>
+          <div className="bg-gentle px-sm py-md rounded-lg">
+            <div className="relative w-full aspect-[21/9] overflow-hidden flex items-center justify-center">
+              <Image
+                src="/images/work/rapyd-cloud/rapyd-cloud-strategy.svg"
+                alt="From Problem to Product — a structured path from an untapped opportunity to a viable solution"
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
-        </NumberedSection>
+        </Section>
 
-        {/* 02 Build the Proposition */}
-        <NumberedSection
-          number="02"
-          title="Build the Proposition"
-          intro="I developed a value proposition and mapped the customer journey to define what to ship."
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <CaseStudyCard
-              image="/images/work/rapyd-cloud/value-proposition.jpg"
-              imageAlt="Value proposition fit"
-              title="Value proposition fit"
-              bullets={[
-                'Developed fits for all customer segments',
-                'Illuminated customer pains, gains, and jobs-to-be-done',
-                'Proposed solutions for the product to offer',
-              ]}
-            >
-              Aligned our offering with our target customers needs and desires.
-            </CaseStudyCard>
-            <CaseStudyCard
-              image="/images/work/rapyd-cloud/journey-mapping.jpg"
-              imageAlt="Journey mapping"
-              title="Journey mapping"
-              bullets={[
-                'Mapped from first contact to becoming a loyal customer',
-                'Connected user actions to business outcomes',
-                'Flagged opportunities to reduce friction and build trust',
-              ]}
-            >
-              Highlighted customers’ emotions, pain points, and unmet needs.
-            </CaseStudyCard>
-          </div>
-        </NumberedSection>
+        <Section>
+          <SectionHeader>
+            <SectionKicker>Problem</SectionKicker>
+            <SectionTitle className="max-w-204">
+              I collected qualitative and quantitative insights, then analysed them to fully define
+              the problems faced by users.
+            </SectionTitle>
+          </SectionHeader>
 
-        {/* 03 Establish the Foundations */}
-        <NumberedSection
-          number="03"
-          title="Establish the Foundations"
-          intro="I unified fragmented early-builds into a governed system that aligned design and engineering."
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <CaseStudyCard
-              image="/images/work/rapyd-cloud/design-tokens.jpg"
-              imageAlt="Design tokens"
-              title="Design tokens"
-              bullets={[
-                'Applied instead of hardcoded values',
-                'Maintained experience across devices',
-                'Integrated with MUI’s theme provider',
-              ]}
-            >
-              Created a single source of truth between design and engineering.
-            </CaseStudyCard>
-            <CaseStudyCard
-              image="/images/work/rapyd-cloud/component-library.jpg"
-              imageAlt="Component library"
-              title="Component library"
-              bullets={[
-                'Standardised UI across UX flows',
-                'Delivered with production-ready specs',
-                'Cut design-to-dev handoff time',
-              ]}
-            >
-              Built a library of reusable UI patterns to reuse across the dashboard screens.
-            </CaseStudyCard>
-            <CaseStudyCard
-              image="/images/work/rapyd-cloud/information-architecture.jpg"
-              imageAlt="Information architecture"
-              title="Information architecture"
-              bullets={[
-                'Avoided use of tech-jargon',
-                'Optimised to reduce cognitive load',
-                'Ensured no “dead-ends”',
-              ]}
-            >
-              Structured hand-holding to guide users from initial setup to ongoing maintenance.
-            </CaseStudyCard>
-          </div>
-        </NumberedSection>
-
-        {/* 04 Design the Experience */}
-        <NumberedSection
-          number="04"
-          title="Design the Experience"
-          intro="I designed the core flows end to end, from low-fi wireframes to production-ready screens."
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <CaseStudyCard
-              image="/images/work/rapyd-cloud/low-fi.jpg"
-              imageAlt="Low-fidelity wireframes"
-              title="Low-fidelity wireframes"
-              bullets={[
-                'Kept focus on user needs, not visuals',
-                'Surfaced flaws in user journeys early',
-                'Allowed fast iteration before commit',
-              ]}
-            >
-              Mapped the core UX flows as wireframes to quickly validate assumptions before
-              committing real design time.
-            </CaseStudyCard>
-            <CaseStudyCard
-              image="/images/work/rapyd-cloud/high-fi.jpg"
-              imageAlt="High-fidelity design"
-              title="High-fidelity design"
-              bullets={[
-                'Brought every screen to handoff-ready quality',
-                'Stress-tested every corner of the flow',
-                'Refined motion, timing, and visual hierarchy',
-              ]}
-            >
-              Brought every core flow to fidelity, accounting for all edge cases and using motion to
-              direct focus.
-            </CaseStudyCard>
-          </div>
-        </NumberedSection>
-
-        {/* 05 Create Feedback Loops */}
-        <NumberedSection
-          number="05"
-          title="Create Feedback Loops"
-          intro="I collaborated with the customer-facing team to measure impact and keep learning from users after launch."
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <CaseStudyCard
-              image="/images/work/rapyd-cloud/in-app-surveys.jpg"
-              imageAlt="In-app surveys"
-              title="In-app surveys"
-            >
-              A lightweight survey delivered in context at key moments in the journey for fast
-              casual signal.
-            </CaseStudyCard>
-            <CaseStudyCard
-              image="/images/work/rapyd-cloud/public-feedback.jpg"
-              imageAlt="Public feedback portal"
-              title="Public feedback portal"
-            >
-              Provided easy ingest of the final output, where users could vote on roadmap, send in
-              ideas, and follow up with their teams.
-            </CaseStudyCard>
-            <CaseStudyCard
-              image="/images/work/rapyd-cloud/evidence-based.jpg"
-              imageAlt="Evidence-based decisions"
-              title="Evidence-based decisions"
-            >
-              From a feedback dragnet into the relevant roadmap, themed and tied to the impact of
-              release. We collected it all and pulled prioritising from there.
-            </CaseStudyCard>
-          </div>
-        </NumberedSection>
-
-        {/* Final Outputs */}
-        <section className="flex flex-col gap-8">
-          <div className="flex items-center justify-between">
-            <h2 className="font-serif text-2xl lg:text-3xl tracking-tight text-fg-emphasis">
-              Final Outputs
-            </h2>
-          </div>
-          <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-xl px-xl">
-            {[1, 2, 3, 4].map((i) => (
-              <div
-                key={i}
-                className="relative shrink-0 snap-start w-[85%] sm:w-[60%] md:w-[55%] aspect-[16/10] overflow-hidden bg-fg-emphasis"
-              >
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+            <div className="relative w-full overflow-hidden rounded-lg bg-canvas md:col-span-2">
+              <div className="relative aspect-[2/1] w-full">
                 <Image
-                  src={`/images/work/rapyd-cloud/final-output-${i}.jpg`}
-                  alt={`Final output ${i}`}
+                  src="/images/work/rapyd-cloud/user-interviews.jpg"
+                  alt="Stakeholder inquiry"
                   fill
                   className="object-cover"
                 />
               </div>
-            ))}
-          </div>
-        </section>
-
-        {/* The Impact */}
-        <section className="flex flex-col gap-8">
-          <h2 className="font-serif text-2xl lg:text-3xl tracking-tight text-fg-emphasis">
-            The Impact
-          </h2>
-          <p className="font-sans text-md text-fg">
-            Ships outcome 14-month deadline, with growth that held well past launch.
-          </p>
-
-          <div className="flex flex-col">
-            <div className="hidden md:grid grid-cols-[auto_minmax(0,10rem)_minmax(0,1fr)] gap-x-8 pb-4 border-b border-gray-30">
-              <span />
-              <p className="font-sans text-xs font-medium tracking-[0.2em] text-soft uppercase">
-                Verbal
-              </p>
-              <p className="font-sans text-xs font-medium tracking-[0.2em] text-soft uppercase">
-                Outcome
-              </p>
+              <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2 bg-gradient-to-t from-black/90 to-transparent p-7">
+                <h3 className="font-serif text-2xl text-white">Stakeholder inquiry</h3>
+                <p className="max-w-90 text-gray-95">
+                  I canvassed prospective customers and surveyed industry leaders to surface pain
+                  points.
+                </p>
+              </div>
             </div>
-            {IMPACTS.map((row, i) => (
-              <Fragment key={row.label}>
-                {i > 0 && <Separator className="bg-gray-30" />}
-                <ImpactRow icon={row.icon} label={row.label} outcome={row.outcome} />
-              </Fragment>
-            ))}
+
+            <ExpandCard
+              expandedImage="/images/work/rapyd-cloud/interview-synthesis.png"
+              expandedAlt="Interview synthesis"
+            >
+              <ExpandCardCover>
+                <Image
+                  src="/images/work/rapyd-cloud/thumbs/interview-synthesis.png"
+                  alt="Interview synthesis"
+                  fill
+                  className="object-cover"
+                />
+                <ExpandButton label="Open interview synthesis" />
+              </ExpandCardCover>
+              <ExpandCardContent>
+                <h3 className="font-serif text-xl tracking-tight text-fg">Interview synthesis</h3>
+                <p className="text-fg-subtle">
+                  I analysed the raw interview and survey data to identify common themes, patterns,
+                  and insights. What mattered most was clear: low-maintenance sites that stayed fast
+                  at peak engagement.
+                </p>
+              </ExpandCardContent>
+            </ExpandCard>
+
+            <ExpandCard
+              expandedImage="/images/work/rapyd-cloud/user-persona.png"
+              expandedAlt="User persona"
+            >
+              <ExpandCardCover>
+                <Image
+                  src="/images/work/rapyd-cloud/thumbs/persona-development.png"
+                  alt="Persona development"
+                  fill
+                  className="object-cover"
+                />
+                <ExpandButton label="Open persona profile" />
+              </ExpandCardCover>
+              <ExpandCardContent>
+                <h3 className="font-serif text-xl tracking-tight text-fg">Persona development</h3>
+                <p className="text-fg-subtle">
+                  Developing personas put faces to the customers we were building for. Then
+                  distributing them company-wide built empathy as governance from the start.
+                </p>
+              </ExpandCardContent>
+            </ExpandCard>
           </div>
-        </section>
+        </Section>
+
+        <Section>
+          <SectionHeader>
+            <SectionKicker>Proposition</SectionKicker>
+            <SectionTitle className="max-w-204">
+              With the research in hand, I plotted a course from the customer problems to the
+              offering that would solve them.
+            </SectionTitle>
+          </SectionHeader>
+
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+            <ExpandCard
+              expandedImage="/images/work/rapyd-cloud/value-proposition-fit.png"
+              expandedAlt="Value proposition fit"
+            >
+              <ExpandCardCover>
+                <Image
+                  src="/images/work/rapyd-cloud/thumbs/value-proposition-fit.png"
+                  alt="Proposition canvas"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <ExpandButton label="Open value proposition fit" />
+              </ExpandCardCover>
+              <ExpandCardContent>
+                <h3 className="font-serif text-xl tracking-tight text-fg">Proposition canvas</h3>
+                <p className="text-fg-subtle">
+                  I identified a value proposition fit for each customer segment, surfacing the
+                  pains, gains, and jobs-to-be-done that defined the solution we'd need to build.
+                </p>
+              </ExpandCardContent>
+            </ExpandCard>
+
+            <ExpandCard
+              expandedImage="/images/work/rapyd-cloud/customer-journey-map.png"
+              expandedAlt="Journey mapping"
+            >
+              <ExpandCardCover>
+                <Image
+                  src="/images/work/rapyd-cloud/thumbs/journey-mapping.png"
+                  alt="Journey mapping"
+                  fill
+                  className="object-cover"
+                />
+                <ExpandButton label="Open customer journey map" />
+              </ExpandCardCover>
+              <ExpandCardContent>
+                <h3 className="font-serif text-xl tracking-tight text-fg">Journey mapping</h3>
+                <p className="text-fg-subtle">
+                  By mapping the journey from first contact to loyalty, I connected user actions to
+                  business outcomes and flagged the friction, emotions, and unmet needs to design
+                  around.
+                </p>
+              </ExpandCardContent>
+            </ExpandCard>
+          </div>
+        </Section>
+
+        {/* Foundations */}
+        <Section>
+          <SectionHeader>
+            <SectionKicker>Foundations</SectionKicker>
+            <SectionTitle className="max-w-190">
+              I unified fragmented early-builds into a single governed system that aligned design
+              and engineering.
+            </SectionTitle>
+          </SectionHeader>
+
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-stretch">
+            <div className="flex flex-col gap-10 lg:w-[32rem] lg:shrink-0">
+              <Card className="relative flex-row items-center bg-elevated">
+                <CardContent className="sm:max-w-[62%]">
+                  <h3 className="font-serif text-xl tracking-tight text-fg">Design tokens</h3>
+                  <p className="text-fg-subtle">
+                    Tokens helped maintain a quality experience across devices and provided a single
+                    source of truth between design and engineering.
+                  </p>
+                </CardContent>
+                <Image
+                  src="/images/work/rapyd-cloud/design-tokens.png"
+                  alt="Rapyd brand design tokens defined in Figma variables"
+                  width={206}
+                  height={177}
+                  className="pointer-events-none absolute right-0 top-6 hidden h-auto w-[206px] sm:block"
+                />
+              </Card>
+
+              <Card className="relative bg-elevated">
+                <CardContent className="pb-1">
+                  <h3 className="font-serif text-xl tracking-tight text-fg">Component library</h3>
+                  <p className="text-fg-subtle">
+                    I delivered a library of reusable UI patterns with production-ready specs that
+                    standardised UI across UX flows and cut design-to-dev handoff time.
+                  </p>
+                </CardContent>
+                <Image
+                  src="/images/work/rapyd-cloud/component-library.png"
+                  alt="Rapyd Cloud component library shown in the Figma assets panel"
+                  width={491}
+                  height={218}
+                  className="pointer-events-none w-full max-w-none object-cover object-top"
+                />
+              </Card>
+            </div>
+
+            <ExpandCard
+              expandedImage="/images/work/rapyd-cloud/information-architecture.jpg"
+              expandedAlt="Information architecture map of Rapyd Cloud"
+              className="lg:flex-1"
+            >
+              <ExpandCardCover className="lg:aspect-auto lg:flex-1">
+                <Image
+                  src="/images/work/rapyd-cloud/thumbs/information-architecture.png"
+                  alt="Information architecture map"
+                  width={1596}
+                  height={950}
+                  className="absolute bottom-0 right-0 h-auto w-full max-w-none"
+                />
+                <ExpandButton label="Open information architecture" />
+              </ExpandCardCover>
+              <ExpandCardContent className="shrink-0">
+                <h3 className="font-serif text-xl tracking-tight text-fg">
+                  Information architecture
+                </h3>
+                <p className="text-fg-subtle">
+                  In collaboration with engineering, I mapped every object, action, and relationship
+                  across five top-level areas, building a structure that guides users from setup to
+                  maintenance without jargon, cognitive overload, or dead-ends.
+                </p>
+                <p className="text-fg-subtle">
+                  By mapping this early, we grounded every decision in shipping a product that was
+                  simple to use and easy to scale.
+                </p>
+              </ExpandCardContent>
+            </ExpandCard>
+          </div>
+        </Section>
+
+        {/* Design */}
+        <Section>
+          <SectionHeader>
+            <SectionKicker>Design</SectionKicker>
+            <SectionTitle className="max-w-220">
+              I designed the core flows end to end, from low-fidelity wireframes to production-ready
+              screens ready for handoff.
+            </SectionTitle>
+          </SectionHeader>
+
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+            <ExpandCard
+              expandedImage="/images/work/rapyd-cloud/lo-fi-wireframes.png"
+              expandedAlt="Low-fidelity wireframes"
+            >
+              <ExpandCardCover>
+                <Image
+                  src="/images/work/rapyd-cloud/thumbs/lo-fi-wireframes.png"
+                  alt="Low-fidelity wireframes"
+                  fill
+                  className="object-cover"
+                />
+                <ExpandButton label="Open low-fidelity wireframes" />
+              </ExpandCardCover>
+              <ExpandCardContent>
+                <h3 className="font-serif text-xl tracking-tight text-fg">
+                  Low-fidelity wireframes
+                </h3>
+                <p className="text-fg-subtle">
+                  The wireframes I provided developed a shared language between design and
+                  engineering. We were able to validate our assumptions before any visual design,
+                  surfacing journey flows early and keeping the initial focus on user needs over
+                  visuals.
+                </p>
+              </ExpandCardContent>
+            </ExpandCard>
+
+            <ExpandCard
+              expandedImage="/images/work/rapyd-cloud/add-domain-flow.png"
+              expandedAlt="Developer handoff"
+            >
+              <ExpandCardCover>
+                <Image
+                  src="/images/work/rapyd-cloud/thumbs/developer-handoff.png"
+                  alt="Developer handoff"
+                  fill
+                  className="object-cover"
+                />
+                <ExpandButton label="Open developer handoff" />
+              </ExpandCardCover>
+              <ExpandCardContent>
+                <h3 className="font-serif text-xl tracking-tight text-fg">Developer handoff</h3>
+                <p className="text-fg-subtle">
+                  I brought every core flow to full fidelity, accounting for edge cases and empty
+                  states, applying the design system end to end, annotating every screen for smooth
+                  dev handoff, and tracking version history through engineering.
+                </p>
+              </ExpandCardContent>
+            </ExpandCard>
+          </div>
+        </Section>
+
+        {/* Feedback */}
+        <Section>
+          <SectionHeader>
+            <SectionKicker>Feedback</SectionKicker>
+            <SectionTitle className="max-w-220">
+              Lastly, I collaborated with the customer-facing teams to implement the feedback loops
+              we’d use to measure impact.
+            </SectionTitle>
+          </SectionHeader>
+
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
+            <Card>
+              <CardCover className="aspect-[3/2]">
+                <Image
+                  src="/images/work/rapyd-cloud/in-app-surveys.png"
+                  alt="In-app NPS survey delivered through Intercom"
+                  fill
+                  className="object-cover"
+                />
+              </CardCover>
+              <CardContent>
+                <h3 className="font-serif text-xl tracking-tight text-fg">In-app surveys</h3>
+                <p className="text-fg-subtle">
+                  We setup short surveys to be delivered by Intercom at key moments in the journey,
+                  from how easy setup felt to how likely users were to recommend us.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardCover className="aspect-[3/2]">
+                <Image
+                  src="/images/work/rapyd-cloud/public-feedback-portal.png"
+                  alt="Rapyd Cloud public feedback portal built in Featurebase"
+                  fill
+                  className="object-cover"
+                />
+              </CardCover>
+              <CardContent>
+                <h3 className="font-serif text-xl tracking-tight text-fg">
+                  Public feedback portal
+                </h3>
+                <p className="text-fg-subtle">
+                  We funnelled every request into Featurebase, where users could track the roadmap,
+                  submit and vote on ideas, and follow each new release.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardCover className="aspect-[3/2]">
+                <Image
+                  src="/images/work/rapyd-cloud/evidence-based-iterations.png"
+                  alt="Now/Next/Later roadmap fed by real user feedback"
+                  fill
+                  className="object-cover"
+                />
+              </CardCover>
+              <CardContent>
+                <h3 className="font-serif text-xl tracking-tight text-fg">
+                  Evidence-based iterations
+                </h3>
+                <p className="text-fg-subtle">
+                  We fed real feedback straight into the internal roadmap to track the impact of
+                  each release, using the evidence to cut or change underperforming features.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </Section>
+
+        {/* Final Output */}
+        <Section>
+          <Carousel>
+            <div className="relative">
+              <SectionHeader>
+                <SectionKicker>Final designs</SectionKicker>
+                <SectionTitle className="max-w-190">
+                  Simple workflows hid the complexity, finally putting fast, reliable hosting within
+                  our customers' reach.
+                </SectionTitle>
+              </SectionHeader>
+              <div className="mt-5 flex items-center justify-center gap-5 lg:absolute lg:right-0 lg:bottom-10">
+                <CarouselPrevious />
+                <CarouselCounter />
+                <CarouselNext />
+              </div>
+            </div>
+            <CarouselContent className="aspect-[1152/748]">
+              {SCREENSHOTS.map(s => (
+                <CarouselSlide key={s.src} src={s.src} alt={s.alt} />
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </Section>
+
+        {/* Impact */}
+        <Section>
+          <SectionHeader>
+            <SectionKicker>Impact</SectionKicker>
+            <SectionTitle className="max-w-180">
+              The product shipped before the 9-month deadline, with growth that held well past
+              launch.
+            </SectionTitle>
+          </SectionHeader>
+
+          <ResultsTable columns={['Vertical', 'Outcome']} rows={IMPACTS} />
+        </Section>
 
         {/* Testimonial */}
-        <section className="flex flex-col items-center text-center gap-8 py-10 md:py-16">
-          <blockquote className="font-serif text-xl md:text-2xl text-fg max-w-(--container-3xl) leading-relaxed">
-            “Rapyd Cloud is a rare player in the crowded WordPress hosting market with a relief
-            offering great support and easy-to-use dashboard. It’s like they looked at all
-            competitors and picked the best aspects from each.”
-          </blockquote>
-          <div className="flex items-center gap-3">
-            <div className="relative size-10 overflow-hidden rounded-full bg-gray-20" />
-            <div className="flex flex-col items-start">
-              <p className="font-sans text-md font-medium text-fg-emphasis">Lawrence Ladomery</p>
-              <p className="font-sans text-sm text-soft">Trustpilot</p>
-            </div>
-          </div>
-        </section>
+        <Section>
+          <QuoteCard
+            quote="“Rapyd Cloud is a new player in the crowded WordPress hosting market with a solid offering, great support and easy to use dashboard. It’s like they looked at all competitors and picked the best aspects from each.”"
+            author="Lawrence Ladomery"
+            avatar="/images/work/rapyd-cloud/testimonial.webp"
+            company="Trustpilot"
+            logo="/images/logos/trustpilot.svg"
+          />
+        </Section>
       </PageContent>
     </Page>
   );

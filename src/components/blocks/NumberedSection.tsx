@@ -18,14 +18,9 @@ export function NumberedSection({
   return (
     <section className={cn('flex flex-col gap-10', className)}>
       <div className="flex flex-col gap-6">
-        <div className="flex items-center gap-4">
-          <div className="flex size-13 items-center justify-center rounded-full bg-fg-emphasis text-white">
-            <span className="font-serif text-[22px] font-medium tracking-[1px]">{number}</span>
-          </div>
-          <h2 className="font-serif text-2xl lg:text-3xl tracking-tight text-fg-emphasis">
-            {title}
-          </h2>
-        </div>
+        <h2 className="font-serif text-2xl lg:text-3xl tracking-tight text-fg-emphasis">
+          {number}. {title}
+        </h2>
         {intro && <p className="font-sans text-md text-fg max-w-(--container-3xl)">{intro}</p>}
       </div>
       {children}
