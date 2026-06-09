@@ -2,9 +2,7 @@
 
 import { useState } from 'react';
 
-import { cn } from '@/utils';
-
-import { Lightbox } from '../ui';
+import { Card, Lightbox } from '../ui';
 
 import { ExpandCardContext } from './ExpandCardContext';
 
@@ -22,14 +20,7 @@ export function ExpandCard({ children, className, expandedImage, expandedAlt }: 
 
   return (
     <ExpandCardContext.Provider value={{ expand: () => setOpen(true) }}>
-      <div
-        className={cn(
-          'flex flex-col overflow-clip rounded-lg border border-subtle bg-surface',
-          className
-        )}
-      >
-        {children}
-      </div>
+      <Card className={className}>{children}</Card>
 
       {expandedImage && (
         <Lightbox

@@ -5,6 +5,14 @@ import {
   CalloutColumn,
   CalloutColumns,
   CalloutKicker,
+  Card,
+  CardContent,
+  CardCover,
+  Carousel,
+  CarouselContent,
+  CarouselNext,
+  CarouselPrevious,
+  CarouselSlide,
   ChartLineUp,
   EightyTwenty,
   ExpandButton,
@@ -53,6 +61,17 @@ const CONSTRAINTS = [
     body: 'The founders needed ROI on a tight deadline, so design had to surface and deliver the MVP that would meet it.',
   },
 ];
+
+const SCREENSHOTS = [
+  { name: 'login', alt: 'Rapyd Cloud sign-up and login screen' },
+  { name: 'user-onboarding', alt: 'User onboarding flow' },
+  { name: 'ftue', alt: 'First-time user experience walkthrough' },
+  { name: 'sites-directory', alt: 'Sites directory dashboard' },
+  { name: 'manage-site', alt: 'Manage site dashboard' },
+  { name: 'manage-domains', alt: 'Domain management screen' },
+  { name: 'team-management', alt: 'Team management screen' },
+  { name: 'billing', alt: 'Billing and subscription screen' },
+].map(s => ({ src: `/images/work/rapyd-cloud/screenshots/${s.name}.png`, alt: s.alt }));
 
 const IMPACTS = [
   {
@@ -313,14 +332,14 @@ export default function RapydCloudPage() {
 
           <div className="flex flex-col gap-10 lg:flex-row lg:items-stretch">
             <div className="flex flex-col gap-10 lg:w-[32rem] lg:shrink-0">
-              <div className="relative flex items-center overflow-clip rounded-lg border border-subtle bg-elevated">
-                <div className="flex flex-col gap-2 p-7 sm:max-w-[62%]">
+              <Card className="relative flex-row items-center bg-elevated">
+                <CardContent className="sm:max-w-[62%]">
                   <h3 className="font-serif text-xl tracking-tight text-fg">Design tokens</h3>
                   <p className="text-fg-subtle">
                     Tokens helped maintain a quality experience across devices and provided a single
                     source of truth between design and engineering.
                   </p>
-                </div>
+                </CardContent>
                 <Image
                   src="/images/work/rapyd-cloud/design-tokens.png"
                   alt="Rapyd brand design tokens defined in Figma variables"
@@ -328,16 +347,16 @@ export default function RapydCloudPage() {
                   height={177}
                   className="pointer-events-none absolute right-0 top-6 hidden h-auto w-[206px] sm:block"
                 />
-              </div>
+              </Card>
 
-              <div className="relative flex flex-col overflow-clip rounded-lg border border-subtle bg-elevated">
-                <div className="flex flex-col gap-2 p-7 pb-1">
+              <Card className="relative bg-elevated">
+                <CardContent className="pb-1">
                   <h3 className="font-serif text-xl tracking-tight text-fg">Component library</h3>
                   <p className="text-fg-subtle">
                     I delivered a library of reusable UI patterns with production-ready specs that
                     standardised UI across UX flows and cut design-to-dev handoff time.
                   </p>
-                </div>
+                </CardContent>
                 <Image
                   src="/images/work/rapyd-cloud/component-library.png"
                   alt="Rapyd Cloud component library shown in the Figma assets panel"
@@ -345,7 +364,7 @@ export default function RapydCloudPage() {
                   height={218}
                   className="pointer-events-none w-full max-w-none object-cover object-top"
                 />
-              </div>
+              </Card>
             </div>
 
             <ExpandCard
@@ -440,6 +459,77 @@ export default function RapydCloudPage() {
                 </p>
               </ExpandCardContent>
             </ExpandCard>
+          </div>
+        </Section>
+
+        {/* Feedback */}
+        <Section>
+          <SectionHeader>
+            <SectionKicker>Feedback</SectionKicker>
+            <SectionTitle className="max-w-220">
+              Lastly, I collaborated with the customer-facing teams to implement the feedback loops
+              we’d use to measure impact.
+            </SectionTitle>
+          </SectionHeader>
+
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
+            <Card>
+              <CardCover className="aspect-[3/2]">
+                <Image
+                  src="/images/work/rapyd-cloud/in-app-surveys.png"
+                  alt="In-app NPS survey delivered through Intercom"
+                  fill
+                  className="object-cover"
+                />
+              </CardCover>
+              <CardContent>
+                <h3 className="font-serif text-xl tracking-tight text-fg">In-app surveys</h3>
+                <p className="text-fg-subtle">
+                  We setup short surveys to be delivered by Intercom at key moments in the journey,
+                  from how easy setup felt to how likely users were to recommend us.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardCover className="aspect-[3/2]">
+                <Image
+                  src="/images/work/rapyd-cloud/public-feedback-portal.png"
+                  alt="Rapyd Cloud public feedback portal built in Featurebase"
+                  fill
+                  className="object-cover"
+                />
+              </CardCover>
+              <CardContent>
+                <h3 className="font-serif text-xl tracking-tight text-fg">
+                  Public feedback portal
+                </h3>
+                <p className="text-fg-subtle">
+                  We funnelled every request into Featurebase, where users could track the roadmap,
+                  submit and vote on ideas, and follow each new release.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardCover className="aspect-[3/2]">
+                <Image
+                  src="/images/work/rapyd-cloud/evidence-based-iterations.png"
+                  alt="Now/Next/Later roadmap fed by real user feedback"
+                  fill
+                  className="object-cover"
+                />
+              </CardCover>
+              <CardContent>
+                <h3 className="font-serif text-xl tracking-tight text-fg">
+                  Evidence-based iterations
+                </h3>
+                <p className="text-fg-subtle">
+                  We fed real feedback straight into the internal roadmap to track the impact of
+                  each release, using the evidence to cut or change underperforming features.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </Section>
 

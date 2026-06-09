@@ -1,4 +1,4 @@
-import { cn } from '@/utils';
+import { CardContent } from '../ui';
 
 type ExpandCardContentProps = {
   children: React.ReactNode;
@@ -6,9 +6,5 @@ type ExpandCardContentProps = {
 };
 
 export function ExpandCardContent({ children, className }: ExpandCardContentProps) {
-  return (
-    <div className={cn('flex flex-col gap-2 p-7 text-md text-fg-subtle', className)}>
-      {children}
-    </div>
-  );
+  return <CardContent className={className}>{children}</CardContent>;
 }
