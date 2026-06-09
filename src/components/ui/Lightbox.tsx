@@ -30,6 +30,7 @@ type LightboxProps = {
  */
 export function Lightbox({ open, onClose, src, alt, className }: LightboxProps) {
   const transformRef = useRef<ReactZoomPanPinchRef>(null);
+  const popupRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
 
   return (
@@ -42,6 +43,9 @@ export function Lightbox({ open, onClose, src, alt, className }: LightboxProps) 
       <Dialog.Portal>
         <Dialog.Backdrop className="fixed inset-0 z-[100] bg-surface" />
         <Dialog.Popup
+          ref={popupRef}
+          initialFocus={popupRef}
+          tabIndex={-1}
           data-lenis-prevent
           aria-label={alt ?? 'Expanded image'}
           className={cn(

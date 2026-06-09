@@ -10,6 +10,7 @@ import {
   CardCover,
   Carousel,
   CarouselContent,
+  CarouselCounter,
   CarouselNext,
   CarouselPrevious,
   CarouselSlide,
@@ -31,6 +32,7 @@ import {
   PageMetaItem,
   PageTitle,
   ProductRelease,
+  QuoteCard,
   ResultsTable,
   Section,
   SectionHeader,
@@ -535,25 +537,27 @@ export default function RapydCloudPage() {
 
         {/* Final Output */}
         <Section>
-          <SectionHeader>
-            <SectionKicker>Final Output</SectionKicker>
-            <SectionTitle>Rapyd Cloud became our users’ reliable sidekick.</SectionTitle>
-          </SectionHeader>
-          <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-xl px-xl">
-            {[1, 2, 3, 4].map(i => (
-              <div
-                key={i}
-                className="relative shrink-0 snap-start w-[85%] sm:w-[60%] md:w-[55%] aspect-[16/10] overflow-hidden bg-canvas"
-              >
-                <Image
-                  src={`/images/work/rapyd-cloud/final-output-${i}.jpg`}
-                  alt={`Final output ${i}`}
-                  fill
-                  className="object-cover"
-                />
+          <Carousel>
+            <div className="relative">
+              <SectionHeader>
+                <SectionKicker>Final designs</SectionKicker>
+                <SectionTitle className="max-w-190">
+                  Simple workflows hid the complexity, finally putting fast, reliable hosting within
+                  our customers' reach.
+                </SectionTitle>
+              </SectionHeader>
+              <div className="mt-5 flex items-center justify-center gap-5 lg:absolute lg:right-0 lg:bottom-10">
+                <CarouselPrevious />
+                <CarouselCounter />
+                <CarouselNext />
               </div>
-            ))}
-          </div>
+            </div>
+            <CarouselContent className="aspect-[1152/748]">
+              {SCREENSHOTS.map(s => (
+                <CarouselSlide key={s.src} src={s.src} alt={s.alt} />
+              ))}
+            </CarouselContent>
+          </Carousel>
         </Section>
 
         {/* Impact */}
@@ -570,19 +574,14 @@ export default function RapydCloudPage() {
         </Section>
 
         {/* Testimonial */}
-        <Section className="items-center text-center">
-          <blockquote className="font-serif text-xl md:text-2xl text-fg max-w-(--container-3xl) leading-relaxed">
-            “Rapyd Cloud is a new player in the crowded WordPress hosting market with a solid
-            offering, great support and easy to use dashboard. It’s like they looked at all
-            competitors and picked the best aspects from each.”
-          </blockquote>
-          <div className="flex items-center gap-3">
-            <div className="relative size-10 overflow-hidden rounded-full bg-gray-20" />
-            <div className="flex flex-col items-start">
-              <p className="font-sans text-md font-medium text-fg-emphasis">Lawrence Ladomery</p>
-              <p className="font-sans text-sm text-soft">Trustpilot</p>
-            </div>
-          </div>
+        <Section>
+          <QuoteCard
+            quote="“Rapyd Cloud is a new player in the crowded WordPress hosting market with a solid offering, great support and easy to use dashboard. It’s like they looked at all competitors and picked the best aspects from each.”"
+            author="Lawrence Ladomery"
+            avatar="/images/work/rapyd-cloud/testimonial.webp"
+            company="Trustpilot"
+            logo="/images/logos/trustpilot.svg"
+          />
         </Section>
       </PageContent>
     </Page>
