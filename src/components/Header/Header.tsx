@@ -99,7 +99,7 @@ export function Header() {
         className="group sticky w-[100%] top-0 z-50 will-change-transform [transition:transform_240ms_cubic-bezier(0.16,1,0.3,1)]"
       >
         {/* Desktop */}
-        <div className="hidden h-[var(--header-h-desktop)] items-center px-md md:flex group-data-[sticky=true]:bg-gray-10">
+        <div className="hidden h-[var(--header-h-desktop)] items-center px-8 md:flex group-data-[sticky=true]:bg-gray-10/88 group-data-[sticky=true]:backdrop-blur-sm">
           <Navbar pathname={pathname} />
         </div>
 

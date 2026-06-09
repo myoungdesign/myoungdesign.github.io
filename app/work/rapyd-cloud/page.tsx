@@ -187,7 +187,7 @@ export default function RapydCloudPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2 bg-gradient-to-t from-black/90 to-transparent p-6">
+              <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2 bg-gradient-to-t from-black/90 to-transparent p-7">
                 <h3 className="font-serif text-2xl text-white">Stakeholder inquiry</h3>
                 <p className="max-w-90 text-gray-95">
                   I canvassed prospective customers and surveyed industry leaders to surface pain
@@ -295,6 +295,148 @@ export default function RapydCloudPage() {
                   By mapping the journey from first contact to loyalty, I connected user actions to
                   business outcomes and flagged the friction, emotions, and unmet needs to design
                   around.
+                </p>
+              </ExpandCardContent>
+            </ExpandCard>
+          </div>
+        </Section>
+
+        {/* Foundations */}
+        <Section>
+          <SectionHeader>
+            <SectionKicker>Foundations</SectionKicker>
+            <SectionTitle className="max-w-190">
+              I unified fragmented early-builds into a single governed system that aligned design
+              and engineering.
+            </SectionTitle>
+          </SectionHeader>
+
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-stretch">
+            <div className="flex flex-col gap-10 lg:w-[32rem] lg:shrink-0">
+              <div className="relative flex items-center overflow-clip rounded-lg border border-subtle bg-elevated">
+                <div className="flex flex-col gap-2 p-7 sm:max-w-[62%]">
+                  <h3 className="font-serif text-xl tracking-tight text-fg">Design tokens</h3>
+                  <p className="text-fg-subtle">
+                    Tokens helped maintain a quality experience across devices and provided a single
+                    source of truth between design and engineering.
+                  </p>
+                </div>
+                <Image
+                  src="/images/work/rapyd-cloud/design-tokens.png"
+                  alt="Rapyd brand design tokens defined in Figma variables"
+                  width={206}
+                  height={177}
+                  className="pointer-events-none absolute right-0 top-6 hidden h-auto w-[206px] sm:block"
+                />
+              </div>
+
+              <div className="relative flex flex-col overflow-clip rounded-lg border border-subtle bg-elevated">
+                <div className="flex flex-col gap-2 p-7 pb-1">
+                  <h3 className="font-serif text-xl tracking-tight text-fg">Component library</h3>
+                  <p className="text-fg-subtle">
+                    I delivered a library of reusable UI patterns with production-ready specs that
+                    standardised UI across UX flows and cut design-to-dev handoff time.
+                  </p>
+                </div>
+                <Image
+                  src="/images/work/rapyd-cloud/component-library.png"
+                  alt="Rapyd Cloud component library shown in the Figma assets panel"
+                  width={491}
+                  height={218}
+                  className="pointer-events-none w-full max-w-none object-cover object-top"
+                />
+              </div>
+            </div>
+
+            <ExpandCard
+              expandedImage="/images/work/rapyd-cloud/information-architecture.jpg"
+              expandedAlt="Information architecture map of Rapyd Cloud"
+              className="lg:flex-1"
+            >
+              <ExpandCardCover className="lg:aspect-auto lg:flex-1">
+                <Image
+                  src="/images/work/rapyd-cloud/thumbs/information-architecture.png"
+                  alt="Information architecture map"
+                  width={1596}
+                  height={950}
+                  className="absolute bottom-0 right-0 h-auto w-full max-w-none"
+                />
+                <ExpandButton label="Open information architecture" />
+              </ExpandCardCover>
+              <ExpandCardContent className="shrink-0">
+                <h3 className="font-serif text-xl tracking-tight text-fg">
+                  Information architecture
+                </h3>
+                <p className="text-fg-subtle">
+                  In collaboration with engineering, I mapped every object, action, and relationship
+                  across five top-level areas, building a structure that guides users from setup to
+                  maintenance without jargon, cognitive overload, or dead-ends.
+                </p>
+                <p className="text-fg-subtle">
+                  By mapping this early, we grounded every decision in shipping a product that was
+                  simple to use and easy to scale.
+                </p>
+              </ExpandCardContent>
+            </ExpandCard>
+          </div>
+        </Section>
+
+        {/* Design */}
+        <Section>
+          <SectionHeader>
+            <SectionKicker>Design</SectionKicker>
+            <SectionTitle className="max-w-220">
+              I designed the core flows end to end, from low-fidelity wireframes to production-ready
+              screens ready for handoff.
+            </SectionTitle>
+          </SectionHeader>
+
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+            <ExpandCard
+              expandedImage="/images/work/rapyd-cloud/lo-fi-wireframes.png"
+              expandedAlt="Low-fidelity wireframes"
+            >
+              <ExpandCardCover>
+                <Image
+                  src="/images/work/rapyd-cloud/thumbs/lo-fi-wireframes.png"
+                  alt="Low-fidelity wireframes"
+                  fill
+                  className="object-cover"
+                />
+                <ExpandButton label="Open low-fidelity wireframes" />
+              </ExpandCardCover>
+              <ExpandCardContent>
+                <h3 className="font-serif text-xl tracking-tight text-fg">
+                  Low-fidelity wireframes
+                </h3>
+                <p className="text-fg-subtle">
+                  The wireframes I provided developed a shared language between design and
+                  engineering. We were able to validate our assumptions before any visual design,
+                  surfacing journey flows early and keeping the initial focus on user needs over
+                  visuals.
+                </p>
+              </ExpandCardContent>
+            </ExpandCard>
+
+            <ExpandCard
+              expandedImage="/images/work/rapyd-cloud/add-domain-flow.png"
+              expandedAlt="Developer handoff"
+            >
+              <ExpandCardCover>
+                <Image
+                  src="/images/work/rapyd-cloud/thumbs/developer-handoff.png"
+                  alt="Developer handoff"
+                  fill
+                  className="object-cover"
+                />
+                <ExpandButton label="Open developer handoff" />
+              </ExpandCardCover>
+              <ExpandCardContent>
+                <h3 className="font-serif text-xl tracking-tight text-fg">Developer handoff</h3>
+                <p className="text-fg-subtle">
+                  I brought every core flow to full fidelity, accounting for edge cases and empty
+                  states, applying the design system end to end, annotating every screen for smooth
+                  dev handoff, and tracking version history through engineering.
                 </p>
               </ExpandCardContent>
             </ExpandCard>
