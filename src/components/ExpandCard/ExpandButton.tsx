@@ -21,7 +21,7 @@ export function ExpandButton({ className, label }: ExpandButtonProps) {
       onClick={expand}
       aria-label={label ?? 'Expand image'}
       className={cn(
-        'absolute right-5 top-5 flex size-9 items-center justify-center rounded-sm border border-outline bg-elevated text-fg-muted shadow-xs transition-colors hover:text-fg-emphasis',
+        'absolute right-5 top-5 flex size-9 items-center justify-center rounded-sm border border-subtle bg-elevated text-fg-gentle shadow-xs transition-all hover:text-fg-muted hover:border-fg-muted cursor-pointer',
         className
       )}
     >

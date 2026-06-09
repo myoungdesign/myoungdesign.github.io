@@ -5,7 +5,6 @@ import {
   CalloutColumn,
   CalloutColumns,
   CalloutKicker,
-  CaseStudyCard,
   ChartLineUp,
   EightyTwenty,
   ExpandButton,
@@ -14,7 +13,6 @@ import {
   ExpandCardCover,
   Link,
   Message,
-  NumberedSection,
   Page,
   PageContent,
   PageCover,
@@ -179,43 +177,41 @@ export default function RapydCloudPage() {
             </SectionTitle>
           </SectionHeader>
 
-          <div className="relative w-full overflow-hidden rounded-lg bg-canvas">
-            <div className="relative aspect-[2/1] w-full">
-              <Image
-                src="/images/work/rapyd-cloud/user-interviews.jpg"
-                alt="Stakeholder inquiry"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2.5 bg-gradient-to-t from-black/90 to-transparent p-8">
-              <h3 className="font-serif text-2xl text-white">Stakeholder inquiry</h3>
-              <p className="max-w-90 font-sans text-md text-gray-95">
-                I canvassed prospective customers and surveyed industry leaders to surface pain
-                points.
-              </p>
-            </div>
-          </div>
-
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+            <div className="relative w-full overflow-hidden rounded-lg bg-canvas md:col-span-2">
+              <div className="relative aspect-[2/1] w-full">
+                <Image
+                  src="/images/work/rapyd-cloud/user-interviews.jpg"
+                  alt="Stakeholder inquiry"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2 bg-gradient-to-t from-black/90 to-transparent p-6">
+                <h3 className="font-serif text-2xl text-white">Stakeholder inquiry</h3>
+                <p className="max-w-90 text-gray-95">
+                  I canvassed prospective customers and surveyed industry leaders to surface pain
+                  points.
+                </p>
+              </div>
+            </div>
+
             <ExpandCard
               expandedImage="/images/work/rapyd-cloud/interview-synthesis.png"
-              expandedAlt="Interview synthesis board"
+              expandedAlt="Interview synthesis"
             >
               <ExpandCardCover>
                 <Image
-                  src="/images/work/rapyd-cloud/interview-synthesis.png"
+                  src="/images/work/rapyd-cloud/thumbs/interview-synthesis.png"
                   alt="Interview synthesis"
                   fill
                   className="object-cover"
                 />
-                <ExpandButton label="Expand Interview synthesis" />
+                <ExpandButton label="Open interview synthesis" />
               </ExpandCardCover>
               <ExpandCardContent>
-                <h3 className="font-serif text-xl tracking-tight text-fg-muted">
-                  Interview synthesis
-                </h3>
-                <p className="font-sans text-md text-fg-subtle">
+                <h3 className="font-serif text-xl tracking-tight text-fg">Interview synthesis</h3>
+                <p className="text-fg-subtle">
                   I analysed the raw interview and survey data to identify common themes, patterns,
                   and insights. What mattered most was clear: low-maintenance sites that stayed fast
                   at peak engagement.
@@ -225,22 +221,20 @@ export default function RapydCloudPage() {
 
             <ExpandCard
               expandedImage="/images/work/rapyd-cloud/user-persona.png"
-              expandedAlt="Persona development"
+              expandedAlt="User persona"
             >
               <ExpandCardCover>
                 <Image
-                  src="/images/work/rapyd-cloud/user-persona.png"
+                  src="/images/work/rapyd-cloud/thumbs/persona-development.png"
                   alt="Persona development"
                   fill
                   className="object-cover"
                 />
-                <ExpandButton label="Expand Persona development" />
+                <ExpandButton label="Open persona profile" />
               </ExpandCardCover>
               <ExpandCardContent>
-                <h3 className="font-serif text-xl tracking-tight text-fg-muted">
-                  Persona development
-                </h3>
-                <p className="font-sans text-md text-fg-subtle">
+                <h3 className="font-serif text-xl tracking-tight text-fg">Persona development</h3>
+                <p className="text-fg-subtle">
                   Developing personas put faces to the customers we were building for. Then
                   distributing them company-wide built empathy as governance from the start.
                 </p>
@@ -250,189 +244,61 @@ export default function RapydCloudPage() {
         </Section>
 
         <Section>
-          {/* 01 Define the Problem */}
-          <NumberedSection
-            number="01"
-            title="Define the Problem"
-            intro="I started by conducting user interviews and reviewing user feedback to fully define the problems."
-          >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              <CaseStudyCard
-                image="/images/work/rapyd-cloud/user-interviews.png"
-                imageAlt="Stakeholder inquiry"
-                title="Stakeholder inquiry"
-              >
-                I canvassed prospective customers and industry leaders to surface pain points.
-              </CaseStudyCard>
-              <CaseStudyCard
-                image="/images/work/rapyd-cloud/interview-synthesis.png"
-                imageAlt="Interview synthesis"
-                title="Interview synthesis"
-              >
-                I analysed raw interview data to identify common themes, patterns, and insights.
-              </CaseStudyCard>
-              <CaseStudyCard
-                image="/images/work/rapyd-cloud/user-persona.png"
-                imageAlt="Persona development"
-                title="Persona development"
-              >
-                I distributed the personas company-wide to build empathy as governance from the
-                start.
-              </CaseStudyCard>
-            </div>
-          </NumberedSection>
+          <SectionHeader>
+            <SectionKicker>Proposition</SectionKicker>
+            <SectionTitle className="max-w-204">
+              With the research in hand, I plotted a course from the customer problems to the
+              offering that would solve them.
+            </SectionTitle>
+          </SectionHeader>
 
-          {/* 02 Build the Proposition */}
-          <NumberedSection
-            number="02"
-            title="Build the Proposition"
-            intro="I then developed a value proposition and mapped the customer journey to define what to ship."
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              <CaseStudyCard
-                image="/images/work/rapyd-cloud/value-proposition-fit.png"
-                imageAlt="Value proposition fit"
-                title="Value proposition fit"
-                bullets={[
-                  'Develop fits for all customer segments',
-                  'Illuminate customer pains, gains, and jobs-to-be-done',
-                  'Propose solutions for the product to offer',
-                ]}
-              >
-                I aligned our offering with our target customers needs and desires in order to:
-              </CaseStudyCard>
-              <CaseStudyCard
-                image="/images/work/rapyd-cloud/customer-journey-map.png"
-                imageAlt="Journey mapping"
-                title="Journey mapping"
-                bullets={[
-                  'Mapped from first contact to becoming a loyal customer',
-                  'Connecting user actions to business outcomes',
-                  'Flagging opportunities to reduce friction and build trust',
-                ]}
-              >
-                I highlighted customers’ emotions, pain points, and unmet needs by:
-              </CaseStudyCard>
-            </div>
-          </NumberedSection>
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+            <ExpandCard
+              expandedImage="/images/work/rapyd-cloud/value-proposition-fit.png"
+              expandedAlt="Value proposition fit"
+            >
+              <ExpandCardCover>
+                <Image
+                  src="/images/work/rapyd-cloud/thumbs/value-proposition-fit.png"
+                  alt="Proposition canvas"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <ExpandButton label="Open value proposition fit" />
+              </ExpandCardCover>
+              <ExpandCardContent>
+                <h3 className="font-serif text-xl tracking-tight text-fg">Proposition canvas</h3>
+                <p className="text-fg-subtle">
+                  I identified a value proposition fit for each customer segment, surfacing the
+                  pains, gains, and jobs-to-be-done that defined the solution we'd need to build.
+                </p>
+              </ExpandCardContent>
+            </ExpandCard>
 
-          {/* 03 Establish the Foundations */}
-          <NumberedSection
-            number="03"
-            title="Establish the Foundations"
-            intro="Next, I unified fragmented early-builds into a governed system that aligned design and engineering."
-          >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              <CaseStudyCard
-                image="/images/work/rapyd-cloud/design-tokens.png"
-                imageAlt="Design tokens"
-                title="Design tokens"
-                bullets={[
-                  'Applied instead of hardcoded values',
-                  'Maintained experience across devices',
-                  'Integrated with MUI’s theme provider',
-                ]}
-              >
-                I developed a single source of truth between design and engineering that:
-              </CaseStudyCard>
-              <CaseStudyCard
-                image="/images/work/rapyd-cloud/component-library.png"
-                imageAlt="Component library"
-                title="Component library"
-                bullets={[
-                  'Standardised UI across UX flows',
-                  'Delivered with production-ready specs',
-                  'Cut design-to-dev handoff time',
-                ]}
-              >
-                I built a library of reusable UI patterns to reuse across the dashboard screens
-                that:
-              </CaseStudyCard>
-              <CaseStudyCard
-                image="/images/work/rapyd-cloud/information-architecture.png"
-                imageAlt="Information architecture"
-                title="Information architecture"
-                bullets={[
-                  'Avoiding use of tech-jargon',
-                  'Optimising to reduce cognitive load',
-                  'Ensuring no “dead-ends”',
-                ]}
-              >
-                I designed a structure to seamlessly guide users from initial setup to ongoing
-                maintenance by:
-              </CaseStudyCard>
-            </div>
-          </NumberedSection>
-
-          {/* 04 Design the Experience */}
-          <NumberedSection
-            number="04"
-            title="Design the Experience"
-            intro="I then designed the core flows end to end, from low-fi wireframes to production-ready screens."
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              <CaseStudyCard
-                image="/images/work/rapyd-cloud/lo-fi-wireframes.png"
-                imageAlt="Low-fidelity wireframes"
-                title="Low-fidelity wireframes"
-                bullets={[
-                  'Keeping the initial focus on user needs, not visuals',
-                  'Surfacing flaws in user journeys early',
-                  'Acting as common language across all teams',
-                ]}
-              >
-                I mapped the core UX flows as wireframes to quickly validate assumptions before
-                committing real design time by:
-              </CaseStudyCard>
-              <CaseStudyCard
-                image="/images/work/rapyd-cloud/visual-design.png"
-                imageAlt="High-fidelity designs"
-                title="High-fidelity designs"
-                bullets={[
-                  'Applied the design system end to end',
-                  'Annotated every screen and flow for smooth dev handoff',
-                  'Maintained version history to note changes during engineering',
-                ]}
-              >
-                I brought every core flow to full fidelity, accounting for all edge cases and empty
-                states in a way that:
-              </CaseStudyCard>
-            </div>
-          </NumberedSection>
-
-          {/* 05 Create Feedback Loops */}
-          <NumberedSection
-            number="05"
-            title="Create Feedback Loops"
-            intro="Lastly, I collaborated with the customer-facing teams to measure impact and keep learning from users after launch."
-          >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              <CaseStudyCard
-                image="/images/work/rapyd-cloud/in-app-surveys.png"
-                imageAlt="In-app surveys"
-                title="In-app surveys"
-              >
-                We setup short surveys to be delivered by Intercom at key moments in the journey,
-                from how easy setup felt to how likely users were to recommend us.
-              </CaseStudyCard>
-              <CaseStudyCard
-                image="/images/work/rapyd-cloud/public-feedback-portal.png"
-                imageAlt="Public feedback portal"
-                title="Public feedback portal"
-              >
-                We funnelled every request into Featurebase, where users could track the roadmap,
-                submit and vote on ideas, and follow each new release.
-              </CaseStudyCard>
-              <CaseStudyCard
-                image="/images/work/rapyd-cloud/evidence-based-iterations.png"
-                imageAlt="Evidence-based iterations"
-                title="Evidence-based iterations"
-              >
-                We fed real feedback straight into the internal roadmap, tracked how the impact of
-                release, using the evidence to cut underperforming features.
-              </CaseStudyCard>
-            </div>
-          </NumberedSection>
+            <ExpandCard
+              expandedImage="/images/work/rapyd-cloud/customer-journey-map.png"
+              expandedAlt="Journey mapping"
+            >
+              <ExpandCardCover>
+                <Image
+                  src="/images/work/rapyd-cloud/thumbs/journey-mapping.png"
+                  alt="Journey mapping"
+                  fill
+                  className="object-cover"
+                />
+                <ExpandButton label="Open customer journey map" />
+              </ExpandCardCover>
+              <ExpandCardContent>
+                <h3 className="font-serif text-xl tracking-tight text-fg">Journey mapping</h3>
+                <p className="text-fg-subtle">
+                  By mapping the journey from first contact to loyalty, I connected user actions to
+                  business outcomes and flagged the friction, emotions, and unmet needs to design
+                  around.
+                </p>
+              </ExpandCardContent>
+            </ExpandCard>
+          </div>
         </Section>
 
         {/* Final Output */}

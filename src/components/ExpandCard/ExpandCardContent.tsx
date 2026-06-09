@@ -6,5 +6,9 @@ type ExpandCardContentProps = {
 };
 
 export function ExpandCardContent({ children, className }: ExpandCardContentProps) {
-  return <div className={cn('flex flex-col gap-2 py-sm pl-sm pr-8', className)}>{children}</div>;
+  return (
+    <div className={cn('flex flex-col gap-2 p-6 text-md text-fg-subtle', className)}>
+      {children}
+    </div>
+  );
 }

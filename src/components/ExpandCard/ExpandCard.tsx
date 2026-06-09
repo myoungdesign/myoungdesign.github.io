@@ -1,16 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import dynamic from 'next/dynamic';
-import { X } from 'lucide-react';
-import Zoom from 'yet-another-react-lightbox/plugins/zoom';
-import 'yet-another-react-lightbox/styles.css';
 
 import { cn } from '@/utils';
 
-import { ExpandCardContext } from './ExpandCardContext';
+import { Lightbox } from '../ui';
 
-const Lightbox = dynamic(() => import('yet-another-react-lightbox'), { ssr: false });
+import { ExpandCardContext } from './ExpandCardContext';
 
 type ExpandCardProps = {
   children: React.ReactNode;
@@ -38,23 +34,9 @@ export function ExpandCard({ children, className, expandedImage, expandedAlt }: 
       {expandedImage && (
         <Lightbox
           open={open}
-          close={() => setOpen(false)}
-          slides={[{ src: expandedImage, alt: expandedAlt }]}
-          plugins={[Zoom]}
-          controller={{ closeOnBackdropClick: true }}
-          carousel={{ finite: true }}
-          render={{
-            buttonPrev: () => null,
-            buttonNext: () => null,
-            iconClose: () => <X className="size-6" aria-hidden />,
-          }}
-          styles={{
-            root: {
-              '--yarl__color_backdrop': 'rgba(0, 0, 0, 0.9)',
-              '--yarl__color_button': 'rgba(255, 255, 255, 0.7)',
-              '--yarl__color_button_active': 'rgb(255, 255, 255)',
-            },
-          }}
+          onClose={() => setOpen(false)}
+          src={expandedImage}
+          alt={expandedAlt}
         />
       )}
     </ExpandCardContext.Provider>
