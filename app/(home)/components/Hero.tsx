@@ -3,9 +3,8 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+import { Counter } from '@/components/Counter';
 import { Hero, HeroBackground, HeroContent } from '@/components/Hero';
-
-import { Counter } from '../Counter';
 
 type IntroConfig = {
   delay: number;

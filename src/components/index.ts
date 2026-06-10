@@ -1,5 +1,4 @@
 export * from './Article';
-export * from './blocks';
 export * from './Callout';
 export * from './CardSlider';
 export * from './Counter';
@@ -17,6 +16,7 @@ export * from './PageLoadOverlay';
 export * from './QuoteCard';
 export * from './ResultsTable';
 export * from './Section';
+export * from './Stepper';
 export * from './SmoothScroll';
 export * from './ThemeProvider';
 export * from './icons';

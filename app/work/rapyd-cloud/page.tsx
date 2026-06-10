@@ -154,7 +154,7 @@ export default function RapydCloudPage() {
           <CalloutKicker>Project Goals</CalloutKicker>
           <CalloutColumns>
             {CONSTRAINTS.map(c => (
-              <CalloutColumn key={c.title}>
+              <CalloutColumn key={c.title} className="md:pb-1">
                 <div className="flex flex-col gap-3">
                   <div className="text-gray-95 [&_svg]:size-12 pb-4">{c.icon}</div>
                   <h3 className="font-normal text-2xl text-white">{c.title}</h3>
@@ -192,7 +192,7 @@ export default function RapydCloudPage() {
         <Section>
           <SectionHeader>
             <SectionKicker>Problem</SectionKicker>
-            <SectionTitle className="max-w-204">
+            <SectionTitle className="max-w-190">
               I collected qualitative and quantitative insights, then analysed them to fully define
               the problems faced by users.
             </SectionTitle>
@@ -267,7 +267,7 @@ export default function RapydCloudPage() {
         <Section>
           <SectionHeader>
             <SectionKicker>Proposition</SectionKicker>
-            <SectionTitle className="max-w-204">
+            <SectionTitle className="max-w-192">
               With the research in hand, I plotted a course from the customer problems to the
               offering that would solve them.
             </SectionTitle>
@@ -326,7 +326,7 @@ export default function RapydCloudPage() {
         <Section>
           <SectionHeader>
             <SectionKicker>Foundations</SectionKicker>
-            <SectionTitle className="max-w-190">
+            <SectionTitle className="max-w-178">
               I unified fragmented early-builds into a single governed system that aligned design
               and engineering.
             </SectionTitle>
@@ -406,7 +406,7 @@ export default function RapydCloudPage() {
         <Section>
           <SectionHeader>
             <SectionKicker>Design</SectionKicker>
-            <SectionTitle className="max-w-220">
+            <SectionTitle className="max-w-200">
               I designed the core flows end to end, from low-fidelity wireframes to production-ready
               screens ready for handoff.
             </SectionTitle>
@@ -468,7 +468,7 @@ export default function RapydCloudPage() {
         <Section>
           <SectionHeader>
             <SectionKicker>Feedback</SectionKicker>
-            <SectionTitle className="max-w-220">
+            <SectionTitle className="max-w-200">
               Lastly, I collaborated with the customer-facing teams to implement the feedback loops
               we’d use to measure impact.
             </SectionTitle>
@@ -541,7 +541,7 @@ export default function RapydCloudPage() {
             <div className="relative">
               <SectionHeader>
                 <SectionKicker>Final designs</SectionKicker>
-                <SectionTitle className="max-w-190">
+                <SectionTitle className="max-w-180">
                   Simple workflows hid the complexity, finally putting fast, reliable hosting within
                   our customers' reach.
                 </SectionTitle>
