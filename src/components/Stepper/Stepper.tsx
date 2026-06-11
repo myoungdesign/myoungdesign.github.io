@@ -103,7 +103,9 @@ interface StepperItemProps {
 }
 
 export function StepperItem({ children, value, className }: StepperItemProps) {
-  const { registerStep } = useStepper();
+  const { activeValue, duration, advanceStep, registerStep } = useStepper();
+  const shouldReduceMotion = useReducedMotion();
+  const isActive = value === activeValue;
 
   useEffect(() => {
     registerStep(value);
@@ -111,8 +113,20 @@ export function StepperItem({ children, value, className }: StepperItemProps) {
 
   return (
     <StepperItemContext.Provider value={{ value }}>
-      <Accordion.Item value={value} className={cn('border-b border-subtle', className)}>
+      <Accordion.Item value={value} className={className}>
         {children}
+        <div className="relative h-0.5 overflow-hidden rounded-full bg-fg/5">
+          {isActive && !shouldReduceMotion && (
+            <motion.div
+              className="absolute inset-y-0 left-0 rounded-full bg-fg"
+              initial={{ width: '0%' }}
+              animate={{ width: '100%' }}
+              transition={{ duration: duration / 1000, ease: 'linear' }}
+              onAnimationComplete={advanceStep}
+              style={{ willChange: 'width' }}
+            />
+          )}
+        </div>
       </Accordion.Item>
     </StepperItemContext.Provider>
   );
@@ -153,24 +167,18 @@ interface StepperContentProps {
 }
 
 export function StepperContent({ children, className }: StepperContentProps) {
-  const { activeValue, duration, advanceStep } = useStepper();
-  const { value } = useStepperItem();
-  const shouldReduceMotion = useReducedMotion();
-
   return (
-    <Accordion.Panel className={cn('overflow-hidden', className)}>
-      <p className="pb-5 text-base leading-relaxed text-fg-soft">{children}</p>
-      {value === activeValue && !shouldReduceMotion && (
-        <motion.div
-          key={activeValue}
-          className="h-0.5 bg-fg"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: duration / 1000, ease: 'linear' }}
-          onAnimationComplete={() => advanceStep()}
-          style={{ transformOrigin: 'left' }}
-        />
+    <Accordion.Panel
+      className={cn(
+        'h-[var(--accordion-panel-height)] overflow-hidden',
+        'transition-[height,opacity] duration-400 [transition-timing-function:cubic-bezier(0.4,0,0.2,1)]',
+        'data-[starting-style]:h-0 data-[starting-style]:opacity-0',
+        'data-[ending-style]:h-0 data-[ending-style]:opacity-0',
+        'motion-reduce:transition-none',
+        className
       )}
+    >
+      <p className="pb-5 text-base leading-relaxed text-fg-soft">{children}</p>
     </Accordion.Panel>
   );
 }

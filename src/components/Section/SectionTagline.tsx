@@ -6,5 +6,5 @@ type SectionTaglineProps = {
 };
 
 export function SectionTagline({ children, className }: SectionTaglineProps) {
-  return <p className={cn('text-lg md:text-xl text-subtle', className)}>{children}</p>;
+  return <p className={cn('text-md md:text-lg text-subtle', className)}>{children}</p>;
 }

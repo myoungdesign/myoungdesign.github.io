@@ -4,6 +4,12 @@ import {
   Callout,
   CalloutColumn,
   CalloutColumns,
+  Carousel,
+  CarouselCard,
+  CarouselCardControls,
+  CarouselCardItem,
+  CarouselContent,
+  CarouselSlide,
   ChartLineUp,
   EightyTwenty,
   Message,
@@ -16,11 +22,16 @@ import {
   PageMeta,
   PageMetaItem,
   PageTitle,
-  QuoteCard,
   ResultsTable,
+  ScrollSwap,
+  ScrollSwapLabel,
+  ScrollSwapLabels,
+  ScrollSwapPanel,
+  ScrollSwapPanels,
   Section,
   SectionHeader,
   SectionKicker,
+  SectionTagline,
   SectionTitle,
   Stepper,
   StepperContent,
@@ -54,6 +65,62 @@ const SIGNALS = [
     label: 'User Signal 03',
     title: 'IT teams are under pressure to compress their S/4HANA migration timelines.',
     body: 'An assistant could perform analysis comparing custom code against SAP standard and clean core principles.',
+  },
+];
+
+const CONSTRAINTS = [
+  {
+    title: 'The assistant was often slow and prone to hallucinations.',
+    body: "We surfaced tool calls that exposed the assistant's reasoning in real-time. To reduce the extraneous load they imposed, I designed them to collapse on completion.",
+  },
+  {
+    title: 'The assistant’s responses sometimes missed the mark.',
+    body: 'I embedded structured feedback loops into the assistant’s responses. When a response was rated negatively, the assistant would generate an improved response and ask again.',
+  },
+  {
+    title: 'Relevant context was regularly hidden from users.',
+    body: 'I added a dedicated tab revealing all sources relevant to a response and implemented hover cards that surfaced key information from a source’s documentation.',
+  },
+  {
+    title: 'New topics dropped the assistant’s performance.',
+    body: 'I designed thread-scoping cues that nudged users to start a new thread when they switched topic, keeping the context window for each thread scoped to a single request.',
+  },
+  {
+    title: 'Users were working on many tasks simultaneously.',
+    body: 'I added bookmarks to threads and surfaced recent threads on the homepage so users could resume long-running investigations without rebuilding context.',
+  },
+];
+
+const ITERATIONS = [
+  {
+    value: 'user-profiles',
+    title: 'User profiles',
+    body: 'Users needed answers appropriate to the focus and technical specificity of their role. We defined these as a set of user profiles, which I implemented into the prompt input along with affordances to guide first-time users.',
+  },
+  {
+    value: 'multi-system-support',
+    title: 'Multi-system support',
+    body: 'Changing systems mid-thread became a high-impact user request. To keep context visible when systems switched, I added markers between messages and attached system labels to responses.',
+  },
+  {
+    value: 'file-uploads',
+    title: 'File uploads',
+    body: 'We added file uploads so users could attach external context to conversations, which I integrated as a drag-and-drop uploader built directly into the prompt input.',
+  },
+  {
+    value: 'collapsible-prompt-input',
+    title: 'Collapsible prompt input',
+    body: 'We changed the prompt input default to collapse when idle, and I designed it to expand on focus because the thread needed visual breathing room without losing input discoverability.',
+  },
+  {
+    value: 'document-editing',
+    title: 'Document editing',
+    body: 'We developed a native document editor (powered by TipTap) so users could create documents entirely in Conduct. I themed and integrated it into threads.',
+  },
+  {
+    value: 'guided-workflows',
+    title: 'Guided workflows',
+    body: 'As usage matured, users wanted to repeat proven multi-step analyses without rebuilding prompts from scratch. We packaged these into guided workflows, which I designed as step-by-step flows any team member could launch and follow.',
   },
 ];
 
@@ -165,9 +232,9 @@ export default function ConductPage() {
           </Tabs>
         </Section>
 
-        {/* Strategy */}
+        {/* Design Thesis */}
         <Section>
-          <SectionHeader className="max-w-235">
+          <SectionHeader className="max-w-198">
             <SectionKicker>Design Thesis</SectionKicker>
             <SectionTitle>
               We believed an AI assistant could speed up ERP upgrades by accelerating how fast users
@@ -205,31 +272,31 @@ export default function ConductPage() {
         </Section>
 
         {/* Process */}
-        <Section className="my-8">
+        <Section className="my-6">
           <Stepper defaultValue="setup-context" duration={7000}>
             <div className="grid gap-8 md:min-h-172 md:grid-cols-[35%_1fr] md:grid-rows-[1fr_auto] md:gap-x-12">
               <SectionHeader className="md:col-start-1 md:row-start-1 md:max-w-84">
-                <SectionKicker>Process</SectionKicker>
+                <SectionKicker className="!pb-0">Process</SectionKicker>
                 <SectionTitle className="!text-2xl leading-relaxed">
                   With tasks split across workstreams, I embedded UX as governance to raise the
                   quality of all outputs.
                 </SectionTitle>
               </SectionHeader>
-              <StepperPanel className="aspect-[4/3] overflow-clip rounded-lg bg-canvas md:col-start-2 md:row-start-1 md:row-span-2 md:aspect-auto">
+              <StepperPanel className="aspect-[4/3] overflow-clip rounded-lg bg-gentle md:col-start-2 md:row-start-1 md:row-span-2 md:aspect-auto">
                 <StepperPanelItem value="setup-context">
-                  <div className="h-full w-full bg-canvas" />
+                  <div className="h-full w-full" />
                 </StepperPanelItem>
                 <StepperPanelItem value="align-thinking">
-                  <div className="h-full w-full bg-canvas" />
+                  <div className="h-full w-full" />
                 </StepperPanelItem>
                 <StepperPanelItem value="identify-patterns">
-                  <div className="h-full w-full bg-canvas" />
+                  <div className="h-full w-full" />
                 </StepperPanelItem>
                 <StepperPanelItem value="prototype-ideas">
-                  <div className="h-full w-full bg-canvas" />
+                  <div className="h-full w-full" />
                 </StepperPanelItem>
                 <StepperPanelItem value="measure-results">
-                  <div className="h-full w-full bg-canvas" />
+                  <div className="h-full w-full" />
                 </StepperPanelItem>
               </StepperPanel>
               <StepperList className="md:col-start-1 md:row-start-2">
@@ -278,6 +345,112 @@ export default function ConductPage() {
           </Stepper>
         </Section>
 
+        {/* Constraints */}
+        <Section>
+          <SectionHeader className="max-w-160">
+            <SectionKicker>Constraints</SectionKicker>
+            <SectionTitle className="!text-2xl leading-relaxed">
+              At the start, we were bound by our limited technical capabilities and partial access
+              to customers’ ERP systems.
+            </SectionTitle>
+            <SectionTagline>
+              That focused my initial design effort on softening the impact of those constraints on
+              the user experience, rather than chasing the long-term solution.
+            </SectionTagline>
+          </SectionHeader>
+
+          <Carousel>
+            <div className="relative">
+              <CarouselContent
+                expandable={false}
+                className="aspect-[1152/748] border-0 bg-gentle shadow-none"
+              >
+                {CONSTRAINTS.map(c => (
+                  <CarouselSlide key={c.title} />
+                ))}
+              </CarouselContent>
+              <CarouselCard>
+                <CarouselCardControls />
+                {CONSTRAINTS.map((c, i) => (
+                  <CarouselCardItem key={c.title} index={i}>
+                    <h3 className="font-serif font-medium text-lg leading-relaxed tracking-tight text-fg-emphasis">
+                      {c.title}
+                    </h3>
+                    <p className="text-sm leading-normal text-fg-soft">{c.body}</p>
+                  </CarouselCardItem>
+                ))}
+              </CarouselCard>
+            </div>
+          </Carousel>
+        </Section>
+
+        {/* Iterations */}
+        <Section>
+          <SectionHeader className="max-w-160">
+            <SectionKicker>Iterations</SectionKicker>
+            <SectionTitle className="!text-2xl leading-relaxed">
+              Afterwards, user requests drove us towards building an assistant capable of performing
+              more complex tasks.
+            </SectionTitle>
+            <SectionTagline>
+              While the engineers were extending the assistant’s capabilities; my role was to reduce
+              the friction each one added to the thread and surface the value behind it.
+            </SectionTagline>
+          </SectionHeader>
+
+          <ScrollSwap defaultValue={ITERATIONS[0].value}>
+            <ScrollSwapLabels>
+              {ITERATIONS.map(item => (
+                <ScrollSwapLabel key={item.value} value={item.value}>
+                  <h3 className="font-serif text-xl tracking-[-1px] text-fg-emphasis">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 max-w-[310px] text-md text-fg-subtle">{item.body}</p>
+                </ScrollSwapLabel>
+              ))}
+            </ScrollSwapLabels>
+            <ScrollSwapPanels>
+              {ITERATIONS.map(item => (
+                <ScrollSwapPanel key={item.value} value={item.value}>
+                  <div className="flex flex-col gap-2 pb-4 md:hidden">
+                    <h3 className="font-serif text-xl tracking-[-1px] text-fg-emphasis">
+                      {item.title}
+                    </h3>
+                    <p className="text-md text-fg-subtle">{item.body}</p>
+                  </div>
+                  <div className="h-[400px] rounded-lg bg-canvas md:h-[640px]" />
+                </ScrollSwapPanel>
+              ))}
+            </ScrollSwapPanels>
+          </ScrollSwap>
+        </Section>
+
+        {/* Outcome */}
+        <Section>
+          <SectionHeader className="max-w-220">
+            <SectionKicker>Outcome</SectionKicker>
+            <SectionTitle className="!text-2xl leading-relaxed max-w-183">
+              By the end, we&rsquo;d laid the groundwork for using Conduct to accelerate how long
+              it takes to transform ERP systems.
+            </SectionTitle>
+            <SectionTagline>
+              I had the lead UX of an AI assistant capable of performing system analysis,
+              integrated iterations for performing more complex requests, and designed workflow
+              concepts for guiding users through structured tasks.
+            </SectionTagline>
+          </SectionHeader>
+
+          <div className="overflow-clip rounded-lg border border-subtle shadow-xs">
+            <Image
+              src="/images/work/conduct/screenshots/final-design.png"
+              alt="Final design — Conduct AI assistant interface"
+              width={2560}
+              height={1664}
+              className="w-full"
+            />
+          </div>
+        </Section>
+
         {/* Impact */}
         <Section>
           <SectionHeader>
@@ -289,17 +462,6 @@ export default function ConductPage() {
           </SectionHeader>
 
           <ResultsTable columns={['Vertical', 'Outcome']} rows={IMPACTS} />
-        </Section>
-
-        {/* Testimonial */}
-        <Section>
-          <QuoteCard
-            quote="“Rapyd Cloud is a new player in the crowded WordPress hosting market with a solid offering, great support and easy to use dashboard. It’s like they looked at all competitors and picked the best aspects from each.”"
-            author="Lawrence Ladomery"
-            avatar="/images/work/rapyd-cloud/testimonial.webp"
-            company="Trustpilot"
-            logo="/images/logos/trustpilot.svg"
-          />
         </Section>
       </PageContent>
     </Page>

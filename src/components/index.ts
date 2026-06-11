@@ -15,6 +15,7 @@ export * from './Page';
 export * from './PageLoadOverlay';
 export * from './QuoteCard';
 export * from './ResultsTable';
+export * from './ScrollSwap';
 export * from './Section';
 export * from './Stepper';
 export * from './SmoothScroll';

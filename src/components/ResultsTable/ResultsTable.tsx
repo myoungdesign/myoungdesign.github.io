@@ -37,7 +37,7 @@ function TableRow({ icon, label, value }: ResultsTableRow) {
   return (
     <tr className="border-t border-subtle">
       <td className="w-44 md:w-1/3 align-middle">
-        <div className="flex min-h-24 py-4 pr-3 items-center gap-4">
+        <div className="flex min-h-16 py-3 pr-3 items-center gap-4">
           {icon && <span className="shrink-0 size-9 text-fg [&_svg]:size-8">{icon}</span>}
           <span className="font-serif text-xl tracking-tight leading-9 text-fg">{label}</span>
         </div>
