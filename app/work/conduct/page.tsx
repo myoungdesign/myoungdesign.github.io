@@ -68,6 +68,44 @@ const SIGNALS = [
   },
 ];
 
+const PROCESS_IMAGES = [
+  {
+    value: 'setup-context',
+    src: '/images/work/conduct/process/setup-content.png',
+    width: 634,
+    height: 480,
+    alt: 'Setup Context — design tokens, branding guidelines, and UX requirements structured as agent context',
+  },
+  {
+    value: 'align-thinking',
+    src: '/images/work/conduct/process/align-thinking.png',
+    width: 603,
+    height: 460,
+    alt: 'Align Thinking — wireframes and UX audits coordinated with engineers',
+  },
+  {
+    value: 'identify-patterns',
+    src: '/images/work/conduct/process/identify-patterns.png',
+    width: 513,
+    height: 429,
+    alt: 'Identify Patterns — shared UX patterns extracted into reusable components',
+  },
+  {
+    value: 'prototype-ideas',
+    src: '/images/work/conduct/process/prototype-concepts.png',
+    width: 539,
+    height: 465,
+    alt: 'Prototype Ideas — prototypes standardising customer terminology and mental models',
+  },
+  {
+    value: 'measure-results',
+    src: '/images/work/conduct/process/measure-results.png',
+    width: 567,
+    height: 395,
+    alt: 'Measure Results — product data schema, events, and tracking in Mixpanel',
+  },
+];
+
 const CONSTRAINTS = [
   {
     title: 'The assistant was often slow and prone to hallucinations.',
@@ -283,21 +321,19 @@ export default function ConductPage() {
                 </SectionTitle>
               </SectionHeader>
               <StepperPanel className="aspect-[4/3] overflow-clip rounded-lg bg-gentle md:col-start-2 md:row-start-1 md:row-span-2 md:aspect-auto">
-                <StepperPanelItem value="setup-context">
-                  <div className="h-full w-full" />
-                </StepperPanelItem>
-                <StepperPanelItem value="align-thinking">
-                  <div className="h-full w-full" />
-                </StepperPanelItem>
-                <StepperPanelItem value="identify-patterns">
-                  <div className="h-full w-full" />
-                </StepperPanelItem>
-                <StepperPanelItem value="prototype-ideas">
-                  <div className="h-full w-full" />
-                </StepperPanelItem>
-                <StepperPanelItem value="measure-results">
-                  <div className="h-full w-full" />
-                </StepperPanelItem>
+                {PROCESS_IMAGES.map(img => (
+                  <StepperPanelItem key={img.value} value={img.value}>
+                    <div className="flex h-full w-full items-center justify-center p-6 md:p-10">
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        width={img.width}
+                        height={img.height}
+                        className="h-full w-full object-contain"
+                      />
+                    </div>
+                  </StepperPanelItem>
+                ))}
               </StepperPanel>
               <StepperList className="md:col-start-1 md:row-start-2">
                 <StepperItem value="setup-context">

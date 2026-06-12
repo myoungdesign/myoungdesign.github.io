@@ -204,16 +204,17 @@ interface StepperPanelItemProps {
 
 export function StepperPanelItem({ children, value, className }: StepperPanelItemProps) {
   const { activeValue } = useStepper();
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <AnimatePresence>
       {activeValue === value && (
         <motion.div
           key={value}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 1.06 }}
+          animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
           className={cn('absolute inset-0', className)}
         >
           {children}
