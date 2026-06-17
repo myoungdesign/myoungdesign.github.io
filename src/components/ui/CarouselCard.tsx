@@ -23,7 +23,7 @@ export function CarouselCard({ children, className }: CarouselCardProps) {
   return (
     <div
       className={cn(
-        'mt-4 flex flex-col gap-6 rounded-md border border-subtle bg-surface px-8 py-7 shadow-xs md:absolute md:bottom-12 md:left-12 md:mt-0 md:w-88',
+        'mt-4 flex flex-col gap-6 rounded-md border border-subtle bg-surface px-8 py-7 shadow-xs md:absolute md:bottom-7 md:left-7 md:mt-0 md:w-88',
         className
       )}
     >
@@ -94,9 +94,7 @@ export function CarouselCardItem({ children, className, index }: CarouselCardIte
 
   return (
     <motion.div
-      initial={
-        shouldReduceMotion || !nav.navigated ? false : { opacity: 0, x: 20 * nav.direction }
-      }
+      initial={shouldReduceMotion || !nav.navigated ? false : { opacity: 0, x: 20 * nav.direction }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.45, ease: [0.22, 0.61, 0.36, 1] }}
       className={cn('flex flex-col gap-2', className)}

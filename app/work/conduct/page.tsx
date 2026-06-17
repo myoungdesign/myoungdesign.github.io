@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import { StreamingToolCalls } from '@/animations';
 import {
   Callout,
   CalloutColumn,
@@ -312,7 +313,7 @@ export default function ConductPage() {
         {/* Process */}
         <Section className="my-6">
           <Stepper defaultValue="setup-context" duration={7000}>
-            <div className="grid gap-8 md:min-h-172 md:grid-cols-[35%_1fr] md:grid-rows-[1fr_auto] md:gap-x-12">
+            <div className="grid gap-8 md:min-h-168 md:grid-cols-[35%_1fr] md:grid-rows-[1fr_auto] md:gap-x-12">
               <SectionHeader className="md:col-start-1 md:row-start-1 md:max-w-84">
                 <SectionKicker className="!pb-0">Process</SectionKicker>
                 <SectionTitle className="!text-2xl leading-relaxed">
@@ -320,7 +321,7 @@ export default function ConductPage() {
                   quality of all outputs.
                 </SectionTitle>
               </SectionHeader>
-              <StepperPanel className="aspect-[4/3] overflow-clip rounded-lg bg-gentle md:col-start-2 md:row-start-1 md:row-span-2 md:aspect-auto">
+              <StepperPanel className="aspect-[4/3] overflow-clip rounded-lg bg-gentle/80 md:col-start-2 md:row-start-1 md:row-span-2 md:aspect-auto">
                 {PROCESS_IMAGES.map(img => (
                   <StepperPanelItem key={img.value} value={img.value}>
                     <div className="flex h-full w-full items-center justify-center p-6 md:p-10">
@@ -361,11 +362,11 @@ export default function ConductPage() {
                   </StepperContent>
                 </StepperItem>
                 <StepperItem value="prototype-ideas">
-                  <StepperTrigger>Prototype Ideas</StepperTrigger>
+                  <StepperTrigger>Prototype Concepts</StepperTrigger>
                   <StepperContent>
                     Customer collaboration drove the roadmap. As engineers shipped requests, I built
-                    prototypes for standardising each customer&apos;s terminology, mental models,
-                    and system configurations into one core UX.
+                    prototypes for standardising each customer's terminology, mental models, and
+                    system configurations into one core UX.
                   </StepperContent>
                 </StepperItem>
                 <StepperItem value="measure-results">
@@ -399,10 +400,12 @@ export default function ConductPage() {
             <div className="relative">
               <CarouselContent
                 expandable={false}
-                className="aspect-[1152/748] border-0 bg-gentle shadow-none"
+                className="aspect-[1152/748] border-0 bg-gentle/80 shadow-none"
               >
-                {CONSTRAINTS.map(c => (
-                  <CarouselSlide key={c.title} />
+                {CONSTRAINTS.map((c, i) => (
+                  <CarouselSlide key={c.title}>
+                    {i === 0 ? <StreamingToolCalls /> : null}
+                  </CarouselSlide>
                 ))}
               </CarouselContent>
               <CarouselCard>
@@ -466,13 +469,13 @@ export default function ConductPage() {
           <SectionHeader className="max-w-220">
             <SectionKicker>Outcome</SectionKicker>
             <SectionTitle className="!text-2xl leading-relaxed max-w-183">
-              By the end, we&rsquo;d laid the groundwork for using Conduct to accelerate how long
-              it takes to transform ERP systems.
+              By the end, we&rsquo;d laid the groundwork for using Conduct to accelerate how long it
+              takes to transform ERP systems.
             </SectionTitle>
             <SectionTagline>
-              I had the lead UX of an AI assistant capable of performing system analysis,
-              integrated iterations for performing more complex requests, and designed workflow
-              concepts for guiding users through structured tasks.
+              I had the lead UX of an AI assistant capable of performing system analysis, integrated
+              iterations for performing more complex requests, and designed workflow concepts for
+              guiding users through structured tasks.
             </SectionTagline>
           </SectionHeader>
 

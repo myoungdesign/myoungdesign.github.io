@@ -40,6 +40,22 @@ export function useCarousel() {
   return context;
 }
 
+type CarouselSlideContextValue = {
+  index: number;
+  isActive: boolean;
+};
+
+const CarouselSlideContext = createContext<CarouselSlideContextValue | null>(null);
+
+/** Position and activity of the nearest ancestor CarouselSlide. */
+export function useCarouselSlide() {
+  const context = useContext(CarouselSlideContext);
+  if (!context) {
+    throw new Error('useCarouselSlide must be used within <CarouselSlide>.');
+  }
+  return context;
+}
+
 type CarouselProps = {
   children: React.ReactNode;
   /** Wrap from the last slide back to the first (and vice versa). Defaults to false. */
@@ -209,21 +225,23 @@ export function CarouselSlide({ src, alt, className, children, index }: Carousel
   const eager = distance <= 1;
 
   return (
-    <div className={cn('relative h-full w-full shrink-0', className)}>
-      {children ??
-        (src && (
-          <Image
-            src={src}
-            alt={alt ?? ''}
-            fill
-            sizes="(min-width: 768px) 75vw, 100vw"
-            className="object-cover select-none"
-            draggable={false}
-            priority={isActive}
-            loading={isActive ? undefined : eager ? 'eager' : 'lazy'}
-          />
-        ))}
-    </div>
+    <CarouselSlideContext.Provider value={{ index: index ?? 0, isActive }}>
+      <div className={cn('relative h-full w-full shrink-0', className)}>
+        {children ??
+          (src && (
+            <Image
+              src={src}
+              alt={alt ?? ''}
+              fill
+              sizes="(min-width: 768px) 75vw, 100vw"
+              className="object-cover select-none"
+              draggable={false}
+              priority={isActive}
+              loading={isActive ? undefined : eager ? 'eager' : 'lazy'}
+            />
+          ))}
+      </div>
+    </CarouselSlideContext.Provider>
   );
 }
 
