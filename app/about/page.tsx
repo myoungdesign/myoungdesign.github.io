@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 
 import {
@@ -48,6 +49,12 @@ const STATS = [
       'Scalable foundations built to help each product ship fast without losing consistency.',
   },
 ];
+
+export const metadata: Metadata = {
+  title: 'About Mike Young — Product Designer',
+  description:
+    'A design leader who ships: close to engineering and product, making real decisions. The path, the principles, and how 15+ years shaped the work.',
+};
 
 export default function AboutPage() {
   return (

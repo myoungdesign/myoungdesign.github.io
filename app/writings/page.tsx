@@ -1,7 +1,14 @@
 import { ArrowUpRight } from 'lucide-react';
+import type { Metadata } from 'next';
 
 import { Article, Page, PageHeader, PageKicker, PageMasthead, PageTitle } from '@/components';
 import { getMediumPosts, MEDIUM_PROFILE_URL } from '@/content/medium';
+
+export const metadata: Metadata = {
+  title: 'Writings — Mike Young Design',
+  description:
+    'Notes on product design, design systems, and building B2B software that earns its complexity. Thinking made public, updated as the work continues.',
+};
 
 export const revalidate = 3600;
 

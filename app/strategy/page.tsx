@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 
 import {
@@ -98,6 +99,12 @@ const CARDS: AgentCard[] = [
     image: '/images/strategy/cards/architect.png',
   },
 ];
+
+export const metadata: Metadata = {
+  title: 'Strategy — Mike Young Design',
+  description:
+    'Design as a series of decisions, not deliverables. How I move from messy problem to shipped product, and where strategy and craft meet in the work.',
+};
 
 export default function StrategyPage() {
   return (

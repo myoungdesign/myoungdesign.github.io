@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 
 import {
@@ -371,6 +372,12 @@ function Solution() {
     </section>
   );
 }
+
+export const metadata: Metadata = {
+  title: 'Conduct AI Case Study — Mike Young Design',
+  description:
+    'An AI workspace that helps IT teams understand and modernise tangled SAP and ERP systems. How dense enterprise data became a workflow people trust.',
+};
 
 export default function ConductPage() {
   return (

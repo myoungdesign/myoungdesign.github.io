@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 
 import {
@@ -102,6 +103,12 @@ const IMPACTS = [
     value: '4.9★ Trustpilot · 4.8★ G2',
   },
 ];
+
+export const metadata: Metadata = {
+  title: 'Rapyd Cloud Case Study — Mike Young Design',
+  description:
+    'Affordable cloud hosting built for WordPress creators. Turning infrastructure complexity into a setup that feels approachable from the first click.',
+};
 
 export default function RapydCloudPage() {
   return (
