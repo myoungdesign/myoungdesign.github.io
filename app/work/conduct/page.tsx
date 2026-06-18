@@ -1,19 +1,9 @@
 import Image from 'next/image';
 
-import { StreamingToolCalls } from '@/animations';
 import {
   Callout,
   CalloutColumn,
   CalloutColumns,
-  Carousel,
-  CarouselCard,
-  CarouselCardControls,
-  CarouselCardItem,
-  CarouselContent,
-  CarouselSlide,
-  ChartLineUp,
-  EightyTwenty,
-  Message,
   Page,
   PageContent,
   PageCover,
@@ -23,7 +13,6 @@ import {
   PageMeta,
   PageMetaItem,
   PageTitle,
-  ResultsTable,
   ScrollSwap,
   ScrollSwapLabel,
   ScrollSwapLabels,
@@ -32,8 +21,6 @@ import {
   Section,
   SectionHeader,
   SectionKicker,
-  SectionTagline,
-  SectionTitle,
   Stepper,
   StepperContent,
   StepperItem,
@@ -41,33 +28,167 @@ import {
   StepperPanel,
   StepperPanelItem,
   StepperTrigger,
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-  TimerBolt,
-  UserAdd,
 } from '@/components';
 
 import { Overview } from '../components/Overview';
 
-const SIGNALS = [
+type Story = {
+  value: string;
+  title: React.ReactNode;
+  body: string;
+  src: string;
+  alt: string;
+};
+
+const UNDERSTAND: Story[] = [
   {
-    label: 'User Signal 01',
-    title: 'Users start their workflows from a process, not an artefact they could look up.',
-    body: 'An assistant could trace custom configurations and dependencies from a business process.',
+    value: 'ask-anything',
+    title: (
+      <>
+        An assistant you
+        <br />
+        could ask anything
+      </>
+    ),
+    body: "At first, we built an assistant that could answer questions about a customer's SAP system. Instead of reading custom code by hand, an analyst could ask what a process did or what a change would affect, and the assistant traced the answer down to the actual code and configuration behind it.",
+    src: '/images/work/conduct/understand-01.png',
+    alt: 'An assistant that traces answers down to the underlying SAP code and configuration',
   },
   {
-    label: 'User Signal 02',
-    title: 'The type of output a user expects is heavily influenced by the role they perform. ',
-    body: "An assistant could tailor output to a user's role: business analyst, functional analyst, developer, or beyond.",
+    value: 'tuning-answers',
+    title: (
+      <>
+        Tuning answers
+        <br />
+        to role and system
+      </>
+    ),
+    body: 'Answers needed to match both the person asking and the system they were working in. We defined a set of user profiles that tuned the depth and focus of each response, and I built them into the prompt input alongside the connected system. First-time users were guided towards the right profile, and switching system or role never pulled them out of their current thread.',
+    src: '/images/work/conduct/understand-02.png',
+    alt: 'User profiles in the prompt input that tune the depth and focus of each response',
   },
   {
-    label: 'User Signal 03',
-    title: 'IT teams are under pressure to compress their S/4HANA migration timelines.',
-    body: 'An assistant could perform analysis comparing custom code against SAP standard and clean core principles.',
+    value: 'revealing-reasoning',
+    title: (
+      <>
+        Building trust by
+        <br />
+        revealing reasoning
+      </>
+    ),
+    body: "Users found the assistant could be slow and prone to hallucinations so we decided to stream tool calls to expose the assistant's reasoning in real-time. I came up with a design that collapsed the calls on completion, keeping them visible only while relevant so they didn't impose extraneous load once a response was fully generated.",
+    src: '/images/work/conduct/understand-03.png',
+    alt: 'Streaming tool calls that expose the assistant reasoning and collapse on completion',
+  },
+  {
+    value: 'feedback',
+    title: (
+      <>
+        Turning feedback
+        <br />
+        into better answers
+      </>
+    ),
+    body: 'A plain thumbs up or down went mostly unused, leaving the team with little signal on answer quality. I replaced it with an inline survey under each response: a "Did this answer your question?" prompt with structured reasons and a free-text fallback. When an answer was rated poorly, the assistant used that reason to generate an improved response and asked again, so a bad rating became a second attempt rather than a dead end.',
+    src: '/images/work/conduct/understand-04.png',
+    alt: 'An inline survey under each response that turns a poor rating into an improved answer',
   },
 ];
+
+const OPERATE: Story[] = [
+  {
+    value: 'answers-to-outputs',
+    title: (
+      <>
+        Moving from
+        <br />
+        answers to outputs
+      </>
+    ),
+    body: 'Next, we moved the assistant from answering questions to producing the things teams actually needed. People were already using it to draft functional specs and run fit-gap checks against SAP standard, then pasting the results into Word to finish, so we built that work into the product itself.',
+    src: '/images/work/conduct/operate-01.png',
+    alt: 'The assistant producing functional specs and fit-gap checks directly in the product',
+  },
+  {
+    value: 'business-processes',
+    title: (
+      <>
+        Starting from
+        <br />
+        business processes
+      </>
+    ),
+    body: 'Users start from a business process, not an artefact they could look up. They needed the assistant to connect business steps to technical execution, speeding up root cause analysis and catching downstream effects. So I designed an inline process flow that highlighted the relevant custom programs on each step, keeping technical detail in the context of the process.',
+    src: '/images/work/conduct/operate-02.png',
+    alt: 'An inline process flow that highlights the relevant custom programs on each step',
+  },
+  {
+    value: 'document-editor',
+    title: (
+      <>
+        A document
+        <br />
+        editor in the thread
+      </>
+    ),
+    body: 'The specs and analyses the assistant produced still ended up in Word for editing, which broke the flow of work. We built a document editor directly into Conduct, powered by TipTap, which I themed and integrated alongside the chat. You could preview a document beside the chat, or open the full editor to work on it.',
+    src: '/images/work/conduct/operate-03.png',
+    alt: 'A TipTap-powered document editor integrated alongside the chat thread',
+  },
+];
+
+const TRANSFORM: Story[] = [
+  {
+    value: 'full-change-cycle',
+    title: (
+      <>
+        The full change
+        <br />
+        cycle, in one place
+      </>
+    ),
+    body: 'Finally, we expanded the assistant to manage a change from end to end: plan, build, test, and deploy. IT teams were under pressure to compress their S/4HANA migration timelines, which meant comparing decades of custom code against SAP standard and clean core principles to decide what to keep, retire, or rebuild. We brought that whole cycle into Conduct so teams could run the analysis and act on it without leaving.',
+    src: '/images/work/conduct/transform-01.png',
+    alt: 'The full change cycle — plan, build, test, and deploy — brought into Conduct',
+  },
+  {
+    value: 'workflow-for-every-analysis',
+    title: (
+      <>
+        A workflow
+        <br />
+        for every analysis
+      </>
+    ),
+    body: 'As new workflows were introduced, my role was to embed them into the dashboard so they were easy to find and move into, whether from the homepage or partway through a thread. This was the final step towards one platform that could accelerate an entire IT team, from asking a question to implementing the change. I designed the hand-off between them, so one user could pass their work to whoever owned the next step in the engineering process.',
+    src: '/images/work/conduct/transform-02.png',
+    alt: 'Workflows embedded into the dashboard with hand-offs between team members',
+  },
+];
+
+const CALLOUTS = {
+  understand: {
+    statTop: 'More than',
+    stat: '80% faster',
+    statBottom: 'manual system analysis',
+    learnings:
+      "The impact showed up first in speed: work that meant reading custom code by hand now took a fraction of the time. More telling was what people did with it. They weren't asking questions to understand the system, they were drafting specs, running fit-gap checks against SAP standard, and tracing processes, then pasting the results into Word to finish. The assistant had become a starting point for real outputs, and people worked forward from the business process rather than the artefact, which is what pushed Conduct from answering questions to producing the work itself.",
+  },
+  operate: {
+    statTop: 'Reduced delivery time by',
+    stat: '50%',
+    statBottom: 'for new features',
+    learnings:
+      "The time savings were real and users felt them, but they stopped at the edges of what Conduct covered. Feedback made the gap clear: we were speeding up individual pieces of work without yet supporting the full software development process, so people still had to hand work off to external tools and colleagues, and important context was lost each time they did. That's what pushed us to bring the entire change cycle into Conduct, from analysis to deploy, so the work and the context around it stayed in one place.",
+  },
+  transform: {
+    statTop: 'Saved up to',
+    stat: '30%',
+    statBottom: 'on large scale projects',
+    learnings:
+      "The further we took Conduct, the clearer it became that the value sat in the connections, not the individual features. A faster answer is enough for a small task; on a migration spanning decades of custom code, the cost lives in the hand-offs between steps and people, and that's where an end-to-end platform pays off. The lasting lesson for me was that the hardest design work was rarely a single screen, it was the seams between them: keeping context intact as work moved from one person and one workflow to the next.",
+  },
+};
 
 const PROCESS_IMAGES = [
   {
@@ -107,89 +228,77 @@ const PROCESS_IMAGES = [
   },
 ];
 
-const CONSTRAINTS = [
-  {
-    title: 'The assistant was often slow and prone to hallucinations.',
-    body: "We surfaced tool calls that exposed the assistant's reasoning in real-time. To reduce the extraneous load they imposed, I designed them to collapse on completion.",
-  },
-  {
-    title: 'The assistant’s responses sometimes missed the mark.',
-    body: 'I embedded structured feedback loops into the assistant’s responses. When a response was rated negatively, the assistant would generate an improved response and ask again.',
-  },
-  {
-    title: 'Relevant context was regularly hidden from users.',
-    body: 'I added a dedicated tab revealing all sources relevant to a response and implemented hover cards that surfaced key information from a source’s documentation.',
-  },
-  {
-    title: 'New topics dropped the assistant’s performance.',
-    body: 'I designed thread-scoping cues that nudged users to start a new thread when they switched topic, keeping the context window for each thread scoped to a single request.',
-  },
-  {
-    title: 'Users were working on many tasks simultaneously.',
-    body: 'I added bookmarks to threads and surfaced recent threads on the homepage so users could resume long-running investigations without rebuilding context.',
-  },
-];
+function ScrollStory({ kicker, items }: { kicker: string; items: Story[] }) {
+  return (
+    <Section>
+      <ScrollSwap defaultValue={items[0].value}>
+        <ScrollSwapLabels
+          header={<SectionKicker className="pb-10 md:pb-10">{kicker}</SectionKicker>}
+        >
+          {items.map(item => (
+            <ScrollSwapLabel key={item.value} value={item.value}>
+              <h3 className="font-serif font-medium text-2xl leading-relaxed tracking-tighter text-fg-emphasis">
+                {item.title}
+              </h3>
+              <p className="mt-3 max-w-[310px] text-md text-fg-subtle">{item.body}</p>
+            </ScrollSwapLabel>
+          ))}
+        </ScrollSwapLabels>
+        <ScrollSwapPanels>
+          {items.map(item => (
+            <ScrollSwapPanel key={item.value} value={item.value}>
+              <div className="flex flex-col gap-2 pb-4 md:hidden">
+                <h3 className="font-serif font-medium text-2xl leading-relaxed tracking-tighter text-fg-emphasis">
+                  {item.title}
+                </h3>
+                <p className="text-md text-fg-subtle">{item.body}</p>
+              </div>
+              <div className="relative h-[400px] overflow-clip rounded-lg bg-[#F7F7F8] md:h-[640px]">
+                <Image src={item.src} alt={item.alt} fill className="object-contain p-6 md:p-10" />
+              </div>
+            </ScrollSwapPanel>
+          ))}
+        </ScrollSwapPanels>
+      </ScrollSwap>
+    </Section>
+  );
+}
 
-const ITERATIONS = [
-  {
-    value: 'user-profiles',
-    title: 'User profiles',
-    body: 'Users needed answers appropriate to the focus and technical specificity of their role. We defined these as a set of user profiles, which I implemented into the prompt input along with affordances to guide first-time users.',
-  },
-  {
-    value: 'multi-system-support',
-    title: 'Multi-system support',
-    body: 'Changing systems mid-thread became a high-impact user request. To keep context visible when systems switched, I added markers between messages and attached system labels to responses.',
-  },
-  {
-    value: 'file-uploads',
-    title: 'File uploads',
-    body: 'We added file uploads so users could attach external context to conversations, which I integrated as a drag-and-drop uploader built directly into the prompt input.',
-  },
-  {
-    value: 'collapsible-prompt-input',
-    title: 'Collapsible prompt input',
-    body: 'We changed the prompt input default to collapse when idle, and I designed it to expand on focus because the thread needed visual breathing room without losing input discoverability.',
-  },
-  {
-    value: 'document-editing',
-    title: 'Document editing',
-    body: 'We developed a native document editor (powered by TipTap) so users could create documents entirely in Conduct. I themed and integrated it into threads.',
-  },
-  {
-    value: 'guided-workflows',
-    title: 'Guided workflows',
-    body: 'As usage matured, users wanted to repeat proven multi-step analyses without rebuilding prompts from scratch. We packaged these into guided workflows, which I designed as step-by-step flows any team member could launch and follow.',
-  },
-];
-
-const IMPACTS = [
-  {
-    icon: <TimerBolt />,
-    label: 'Velocity',
-    value: 'The design system cut design-to-dev turnaround by 40%.',
-  },
-  {
-    icon: <UserAdd />,
-    label: 'Adoption',
-    value: '1,000+ sites hosted on Rapyd Cloud within 18 months.',
-  },
-  {
-    icon: <ChartLineUp />,
-    label: 'Growth',
-    value: '10% MRR growth in Year 1; under 5% churn maintained since launch.',
-  },
-  {
-    icon: <EightyTwenty />,
-    label: 'Satisfaction',
-    value: '80% average customer satisfaction score.',
-  },
-  {
-    icon: <Message />,
-    label: 'Advocacy',
-    value: '4.9★ Trustpilot · 4.8★ G2',
-  },
-];
+function StatCallout({
+  statTop,
+  stat,
+  statBottom,
+  learnings,
+}: {
+  statTop: string;
+  stat: string;
+  statBottom: string;
+  learnings: string;
+}) {
+  return (
+    <Callout>
+      <CalloutColumns className="lg:items-center">
+        <CalloutColumn className="lg:max-w-[252px] lg:flex-none lg:gap-7">
+          <p className="font-sans font-medium text-sm uppercase tracking-wider text-gray-70">
+            {statTop}
+          </p>
+          <p className="font-serif font-medium text-6xl leading-tight tracking-tighter text-white">
+            {stat}
+          </p>
+          <p className="font-sans font-medium text-sm uppercase tracking-wider text-gray-70">
+            {statBottom}
+          </p>
+        </CalloutColumn>
+        <CalloutColumn className="gap-4">
+          <h3 className="font-serif font-medium text-xl tracking-tight text-white">
+            Key learnings
+          </h3>
+          <p className="text-gray-80">{learnings}</p>
+        </CalloutColumn>
+      </CalloutColumns>
+    </Callout>
+  );
+}
 
 export default function ConductPage() {
   return (
@@ -227,88 +336,17 @@ export default function ConductPage() {
           solution="I designed the UX flows for an AI assistant that allowed IT teams to ask complex questions about those systems, then shaped the patterns for automating each step of their software development in Conduct."
         />
 
-        {/* Screenshots */}
-        <Section>
-          <Tabs defaultValue="v0">
-            <TabsList>
-              <TabsTrigger value="v0">v0 Prototype</TabsTrigger>
-              <TabsTrigger value="rollout">Initial Rollout</TabsTrigger>
-              <TabsTrigger value="final">Final design</TabsTrigger>
-            </TabsList>
-            <TabsContent value="v0">
-              <div className="overflow-clip rounded-lg border border-subtle shadow-xs">
-                <Image
-                  src="/images/work/conduct/screenshots/v0-prototype.png"
-                  alt="v0 Prototype — Conduct AI assistant interface"
-                  width={2560}
-                  height={1664}
-                  className="w-full"
-                />
-              </div>
-            </TabsContent>
-            <TabsContent value="rollout">
-              <div className="overflow-clip rounded-lg border border-subtle shadow-xs">
-                <Image
-                  src="/images/work/conduct/screenshots/initial-rollout.png"
-                  alt="Initial Rollout — Conduct AI assistant interface"
-                  width={2560}
-                  height={1664}
-                  className="w-full"
-                />
-              </div>
-            </TabsContent>
-            <TabsContent value="final">
-              <div className="overflow-clip rounded-lg border border-subtle shadow-xs">
-                <Image
-                  src="/images/work/conduct/screenshots/final-design.png"
-                  alt="Final design — Conduct AI assistant interface"
-                  width={2560}
-                  height={1664}
-                  className="w-full"
-                />
-              </div>
-            </TabsContent>
-          </Tabs>
-        </Section>
+        {/* Understand */}
+        <ScrollStory kicker="Understand" items={UNDERSTAND} />
+        <StatCallout {...CALLOUTS.understand} />
 
-        {/* Design Thesis */}
-        <Section>
-          <SectionHeader className="max-w-198">
-            <SectionKicker>Design Thesis</SectionKicker>
-            <SectionTitle>
-              We believed an AI assistant could speed up ERP upgrades by accelerating how fast users
-              understood the underlying custom code.
-            </SectionTitle>
-            <div className="flex flex-col gap-6 text-lg text-subtle">
-              <p>
-                Conduct was born as a documentation tool, but early user signals suggested an AI
-                assistant would be more effective tool for understanding everything from custom code
-                to affected business processes.{' '}
-              </p>
-              <p>
-                From this, we hypothesised that a faster understanding would cut the time required
-                to implement changes.
-              </p>
-            </div>
-          </SectionHeader>
+        {/* Operate */}
+        <ScrollStory kicker="Operate" items={OPERATE} />
+        <StatCallout {...CALLOUTS.operate} />
 
-          {/* User Signals */}
-          <Callout>
-            <CalloutColumns>
-              {SIGNALS.map(c => (
-                <CalloutColumn key={c.title}>
-                  <div className="flex flex-col gap-4.5">
-                    <p className="font-sans font-medium text-sm uppercase tracking-widest text-gray-60 pb-2.5">
-                      {c.label}
-                    </p>
-                    <h3 className="font-medium text-lg tracking-tight text-white">{c.title}</h3>
-                    <p>{c.body}</p>
-                  </div>
-                </CalloutColumn>
-              ))}
-            </CalloutColumns>
-          </Callout>
-        </Section>
+        {/* Transform */}
+        <ScrollStory kicker="Transform" items={TRANSFORM} />
+        <StatCallout {...CALLOUTS.transform} />
 
         {/* Process */}
         <Section className="my-6">
@@ -316,12 +354,12 @@ export default function ConductPage() {
             <div className="grid gap-8 md:min-h-168 md:grid-cols-[35%_1fr] md:grid-rows-[1fr_auto] md:gap-x-12">
               <SectionHeader className="md:col-start-1 md:row-start-1 md:max-w-84">
                 <SectionKicker className="!pb-0">Process</SectionKicker>
-                <SectionTitle className="!text-2xl leading-relaxed">
-                  With tasks split across workstreams, I embedded UX as governance to raise the
+                <h3 className="font-serif font-medium text-2xl leading-relaxed tracking-tighter text-fg-emphasis">
+                  With work split across workstreams, I embedded UX as governance to raise the
                   quality of all outputs.
-                </SectionTitle>
+                </h3>
               </SectionHeader>
-              <StepperPanel className="aspect-[4/3] overflow-clip rounded-lg bg-gentle/80 md:col-start-2 md:row-start-1 md:row-span-2 md:aspect-auto">
+              <StepperPanel className="aspect-[4/3] overflow-clip rounded-lg bg-[#F7F7F8] md:col-start-2 md:row-start-1 md:row-span-2 md:aspect-auto">
                 {PROCESS_IMAGES.map(img => (
                   <StepperPanelItem key={img.value} value={img.value}>
                     <div className="flex h-full w-full items-center justify-center p-6 md:p-10">
@@ -362,7 +400,7 @@ export default function ConductPage() {
                   </StepperContent>
                 </StepperItem>
                 <StepperItem value="prototype-ideas">
-                  <StepperTrigger>Prototype Concepts</StepperTrigger>
+                  <StepperTrigger>Prototype Ideas</StepperTrigger>
                   <StepperContent>
                     Customer collaboration drove the roadmap. As engineers shipped requests, I built
                     prototypes for standardising each customer's terminology, mental models, and
@@ -382,104 +420,26 @@ export default function ConductPage() {
           </Stepper>
         </Section>
 
-        {/* Constraints */}
+        {/* Impact */}
         <Section>
-          <SectionHeader className="max-w-160">
-            <SectionKicker>Constraints</SectionKicker>
-            <SectionTitle className="!text-2xl leading-relaxed">
-              At the start, we were bound by our limited technical capabilities and partial access
-              to customers’ ERP systems.
-            </SectionTitle>
-            <SectionTagline>
-              That focused my initial design effort on softening the impact of those constraints on
-              the user experience, rather than chasing the long-term solution.
-            </SectionTagline>
-          </SectionHeader>
-
-          <Carousel>
-            <div className="relative">
-              <CarouselContent
-                expandable={false}
-                className="aspect-[1152/748] border-0 bg-gentle/80 shadow-none"
-              >
-                {CONSTRAINTS.map((c, i) => (
-                  <CarouselSlide key={c.title}>
-                    {i === 0 ? <StreamingToolCalls /> : null}
-                  </CarouselSlide>
-                ))}
-              </CarouselContent>
-              <CarouselCard>
-                <CarouselCardControls />
-                {CONSTRAINTS.map((c, i) => (
-                  <CarouselCardItem key={c.title} index={i}>
-                    <h3 className="font-serif font-medium text-lg leading-relaxed tracking-tight text-fg-emphasis">
-                      {c.title}
-                    </h3>
-                    <p className="text-sm leading-normal text-fg-soft">{c.body}</p>
-                  </CarouselCardItem>
-                ))}
-              </CarouselCard>
+          <SectionHeader>
+            <SectionKicker>Impact</SectionKicker>
+            <div className="flex flex-col gap-8 md:flex-row md:gap-16">
+              <h3 className="flex-1 font-serif font-medium text-xl leading-relaxed tracking-tighter text-fg-emphasis md:max-w-[420px]">
+                By the end, the assistant was automating entire software development workflows,
+                carrying Conduct towards a $60M Series A.
+              </h3>
+              <p className="flex-1 text-md text-fg-subtle">
+                ERP analysis had been made about five times faster, delivery time for new features
+                had been halved, and customers were saving up to 30% on large-scale projects. The
+                end-to-end capability opened the door to long-term partnerships with enterprises
+                like DHL, Daimler Truck, and Heidelberg Materials, organisations that don&rsquo;t
+                open their core systems to software lightly.
+              </p>
             </div>
-          </Carousel>
-        </Section>
-
-        {/* Iterations */}
-        <Section>
-          <SectionHeader className="max-w-160">
-            <SectionKicker>Iterations</SectionKicker>
-            <SectionTitle className="!text-2xl leading-relaxed">
-              Afterwards, user requests drove us towards building an assistant capable of performing
-              more complex tasks.
-            </SectionTitle>
-            <SectionTagline>
-              While the engineers were extending the assistant’s capabilities; my role was to reduce
-              the friction each one added to the thread and surface the value behind it.
-            </SectionTagline>
           </SectionHeader>
 
-          <ScrollSwap defaultValue={ITERATIONS[0].value}>
-            <ScrollSwapLabels>
-              {ITERATIONS.map(item => (
-                <ScrollSwapLabel key={item.value} value={item.value}>
-                  <h3 className="font-serif text-xl tracking-[-1px] text-fg-emphasis">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 max-w-[310px] text-md text-fg-subtle">{item.body}</p>
-                </ScrollSwapLabel>
-              ))}
-            </ScrollSwapLabels>
-            <ScrollSwapPanels>
-              {ITERATIONS.map(item => (
-                <ScrollSwapPanel key={item.value} value={item.value}>
-                  <div className="flex flex-col gap-2 pb-4 md:hidden">
-                    <h3 className="font-serif text-xl tracking-[-1px] text-fg-emphasis">
-                      {item.title}
-                    </h3>
-                    <p className="text-md text-fg-subtle">{item.body}</p>
-                  </div>
-                  <div className="h-[400px] rounded-lg bg-canvas md:h-[640px]" />
-                </ScrollSwapPanel>
-              ))}
-            </ScrollSwapPanels>
-          </ScrollSwap>
-        </Section>
-
-        {/* Outcome */}
-        <Section>
-          <SectionHeader className="max-w-220">
-            <SectionKicker>Outcome</SectionKicker>
-            <SectionTitle className="!text-2xl leading-relaxed max-w-183">
-              By the end, we&rsquo;d laid the groundwork for using Conduct to accelerate how long it
-              takes to transform ERP systems.
-            </SectionTitle>
-            <SectionTagline>
-              I had the lead UX of an AI assistant capable of performing system analysis, integrated
-              iterations for performing more complex requests, and designed workflow concepts for
-              guiding users through structured tasks.
-            </SectionTagline>
-          </SectionHeader>
-
-          <div className="overflow-clip rounded-lg border border-subtle shadow-xs">
+          <div className="overflow-clip rounded-lg border border-subtle shadow-xs mt-2">
             <Image
               src="/images/work/conduct/screenshots/final-design.png"
               alt="Final design — Conduct AI assistant interface"
@@ -488,19 +448,6 @@ export default function ConductPage() {
               className="w-full"
             />
           </div>
-        </Section>
-
-        {/* Impact */}
-        <Section>
-          <SectionHeader>
-            <SectionKicker>Impact</SectionKicker>
-            <SectionTitle className="max-w-180">
-              The product shipped before the 9-month deadline, with growth that held well past
-              launch.
-            </SectionTitle>
-          </SectionHeader>
-
-          <ResultsTable columns={['Vertical', 'Outcome']} rows={IMPACTS} />
         </Section>
       </PageContent>
     </Page>

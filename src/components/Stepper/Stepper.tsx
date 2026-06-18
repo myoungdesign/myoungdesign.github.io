@@ -14,6 +14,8 @@ type StepperContextValue = {
   duration: number;
   registerStep: (value: string) => void;
   advanceStep: () => void;
+  /** True once the stepper has scrolled into view; gates the auto-advance timer. */
+  isInView: boolean;
 };
 
 const StepperContext = createContext<StepperContextValue | null>(null);
@@ -43,12 +45,32 @@ interface StepperProps {
 
 export function Stepper({ children, defaultValue, duration = 7000 }: StepperProps) {
   const [activeValue, setActiveValue] = useState(defaultValue);
+  const [isInView, setIsInView] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
   const stepsRef = useRef<string[]>([]);
   const activeValueRef = useRef(activeValue);
 
   useEffect(() => {
     activeValueRef.current = activeValue;
   }, [activeValue]);
+
+  // Hold the auto-advance timer until the stepper scrolls into view, so steps
+  // don't silently advance while it's still below the fold.
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.25 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const registerStep = useCallback((value: string) => {
     if (!stepsRef.current.includes(value)) {
@@ -64,9 +86,9 @@ export function Stepper({ children, defaultValue, duration = 7000 }: StepperProp
 
   return (
     <StepperContext.Provider
-      value={{ activeValue, setActiveValue, duration, registerStep, advanceStep }}
+      value={{ activeValue, setActiveValue, duration, registerStep, advanceStep, isInView }}
     >
-      {children}
+      <div ref={rootRef}>{children}</div>
     </StepperContext.Provider>
   );
 }
@@ -103,7 +125,7 @@ interface StepperItemProps {
 }
 
 export function StepperItem({ children, value, className }: StepperItemProps) {
-  const { activeValue, duration, advanceStep, registerStep } = useStepper();
+  const { activeValue, duration, advanceStep, registerStep, isInView } = useStepper();
   const shouldReduceMotion = useReducedMotion();
   const isActive = value === activeValue;
 
@@ -116,7 +138,7 @@ export function StepperItem({ children, value, className }: StepperItemProps) {
       <Accordion.Item value={value} className={className}>
         {children}
         <div className="relative h-0.5 overflow-hidden rounded-full bg-fg/5">
-          {isActive && !shouldReduceMotion && (
+          {isActive && isInView && !shouldReduceMotion && (
             <motion.div
               className="absolute inset-y-0 left-0 rounded-full bg-fg"
               initial={{ width: '0%' }}

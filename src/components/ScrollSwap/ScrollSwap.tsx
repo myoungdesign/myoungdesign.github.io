@@ -42,13 +42,16 @@ export function ScrollSwap({ children, defaultValue, className }: ScrollSwapProp
 
 interface ScrollSwapLabelsProps {
   children: React.ReactNode;
+  /** Optional content rendered once, persistently, above the cross-fading labels. */
+  header?: React.ReactNode;
   className?: string;
 }
 
-export function ScrollSwapLabels({ children, className }: ScrollSwapLabelsProps) {
+export function ScrollSwapLabels({ children, header, className }: ScrollSwapLabelsProps) {
   return (
     <div className={cn('hidden flex-1 md:block md:max-w-108', className)}>
-      <div className="sticky top-0 flex h-screen items-center">
+      <div className="sticky top-36 flex flex-col">
+        {header}
         <div className="grid">{children}</div>
       </div>
     </div>
