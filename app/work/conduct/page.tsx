@@ -166,6 +166,24 @@ const TRANSFORM: Story[] = [
   },
 ];
 
+const SOLUTION_STEPS = [
+  {
+    n: '01',
+    title: 'Understand',
+    body: 'Reading the actual custom code and configuration behind a system, so migrations, optimisations, and change requests started from fact, not guesswork.',
+  },
+  {
+    n: '02',
+    title: 'Operate',
+    body: 'Turning that understanding into the outputs teams needed, specs, analyses, and process flows, produced in context and edited in the same thread.',
+  },
+  {
+    n: '03',
+    title: 'Transform',
+    body: 'Running a change from end to end, plan, build, test, and deploy, with workflows that carry the work and its context across the team.',
+  },
+];
+
 const CALLOUTS = {
   understand: {
     statTop: 'More than',
@@ -300,6 +318,60 @@ function StatCallout({
   );
 }
 
+function Solution() {
+  return (
+    <section className="relative overflow-clip -mx-xl md:-mx-0 md:rounded-lg bg-[#F7F7F8] p-10 md:p-10 lg:p-14">
+      <div className="flex flex-col gap-8 lg:gap-14">
+        {/* Heading — spans the full width */}
+        <div className="flex flex-col gap-4 md:gap-4">
+          <h2 className="text-fg-emphasis gap-3 md:gap-0 font-serif font-medium text-xl md:text-2xl leading-[1.6] tracking-tighter max-w-176">
+            We set out to build a solution that accelerated an entire IT team.
+            <span className="text-fg-soft"> From asking questions to implementing changes.</span>
+          </h2>
+          <p className="max-w-[488px] md:text-lg text-fg-subtle">
+            Our objective was to develop a single AI layer for understanding, operating, and
+            transforming ERP systems.
+          </p>
+        </div>
+
+        {/* Steps — left column; the mockup sits to their right on desktop */}
+        <ol className="flex flex-col lg:max-w-[358px]">
+          {SOLUTION_STEPS.map((step, i) => (
+            <li key={step.n} className="relative flex gap-6 pb-10 last:pb-0">
+              {i < SOLUTION_STEPS.length - 1 && (
+                <span
+                  aria-hidden
+                  className="absolute left-5 top-12 bottom-2 w-px -translate-x-1/2 bg-border-subtle"
+                />
+              )}
+              <span className="relative z-[1] flex size-10 shrink-0 items-center justify-center rounded-full bg-fg-emphasis font-sans font-medium text-md tracking-wider text-white">
+                {step.n}
+              </span>
+              <div className="flex flex-col gap-2 pt-1.5">
+                <h3 className="font-serif font-semibold text-lg leading-snug tracking-tight text-fg-emphasis">
+                  {step.title}
+                </h3>
+                <p className="text-md text-fg-subtle">{step.body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      {/* Mockup — stacks below on mobile/tablet, bleeds into the bottom-right corner on desktop */}
+      <div className="mt-4 lg:absolute lg:right-4 lg:bottom-4 lg:mt-0 lg:w-[58%]">
+        <Image
+          src="/images/work/conduct/solution.png"
+          alt="Conduct's three-phase approach — understand, operate, and transform ERP systems"
+          width={1484}
+          height={1340}
+          className="h-auto w-full"
+        />
+      </div>
+    </section>
+  );
+}
+
 export default function ConductPage() {
   return (
     <Page hasCover>
@@ -335,6 +407,9 @@ export default function ConductPage() {
           problem="Decades of custom SAP code left enterprises running ERP systems nobody fully understood: before any migration, entire teams of analysts read that code by hand to map what it did. Each pass ran weeks and burned expensive specialist hours."
           solution="I designed the UX flows for an AI assistant that allowed IT teams to ask complex questions about those systems, then shaped the patterns for automating each step of their software development in Conduct."
         />
+
+        {/* Solution */}
+        <Solution />
 
         {/* Understand */}
         <ScrollStory kicker="Understand" items={UNDERSTAND} />
