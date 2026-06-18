@@ -23,6 +23,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         ? 'dark'
         : 'light';
 
+  // Reserved for future dark-mode wiring (data-theme / ThemeProvider). Dark mode is intentionally disabled for now.
+  void resolvedTheme;
+
   return (
     <html lang="en" data-theme="light" suppressHydrationWarning>
       <head>
