@@ -10,10 +10,10 @@ export default async function WritingsPage() {
 
   return (
     <Page>
-      <PageHeader className="pb-4">
+      <PageHeader>
         <PageMasthead>
           <PageKicker>Writings</PageKicker>
-          <PageTitle>Thoughts on Design &amp; Storytelling</PageTitle>
+          <PageTitle className="text-6xl">Thoughts on Design &amp; Storytelling</PageTitle>
           <a
             href={MEDIUM_PROFILE_URL}
             target="_blank"

@@ -3,7 +3,6 @@
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
-import { Logo } from '@/components/Logo';
 import { MobileMenu, MobileMenuButton } from '@/components/MobileMenu';
 import { Navbar } from '@/components/Navbar';
 
@@ -78,13 +77,13 @@ export function Header() {
         className="sticky w-[100%] top-0 z-50 will-change-transform [transition:transform_240ms_cubic-bezier(0.16,1,0.3,1)]"
       >
         {/* Desktop */}
-        <div className="hidden h-[var(--header-h-desktop)] items-center px-8 md:flex">
+        <div className="hidden h-[var(--header-h-desktop)] items-center border-b border-gray-40 px-8 md:flex">
           <Navbar pathname={pathname} />
         </div>
 
         {/* Mobile */}
-        <div className="flex h-[var(--header-h-mobile)] items-center justify-between bg-gray-10 px-xl md:hidden">
-          <Logo className="h-13 w-auto text-gray-80" strokeWidth={0.9} />
+        <div className="flex h-[var(--header-h-mobile)] items-center justify-between bg-gray-10 pl-6 pr-4 md:hidden">
+          <img src="/images/logo.svg" alt="Mike Young" className="h-5 w-auto" />
           <MobileMenuButton open={mobileOpen} onClick={() => setMobileOpen(v => !v)} />
         </div>
       </header>

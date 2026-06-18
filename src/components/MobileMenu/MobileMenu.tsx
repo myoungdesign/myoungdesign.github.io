@@ -3,14 +3,8 @@
 import Link from 'next/link';
 
 import { NavbarButton } from '@/components/Navbar';
+import { NAV_ITEMS } from '@/constants';
 import { cn } from '@/utils';
-
-const NAV_ITEMS = [
-  { href: '/', text: 'Work' },
-  { href: '/method', text: 'Method' },
-  { href: '/writings', text: 'Writings' },
-  { href: '/about', text: 'About' },
-] as const;
 
 type MobileMenuProps = {
   open: boolean;
@@ -28,23 +22,23 @@ export function MobileMenu({ open, pathname, onClose }: MobileMenuProps) {
         open ? 'pointer-events-auto' : 'pointer-events-none'
       )}
     >
-      <nav className="flex flex-1 flex-col items-start gap-3 px-lg pt-lg">
-        {NAV_ITEMS.map(({ href, text }) => (
-          <Link
-            key={href}
-            href={href}
-            onClick={onClose}
-            className={cn(
-              'flex h-12 w-full max-w-60 mx-auto items-center justify-center rounded-full px-8 text-md text-center font-medium transition-colors',
-              pathname === href ? 'bg-gray-40 text-white' : 'text-gray-70 hover:text-white'
-            )}
-          >
-            {text}
-          </Link>
-        ))}
-        <div className="mx-auto mt-4 flex justify-center">
-          <NavbarButton className="max-w-60 mx-auto text-md [&_svg]:size-6" />
+      <nav className="flex flex-1 flex-col items-center gap-9 px-8 py-12">
+        <div className="flex w-full max-w-52 flex-col items-center gap-4">
+          {NAV_ITEMS.map(({ href, text }) => (
+            <Link
+              key={href}
+              href={href}
+              onClick={onClose}
+              className={cn(
+                'flex h-10 w-full items-center justify-center rounded-full px-3 text-center text-sm font-medium transition-colors',
+                pathname === href ? 'text-white' : 'text-gray-70 hover:text-white'
+              )}
+            >
+              {text}
+            </Link>
+          ))}
         </div>
+        <NavbarButton className="w-full max-w-56" />
       </nav>
     </div>
   );

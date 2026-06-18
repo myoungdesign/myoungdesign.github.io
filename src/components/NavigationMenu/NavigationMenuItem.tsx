@@ -13,8 +13,8 @@ export function NavigationMenuItem({ href, text, active }: NavigationMenuItemPro
     <Link
       href={href}
       className={cn(
-        'flex h-9 items-center justify-center whitespace-nowrap rounded-full px-4.5 text-sm tracking-wide font-medium transition-colors',
-        active ? 'bg-white/12 text-white' : 'text-gray-80 hover:text-white'
+        'flex h-7 items-center justify-center whitespace-nowrap rounded-full px-3 text-md tracking-wide font-medium transition-colors',
+        active ? 'text-white' : 'text-gray-70 hover:text-white'
       )}
     >
       {text}
