@@ -297,11 +297,11 @@ function StatCallout({
   return (
     <Callout>
       <CalloutColumns className="lg:items-center">
-        <CalloutColumn className="lg:max-w-[252px] lg:flex-none !gap-4">
-          <p className="font-sans font-medium text-sm uppercase tracking-wider text-gray-70">
+        <CalloutColumn className="lg:max-w-[252px] lg:flex-none !gap-3">
+          <p className="font-sans font-medium text-sm uppercase tracking-wider text-gray-70 pb-2">
             {statTop}
           </p>
-          <p className="font-serif font-medium text-6xl leading-tight tracking-tighter text-white">
+          <p className="font-serif font-medium text-6xl leading-[1.0] tracking-tighter text-white">
             {stat}
           </p>
           <p className="font-sans font-medium text-sm uppercase tracking-wider text-gray-70">
