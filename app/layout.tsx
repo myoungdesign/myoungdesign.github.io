@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { cookies, headers } from 'next/headers';
 
 import { Footer, Header, PageLoadOverlay, SmoothScroll, ThemeProvider } from '@/components';
 
@@ -12,25 +11,13 @@ export const metadata: Metadata = {
   },
   description:
     'Principal product designer making complex, data-heavy B2B products feel simple. 15+ years across SaaS, enterprise, and design systems. Available now.',
+  icons: {
+    icon: '/images/favicon.svg',
+  },
 };
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const cookieStore = await cookies();
-  const headerStore = await headers();
-
-  const cookieTheme = cookieStore.get('theme')?.value;
-  const hintTheme = headerStore.get('sec-ch-prefers-color-scheme');
-
-  const resolvedTheme: 'light' | 'dark' =
-    cookieTheme === 'dark' || cookieTheme === 'light'
-      ? cookieTheme
-      : hintTheme === 'dark'
-        ? 'dark'
-        : 'light';
-
-  // Reserved for future dark-mode wiring (data-theme / ThemeProvider). Dark mode is intentionally disabled for now.
-  void resolvedTheme;
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // Dark mode is intentionally disabled for now; theme is hardcoded to light.
   return (
     <html lang="en" data-theme="light" suppressHydrationWarning>
       <head>

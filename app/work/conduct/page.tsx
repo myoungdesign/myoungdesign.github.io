@@ -374,7 +374,7 @@ function Solution() {
 }
 
 export const metadata: Metadata = {
-  title: 'Conduct AI Case Study — Mike Young Design',
+  title: 'Conduct Case Study — Mike Young Design',
   description:
     'An AI workspace that helps IT teams understand and modernise tangled SAP and ERP systems. How dense enterprise data became a workflow people trust.',
 };

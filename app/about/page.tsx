@@ -23,7 +23,6 @@ import {
   SectionKicker,
   SectionTagline,
   SectionTitle,
-  VisuallyHidden,
 } from '@/components';
 
 const STATS = [
@@ -61,10 +60,8 @@ export default function AboutPage() {
     <Page hasCover>
       <PageHeader>
         <PageMasthead>
-          <PageKicker>Hi, I'm Mike Young</PageKicker>
-          <PageTitle className="lg:max-w-[90%] xl:max-w-[75%]">
-            A Lead Product Designer with 15+ Years of Experience
-          </PageTitle>
+          <PageKicker>About Me</PageKicker>
+          <PageTitle>I love helping products live up to their promise</PageTitle>
         </PageMasthead>
       </PageHeader>
       <PageCover>
@@ -80,12 +77,6 @@ export default function AboutPage() {
       </PageCover>
       <PageContent>
         <Section>
-          <SectionHeader>
-            <VisuallyHidden>
-              <SectionKicker>Biography</SectionKicker>
-            </VisuallyHidden>
-            <SectionTitle> I love helping products live up to their promise.</SectionTitle>
-          </SectionHeader>
           <p>
             With over a decade across content and product design, at companies large and small, I've
             developed a clear sense for where products lose the people they're built for.

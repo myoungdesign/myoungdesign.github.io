@@ -21,24 +21,26 @@ export function QuoteCard({ quote, author, avatar, company, logo, className }: Q
   return (
     <div
       className={cn(
-        'flex flex-col items-center justify-center gap-6 overflow-clip rounded-lg bg-gentle p-8 md:p-16',
+        'flex flex-col items-center justify-center gap-6 overflow-clip rounded-lg bg-canvas p-8 md:p-16',
         className
       )}
     >
-      <blockquote className="w-full max-w-148 text-center font-serif font-medium text-xl leading-[1.7] text-fg">
+      <blockquote className="w-full max-w-148 text-center font-serif font-medium text-xl leading-[1.7] text-fg tracking-tight">
         {quote}
       </blockquote>
-      <div className="flex items-center gap-4">
-        <div className="relative size-13 shrink-0 overflow-clip rounded-sm border border-subtle bg-surface">
+      <div className="flex items-center gap-5">
+        <div className="relative size-13 shrink-0 overflow-clip rounded-sm border border-outline bg-surface">
           <Image src={avatar} alt={author} fill className="object-cover" />
         </div>
-        <div className="flex flex-col items-start gap-1">
+        <div className="flex flex-col items-start">
           <p className="font-sans text-md font-medium whitespace-nowrap text-fg-emphasis">
             {author}
           </p>
-          <div className="flex h-5 items-center gap-1">
-            {logo && <img src={logo} alt="" width={20} height={20} />}
-            <p className="font-sans text-md whitespace-nowrap text-fg-gentle">{company}</p>
+          <div className="flex h-5 items-center gap-1.5">
+            {logo && <img src={logo} alt="" width={18} height={18} />}
+            <p className="font-sans font-medium text-2xs tracking-widest uppercase whitespace-nowrap text-fg-gentle pt-0.5">
+              {company}
+            </p>
           </div>
         </div>
       </div>

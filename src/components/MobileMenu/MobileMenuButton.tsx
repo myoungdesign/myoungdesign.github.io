@@ -26,7 +26,7 @@ export function MobileMenuButton({ open, onClick, className }: MobileMenuButtonP
       aria-label={open ? 'Close menu' : 'Open menu'}
       aria-expanded={open}
       onClick={onClick}
-      className={cn('flex size-10 items-center justify-center text-white', className)}
+      className={cn('flex size-8 items-center justify-center text-white', className)}
     >
       <svg width={48} height={48} viewBox="0 0 48 48" fill="none" aria-hidden="true">
         {LINES.map((line, i) => (

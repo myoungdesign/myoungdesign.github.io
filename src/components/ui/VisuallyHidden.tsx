@@ -1,9 +1,12 @@
-import type { ComponentPropsWithoutRef } from 'react';
+import type { ComponentPropsWithoutRef, ElementType } from 'react';
 
 import { cn } from '@/utils';
 
-type VisuallyHiddenProps = ComponentPropsWithoutRef<'span'>;
+type VisuallyHiddenProps = ComponentPropsWithoutRef<'span'> & {
+  /** Element to render. Defaults to `span`; use e.g. `h2` for a hidden heading. */
+  as?: ElementType;
+};
 
-export function VisuallyHidden({ className, ...props }: VisuallyHiddenProps) {
-  return <span {...props} className={cn('sr-only', className)} />;
+export function VisuallyHidden({ as: Tag = 'span', className, ...props }: VisuallyHiddenProps) {
+  return <Tag {...props} className={cn('sr-only', className)} />;
 }

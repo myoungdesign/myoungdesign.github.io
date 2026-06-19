@@ -17,10 +17,10 @@ export function CalloutColumns({ children, className }: CalloutColumnsProps) {
         <Fragment key={i}>
           {i > 0 && (
             <>
-              <Separator className="lg:hidden my-8 bg-transparent bg-gradient-to-r from-transparent via-gray-45 to-transparent" />
+              <Separator className="lg:hidden my-8 bg-transparent bg-gradient-to-r from-[var(--callout-divider-edge,transparent)] via-[var(--callout-divider,var(--color-gray-45))] to-[var(--callout-divider-edge,transparent)]" />
               <Separator
                 orientation="vertical"
-                className="hidden lg:block mx-8 bg-transparent bg-gradient-to-b from-transparent via-gray-45 to-transparent"
+                className="hidden lg:block mx-8 bg-transparent bg-gradient-to-b from-[var(--callout-divider-edge,transparent)] via-[var(--callout-divider,var(--color-gray-45))] to-[var(--callout-divider-edge,transparent)]"
               />
             </>
           )}

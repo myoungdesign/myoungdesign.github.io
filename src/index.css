@@ -497,9 +497,6 @@
     @media (min-width: 48rem) {
       font-size: var(--text-6xl);
     }
-    @media (min-width: 64rem) {
-      font-size: var(--text-7xl);
-    }
   }
 
   h2 {

@@ -18,7 +18,7 @@ export default async function WritingsPage() {
   return (
     <Page>
       <PageHeader>
-        <PageMasthead>
+        <PageMasthead className="lg:pb-20">
           <PageKicker>Writings</PageKicker>
           <PageTitle className="text-6xl">Thoughts on Design &amp; Storytelling</PageTitle>
           <a

@@ -184,7 +184,7 @@ export default function RapydCloudPage() {
             </SectionTagline>
           </SectionHeader>
 
-          <div className="bg-gentle px-sm py-md rounded-lg">
+          <div className="bg-canvas px-sm py-md rounded-lg">
             <div className="relative w-full aspect-[21/9] overflow-hidden flex items-center justify-center">
               <Image
                 src="/images/work/rapyd-cloud/rapyd-cloud-strategy.svg"
