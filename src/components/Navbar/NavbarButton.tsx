@@ -13,7 +13,7 @@ export function NavbarButton({ className }: NavbarButtonProps) {
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        'flex h-9 items-center gap-[10px] whitespace-nowrap rounded-full px-4 text-sm tracking-wide font-medium text-white transition-opacity hover:underline [&_svg]:size-5',
+        'flex h-9 items-center gap-[10px] whitespace-nowrap rounded-full px-4 text-sm tracking-wide font-medium text-gray-90 transition-opacity hover:underline [&_svg]:size-[18px]',
         className
       )}
     >

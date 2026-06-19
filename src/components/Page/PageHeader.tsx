@@ -1,6 +1,6 @@
 'use client';
 
-import { Hero, HeroContent } from '@/components/blocks/Hero';
+import { Hero, HeroContent } from '@/components/Hero';
 import { cn } from '@/utils';
 
 import { usePageContext } from './context';
@@ -16,8 +16,8 @@ export function PageHeader({ children, className }: PageHeaderProps) {
     <Hero fullScreen={false} hold={hold} className="px-xl">
       <HeroContent>
         <div
-          className={cn('mx-auto w-full max-w-(--container-5xl) pt-lg flex flex-col', className)}
-          style={hasCover ? { paddingBottom: `calc(var(--spacing-lg) + ${overlap})` } : undefined}
+          className={cn('mx-auto w-full max-w-(--container-6xl) pt-2xl flex flex-col', className)}
+          style={hasCover ? { paddingBottom: `${overlap}` } : undefined}
         >
           {children}
         </div>

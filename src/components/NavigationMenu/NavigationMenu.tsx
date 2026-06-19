@@ -1,11 +1,6 @@
-import { NavigationMenuItem } from './NavigationMenuItem';
+import { NAV_ITEMS } from '@/constants';
 
-const NAV_ITEMS = [
-  { href: '/', text: 'Work' },
-  { href: '/method', text: 'Method' },
-  { href: '/writings', text: 'Writings' },
-  { href: '/about', text: 'About' },
-] as const;
+import { NavigationMenuItem } from './NavigationMenuItem';
 
 type NavigationMenuProps = {
   pathname: string;
@@ -13,7 +8,7 @@ type NavigationMenuProps = {
 
 export function NavigationMenu({ pathname }: NavigationMenuProps) {
   return (
-    <nav className="flex items-center gap-2 p-1 border border-gray-45 rounded-full">
+    <nav className="flex items-center gap-4">
       {NAV_ITEMS.map(({ href, text }) => (
         <NavigationMenuItem key={href} href={href} text={text} active={pathname === href} />
       ))}

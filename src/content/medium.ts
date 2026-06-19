@@ -9,6 +9,17 @@ export const MEDIUM_PROFILE_URL = 'https://mikeyoungdesign.medium.com/';
  */
 export const EXCLUDED_SLUGS: string[] = ['figma-sites-a-first-impression-99404b0b457b'];
 
+/**
+ * Slugs of the articles to feature on the homepage, in display order.
+ * Curated explicitly so the homepage list stays fixed at 3 as new articles
+ * are published — update this list to change what's featured.
+ */
+export const FEATURED_SLUGS: string[] = [
+  'once-upon-a-product-designing-for-time-place-14c4cea8b4e1',
+  'the-founding-product-designers-guide-to-staying-sane-88fbdf092530',
+  'how-design-shapes-perception-e97bc2a07181',
+];
+
 export type MediumPost = {
   title: string;
   url: string;
@@ -127,4 +138,16 @@ export async function getMediumPosts(): Promise<MediumPost[]> {
     console.warn('[medium] Failed to load feed', err);
     return [];
   }
+}
+
+/**
+ * The curated homepage articles, resolved from the live feed and returned in
+ * the order defined by {@link FEATURED_SLUGS}. Any slug not present in the feed
+ * is silently dropped.
+ */
+export async function getFeaturedPosts(): Promise<MediumPost[]> {
+  const posts = await getMediumPosts();
+  return FEATURED_SLUGS.map(slug => posts.find(p => p.slug === slug)).filter(
+    (p): p is MediumPost => Boolean(p)
+  );
 }
