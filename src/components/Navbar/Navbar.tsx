@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { NavigationMenu } from '@/components/NavigationMenu';
 
 import { NavbarButton } from './NavbarButton';
@@ -10,7 +12,9 @@ export function Navbar({ pathname }: NavbarProps) {
   return (
     <div className="flex w-full items-center justify-between">
       <div className="flex flex-1 items-center">
-        <img src="/images/logo.svg" alt="Mike Young" className="h-5 w-auto" />
+        <Link href="/" aria-label="Home">
+          <img src="/images/logo.svg" alt="Mike Young" className="h-5 w-auto" />
+        </Link>
       </div>
 
       <NavigationMenu pathname={pathname} />

@@ -3,6 +3,8 @@
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
+import Link from 'next/link';
+
 import { MobileMenu, MobileMenuButton } from '@/components/MobileMenu';
 import { Navbar } from '@/components/Navbar';
 
@@ -34,7 +36,9 @@ export function Header() {
 
         {/* Mobile */}
         <div className="flex h-[var(--header-h-mobile)] items-center justify-between bg-gray-10 border-b border-gray-40 pl-6 pr-4 md:hidden">
-          <img src="/images/logo.svg" alt="Mike Young" className="h-5 w-auto" />
+          <Link href="/" aria-label="Home" onClick={() => setMobileOpen(false)}>
+            <img src="/images/logo.svg" alt="Mike Young" className="h-5 w-auto" />
+          </Link>
           <MobileMenuButton open={mobileOpen} onClick={() => setMobileOpen(v => !v)} />
         </div>
       </header>
