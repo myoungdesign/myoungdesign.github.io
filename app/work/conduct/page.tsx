@@ -385,7 +385,7 @@ export default function ConductPage() {
       <PageHeader>
         <PageMasthead>
           <PageKicker>Case study</PageKicker>
-          <PageTitle className="sm:max-w-[80%]">
+          <PageTitle className="sm:max-w-200">
             Designing the AI Assistant Behind 5x Faster ERP Analysis
           </PageTitle>
           <PageMeta>
