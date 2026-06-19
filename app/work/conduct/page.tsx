@@ -460,9 +460,10 @@ export default function ConductPage() {
                 <StepperItem value="setup-context">
                   <StepperTrigger>Setup Context</StepperTrigger>
                   <StepperContent>
-                    Instead, I structured context for our AI workflows like I would a design system,
-                    providing agents with the design tokens, branding guidelines, and UX
-                    requirements to follow.
+                    There wasn't time for me to design every flow for each workstream. Instead, I
+                    structured context for our AI workflows like I would a design system, providing
+                    agents with the design tokens, branding guidelines, and UX requirements to
+                    follow.
                   </StepperContent>
                 </StepperItem>
                 <StepperItem value="align-thinking">
