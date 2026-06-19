@@ -523,10 +523,10 @@ export default function ConductPage() {
 
           <div className="overflow-clip rounded-lg border border-subtle shadow-xs mt-2">
             <Image
-              src="/images/work/conduct/screenshots/final-design.png"
+              src="/images/work/conduct/dashboard.png"
               alt="Final design — Conduct AI assistant interface"
               width={2560}
-              height={1664}
+              height={1652}
               className="w-full"
             />
           </div>
