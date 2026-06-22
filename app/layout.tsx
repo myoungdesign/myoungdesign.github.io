@@ -5,6 +5,7 @@ import { Footer, Header, PageLoadOverlay, SmoothScroll, ThemeProvider } from '@/
 import '@/index.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.mikeyoung.design'),
   title: {
     default: 'Mike Young — Principal Product Designer, London',
     template: '%s',
@@ -13,6 +14,29 @@ export const metadata: Metadata = {
     'Principal product designer making complex, data-heavy B2B products feel simple. 15+ years across SaaS, enterprise, and design systems. Available now.',
   icons: {
     icon: '/images/favicon.svg',
+  },
+  openGraph: {
+    type: 'website',
+    siteName: 'Mike Young',
+    url: 'https://www.mikeyoung.design',
+    title: 'Mike Young — Principal Product Designer, London',
+    description:
+      'Principal product designer making complex, data-heavy B2B products feel simple. 15+ years designing B2B, SaaS, and enterprise software.',
+    images: [
+      {
+        url: '/images/about/mike-young.jpg',
+        width: 1152,
+        height: 648,
+        alt: 'Mike Young — Principal Product Designer',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Mike Young — Principal Product Designer, London',
+    description:
+      'Principal product designer making complex, data-heavy B2B products feel simple. 15+ years designing B2B, SaaS, and enterprise software.',
+    images: ['/images/about/mike-young.jpg'],
   },
 };
 
