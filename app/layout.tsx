@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'Mike Young',
     url: 'https://www.mikeyoung.design',
-    title: 'Mike Young — Senior Product Designer in London, UK',
+    title: 'Mike Young — Senior Product Designer based in London, UK',
     description:
       'Senior product designer making complex, data-heavy B2B products feel simple. 15+ years designing B2B, SaaS, and enterprise software.',
     images: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mike Young — Senior Product Designer in London, UK',
+    title: 'Mike Young — Senior Product Designer based in London, UK',
     description:
       'Senior product designer making complex, data-heavy B2B products feel simple. 15+ years designing B2B, SaaS, and enterprise software.',
     images: ['/images/about/mike-young.jpg'],
