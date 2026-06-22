@@ -121,7 +121,7 @@ export default function RapydCloudPage() {
           </PageTitle>
           <PageMeta>
             <PageMetaItem label="Product" value="Rapyd Cloud" />
-            <PageMetaItem label="My role" value="Principal Product Designer" />
+            <PageMetaItem label="My role" value="Senior Product Designer" />
             <PageMetaItem label="Timeline" value="9 months" />
           </PageMeta>
         </PageMasthead>
