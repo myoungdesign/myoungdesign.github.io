@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: '%s',
   },
   description:
-    'Lead Product designer making complex, data-heavy B2B products feel simple. 15+ years across SaaS, enterprise, and design systems. Available now.',
+    'Lead product designer making complex, data-heavy B2B products feel simple. 15+ years across SaaS, enterprise, and design systems. Available now.',
   icons: {
     icon: '/images/favicon.svg',
   },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     url: 'https://www.mikeyoung.design',
     title: 'Mike Young — Lead Product Designer based in London, UK',
     description:
-      'Lead Product designer making complex, data-heavy B2B products feel simple. 15+ years designing B2B, SaaS, and enterprise software.',
+      'Lead product designer making complex, data-heavy B2B products feel simple. 15+ years designing B2B, SaaS, and enterprise software.',
     images: [
       {
         url: '/images/about/mike-young.jpg',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Mike Young — Lead Product Designer based in London, UK',
     description:
-      'Lead Product designer making complex, data-heavy B2B products feel simple. 15+ years designing B2B, SaaS, and enterprise software.',
+      'Lead product designer making complex, data-heavy B2B products feel simple. 15+ years designing B2B, SaaS, and enterprise software.',
     images: ['/images/about/mike-young.jpg'],
   },
 };
