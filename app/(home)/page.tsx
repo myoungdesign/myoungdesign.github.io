@@ -73,7 +73,7 @@ const CASE_STUDIES: CaseStudy[] = [
 function CaseStudies() {
   return (
     <section>
-      <SectionKicker className="pb-8 md:pb-9">Case studies</SectionKicker>
+      <SectionKicker className="pb-8 md:pb-9">Selected work</SectionKicker>
       <div className="flex flex-col gap-8 md:gap-14">
         {CASE_STUDIES.map(study => (
           <article key={study.value} className="flex flex-col md:flex-row md:items-center">
