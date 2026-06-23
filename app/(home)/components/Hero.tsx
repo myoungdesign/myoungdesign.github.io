@@ -14,7 +14,7 @@ export function HomeHero() {
           <div className="flex flex-col gap-8 md:gap-12 lg:max-w-[48%]">
             {/* Headline */}
             <h1 className="max-w-[34rem] font-serif text-[1.75rem] leading-normal tracking-tight font-medium text-white sm:text-[2rem] lg:text-5xl">
-              Senior Product Designer{' '}
+              Lead Product Designer{' '}
               <span className="font-light text-gray-90">
                 making complex, data-heavy products feel simple
               </span>
