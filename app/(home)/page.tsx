@@ -27,9 +27,9 @@ type CaseStudy = {
 };
 
 export const metadata: Metadata = {
-  title: 'Mike Young — Senior Product Designer based in London, UK',
+  title: 'Mike Young — Lead Product Designer based in London, UK',
   description:
-    'Senior product designer making complex, data-heavy B2B products feel simple. 15+ years designing B2B, SaaS, and enterprise software.',
+    'Lead product designer making complex, data-heavy B2B products feel simple. 15+ years designing B2B, SaaS, and enterprise software.',
 };
 
 export const revalidate = 3600;

@@ -7,11 +7,11 @@ import '@/index.css';
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.mikeyoung.design'),
   title: {
-    default: 'Mike Young — Senior Product Designer, London',
+    default: 'Mike Young — Lead Product Designer, London',
     template: '%s',
   },
   description:
-    'Senior product designer making complex, data-heavy B2B products feel simple. 15+ years across SaaS, enterprise, and design systems. Available now.',
+    'Lead product designer making complex, data-heavy B2B products feel simple. 15+ years across SaaS, enterprise, and design systems. Available now.',
   icons: {
     icon: '/images/favicon.svg',
   },
@@ -19,23 +19,23 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'Mike Young',
     url: 'https://www.mikeyoung.design',
-    title: 'Mike Young — Senior Product Designer based in London, UK',
+    title: 'Mike Young — Lead Product Designer based in London, UK',
     description:
-      'Senior product designer making complex, data-heavy B2B products feel simple. 15+ years designing B2B, SaaS, and enterprise software.',
+      'Lead product designer making complex, data-heavy B2B products feel simple. 15+ years designing B2B, SaaS, and enterprise software.',
     images: [
       {
         url: '/images/about/mike-young.jpg',
         width: 1152,
         height: 648,
-        alt: 'Mike Young — Senior Product Designer',
+        alt: 'Mike Young — Lead Product Designer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mike Young — Senior Product Designer based in London, UK',
+    title: 'Mike Young — Lead Product Designer based in London, UK',
     description:
-      'Senior product designer making complex, data-heavy B2B products feel simple. 15+ years designing B2B, SaaS, and enterprise software.',
+      'Lead product designer making complex, data-heavy B2B products feel simple. 15+ years designing B2B, SaaS, and enterprise software.',
     images: ['/images/about/mike-young.jpg'],
   },
 };
